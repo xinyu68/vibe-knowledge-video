@@ -1,11 +1,15 @@
 param([Parameter(ValueFromRemainingArguments = $true)][string[]]$VibeArguments)
 $ErrorActionPreference = 'Stop'
-$vibePython = Join-Path $PSScriptRoot '.venv\Scripts\python.exe'
-if (Test-Path -LiteralPath $vibePython) {
+$vibePython = @('.venv/Scripts/python.exe', '.venv/bin/python') |
+    ForEach-Object { Join-Path $PSScriptRoot $_ } |
+    Where-Object { Test-Path -LiteralPath $_ -PathType Leaf } |
+    Select-Object -First 1
+if ($vibePython) {
     & $vibePython (Join-Path $PSScriptRoot 'vibe.py') @VibeArguments
 } else {
-    $vibePythonCommand = Get-Command python -ErrorAction SilentlyContinue
-    if (-not $vibePythonCommand) { throw '请先安装 Python 3.10+，然后按 README.md 安装依赖' }
+    $vibePythonNames = if ([Environment]::OSVersion.Platform -eq 'Win32NT') { @('python', 'python3') } else { @('python3', 'python') }
+    $vibePythonCommand = $vibePythonNames | ForEach-Object { Get-Command $_ -ErrorAction SilentlyContinue } | Select-Object -First 1
+    if (-not $vibePythonCommand) { throw 'Install Python 3.10+ and follow README.md to install dependencies.' }
     & $vibePythonCommand.Source (Join-Path $PSScriptRoot 'vibe.py') @VibeArguments
 }
 exit $LASTEXITCODE

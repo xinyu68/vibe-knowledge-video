@@ -100,8 +100,8 @@ def make_sheet(images, times, path, columns=3):
     height = width * 9 // 16
     sheet = Image.new('RGB', (width * columns, math.ceil(len(images) / columns) * (height + 30)), '#111a29')
     draw = ImageDraw.Draw(sheet)
-    font_path = Path('C:/Windows/Fonts/arial.ttf')
-    font = ImageFont.truetype(str(font_path), 20) if font_path.exists() else ImageFont.load_default()
+    font_path = Path(__file__).resolve().parents[1] / 'assets' / 'fonts' / 'Lora.ttf'
+    font = ImageFont.truetype(str(font_path), 20)
     for index, (image, seconds) in enumerate(zip(images, times)):
         x, y = index % columns * width, index // columns * (height + 30)
         sheet.paste(image.resize((width, height), Image.Resampling.LANCZOS), (x, y))

@@ -5,7 +5,7 @@ import wave
 
 import numpy as np
 
-from .project import music_path, write_json
+from .project import music_path, project_reference, write_json
 
 SR = 44100
 
@@ -96,12 +96,13 @@ def mix(folder, config, plan):
         wav.setsampwidth(2)
         wav.setframerate(SR)
         wav.writeframes(np.rint(np.clip(audio, -1, 1)*32767).astype('<i2').tobytes())
-    metadata = {'music': str(music), 'music_sha256': hashlib.sha256(music.read_bytes()).hexdigest(),
+    metadata = {'music': project_reference(music), 'paths_relative_to': 'project_root',
+                'music_sha256': hashlib.sha256(music.read_bytes()).hexdigest(),
                 'duration': duration, 'music_gain_db': config.get('music_gain_db', -6), 'sample_rate': SR,
                 'peak_dbfs': 20*np.log10(max(1e-12, float(np.max(np.abs(audio))))),
                 'master_gain': attenuation, 'engine_bed': bed, 'events': config.get('sfx', [])}
     write_json(out / 'soundtrack.json', metadata)
-    print(json.dumps({'soundtrack': str(target), **metadata}, ensure_ascii=False, indent=2))
+    print(json.dumps({'soundtrack': project_reference(target), **metadata}, ensure_ascii=False, indent=2))
     return target
 
 
@@ -113,7 +114,8 @@ def analyze(path, output):
     output.mkdir(parents=True, exist_ok=True)
     np.savetxt(output / 'rms-10ms.csv', np.column_stack((np.arange(count)*step/SR,
                20*np.log10(np.maximum(rms, 1e-10)))), delimiter=',', header='seconds,rms_dbfs', comments='')
-    data = {'file': str(path), 'sha256': hashlib.sha256(path.read_bytes()).hexdigest(),
+    data = {'file': project_reference(path), 'paths_relative_to': 'project_root',
+            'sha256': hashlib.sha256(path.read_bytes()).hexdigest(),
             'decoded_duration': len(audio)/SR, 'sample_rate': SR,
             'frames_30fps': int(np.ceil(len(audio)/SR*30)),
             'note': '10ms RMS 仅用于查找候选落点；实际高潮须结合编曲和试听确认，不能自动视为重拍'}

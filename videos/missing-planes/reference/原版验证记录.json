@@ -1,7 +1,7 @@
 {
-  "output": "C:\\Users\\1\\Documents\\ChatGPT\\home\\artifacts\\vibe-survivorship\\motion\\final_video.mp4",
-  "picture": "C:\\Users\\1\\Documents\\ChatGPT\\home\\artifacts\\vibe-survivorship\\motion\\picture.mp4",
-  "soundtrack": "C:\\Users\\1\\Documents\\ChatGPT\\home\\artifacts\\vibe-survivorship\\motion\\soundtrack.wav",
+  "output": "legacy/vibe-survivorship/motion/final_video.mp4",
+  "picture": "legacy/vibe-survivorship/motion/picture.mp4",
+  "soundtrack": "legacy/vibe-survivorship/motion/soundtrack.wav",
   "width": 1920,
   "height": 1080,
   "fps": "30/1",
@@ -43,7 +43,7 @@
     "target_offset": "0.47"
   },
   "audio_mux_sync": {
-    "reference": "C:\\Users\\1\\Documents\\ChatGPT\\home\\artifacts\\vibe-survivorship\\motion\\soundtrack.wav",
+    "reference": "legacy/vibe-survivorship/motion/soundtrack.wav",
     "segment_start": 12,
     "segment_duration": 8,
     "lag_samples_22050hz": 0,
@@ -128,7 +128,7 @@
   },
   "source_layout_audit": {
     "status": "measured",
-    "path": "C:\\Users\\1\\Documents\\ChatGPT\\home\\artifacts\\vibe-survivorship\\motion\\review\\layout_audit.json",
+    "path": "legacy/vibe-survivorship/motion/review/layout_audit.json",
     "source_sha256": "a210f09bdb27d020f8d859d032f10ab92058f1a6836684080e9d134f8bcfc89e",
     "sampled_frames": 65,
     "issue_frames": 0,
@@ -138,5 +138,6 @@
   "manual_visual_review": "not recorded by this script",
   "subjective_full_length_listening": "not performed by this script",
   "sha256": "5951baa90d3b1dae8a7b95556ad338ec4e5a0b9f51a12b5bab1885e768a757bb",
-  "size_bytes": 37947429
+  "size_bytes": 37947429,
+  "path_note": "项目资源路径相对仓库根目录；legacy/ 表示原工程标签，不是当前运行所需目录；历史检测数值保持不变"
 }

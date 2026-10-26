@@ -14,6 +14,14 @@ def write_json(path, data):
     Path(path).write_text(json.dumps(data, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
 
 
+def project_reference(path):
+    """Store in-project paths relative to the repository, preserving explicit external inputs."""
+    resolved = Path(path).resolve()
+    if resolved.is_relative_to(ROOT):
+        return resolved.relative_to(ROOT).as_posix()
+    return str(resolved)
+
+
 def video_path(slug):
     if not re.fullmatch(r'[a-z0-9]+(?:-[a-z0-9]+)*', slug):
         raise ValueError('视频目录名使用小写英文、数字和连字符，例如 sunk-cost')

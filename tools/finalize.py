@@ -6,7 +6,7 @@ import subprocess
 import numpy as np
 from PIL import Image
 
-from .project import read_json, write_json
+from .project import project_reference, read_json, write_json
 from .render import make_sheet
 
 
@@ -98,7 +98,8 @@ def finalize(folder, config, plan, signature):
                [x['seconds'] for x in entries], review / 'encoded_review.jpg', 4)
     black = [{'start': float(a), 'end': float(b), 'duration': float(c)} for a,b,c in re.findall(
         r'black_start:([\d.]+)\s+black_end:([\d.]+)\s+black_duration:([\d.]+)', decoded.stderr)]
-    result = {'output': str(target), 'checks': checks, 'all_technical_checks_pass': all(checks.values()),
+    result = {'output': project_reference(target), 'paths_relative_to': 'project_root',
+              'checks': checks, 'all_technical_checks_pass': all(checks.values()),
               'video_duration': float(video['duration']), 'audio_duration': float(audio['duration']),
               'loudness': loudness, 'audio_mux_sync': synchronization, 'encoded_frames': entries,
               'near_total_black_intervals': black,
@@ -106,6 +107,7 @@ def finalize(folder, config, plan, signature):
               'manual_visual_review': '待查看 encoded_review.jpg 并写入 review/人工复核.md',
               'subjective_listening': '程序不执行主观试听',
               'sha256': hashlib.sha256(target.read_bytes()).hexdigest(), 'size_bytes': target.stat().st_size}
+    info['format']['filename'] = project_reference(target)
     write_json(review / 'final_probe.json', info)
     write_json(review / 'validation.json', result)
     print(json.dumps(result, ensure_ascii=False, indent=2))

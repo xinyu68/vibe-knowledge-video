@@ -1,5 +1,5 @@
 {
-  "file": "C:\\Users\\1\\Desktop\\codex文档\\vibe知识大赏\\千年之后 (氛围版) - 原谅他7次.mp3",
+  "file": "assets/music/千年之后 (氛围版) - 原谅他7次.mp3",
   "sha256": "4c778e5146c89fa495b862377e782f64f905cece172239802fec663adc2bbca9",
   "size_bytes": 6435059,
   "source": "QQ Music",
@@ -233,5 +233,6 @@
     "true_peak_dbtp": 0.05,
     "loudness_range_lu": 3.3,
     "method": "ffmpeg loudnorm measurement on the original stereo audio, before mixing"
-  }
+  },
+  "path_note": "项目资源路径相对仓库根目录；legacy/ 表示原工程标签，不是当前运行所需目录；历史检测数值保持不变"
 }
