@@ -1,0 +1,237 @@
+{
+  "file": "C:\\Users\\1\\Desktop\\codex文档\\vibe知识大赏\\千年之后 (氛围版) - 原谅他7次.mp3",
+  "sha256": "4c778e5146c89fa495b862377e782f64f905cece172239802fec663adc2bbca9",
+  "size_bytes": 6435059,
+  "source": "QQ Music",
+  "source_song_identifier": "000WBfva1Ab1dk",
+  "source_page": "https://y.qq.com/n/ryqq/songDetail/000WBfva1Ab1dk",
+  "download_date": "2026-10-23",
+  "title": "千年之后",
+  "artist": "原谅他7次",
+  "album": "Ferrari",
+  "codec": "mp3",
+  "bitrate_bps": 320000,
+  "sample_rate_hz": 44100,
+  "channels": 2,
+  "ffprobe_duration_seconds": 159.25,
+  "decoded_duration_seconds": 159.25,
+  "decoded_samples_per_channel": 7022925,
+  "mutagen_duration_seconds": 159.295,
+  "video_fps": 30,
+  "video_frame_count_preserving_audio": 4778,
+  "video_duration_seconds": 159.26666666666668,
+  "first_impact": {
+    "method": "Manual inspection of 5 ms RMS windows around the visible energy rise; not a listening-based beat annotation",
+    "approximate_rise_interval_seconds": [
+      17.03,
+      17.04
+    ],
+    "recommended_frame_zero_based": 511,
+    "recommended_visual_time_seconds": 17.033333333333335,
+    "listening_check_required_for_final_edit": true
+  },
+  "rms_dbfs_windows": [
+    {
+      "start": 16.5,
+      "end": 16.9,
+      "rms_dbfs": -17.279
+    },
+    {
+      "start": 16.9,
+      "end": 17.02,
+      "rms_dbfs": -18.472
+    },
+    {
+      "start": 17.03,
+      "end": 17.13,
+      "rms_dbfs": -4.298
+    },
+    {
+      "start": 157.0,
+      "end": 157.5,
+      "rms_dbfs": -11.216
+    },
+    {
+      "start": 158.0,
+      "end": 158.5,
+      "rms_dbfs": -19.433
+    },
+    {
+      "start": 159.0,
+      "end": 159.25,
+      "rms_dbfs": -29.95
+    }
+  ],
+  "rms_5ms_around_impact": [
+    {
+      "start": 16.95,
+      "rms_dbfs": -17.892
+    },
+    {
+      "start": 16.955,
+      "rms_dbfs": -17.066
+    },
+    {
+      "start": 16.96,
+      "rms_dbfs": -22.576
+    },
+    {
+      "start": 16.965,
+      "rms_dbfs": -16.928
+    },
+    {
+      "start": 16.97,
+      "rms_dbfs": -19.894
+    },
+    {
+      "start": 16.975,
+      "rms_dbfs": -19.972
+    },
+    {
+      "start": 16.98,
+      "rms_dbfs": -18.661
+    },
+    {
+      "start": 16.985,
+      "rms_dbfs": -19.772
+    },
+    {
+      "start": 16.99,
+      "rms_dbfs": -16.116
+    },
+    {
+      "start": 16.995,
+      "rms_dbfs": -20.403
+    },
+    {
+      "start": 17.0,
+      "rms_dbfs": -17.554
+    },
+    {
+      "start": 17.005,
+      "rms_dbfs": -18.217
+    },
+    {
+      "start": 17.01,
+      "rms_dbfs": -19.114
+    },
+    {
+      "start": 17.015,
+      "rms_dbfs": -19.468
+    },
+    {
+      "start": 17.02,
+      "rms_dbfs": -20.164
+    },
+    {
+      "start": 17.025,
+      "rms_dbfs": -16.019
+    },
+    {
+      "start": 17.03,
+      "rms_dbfs": -9.111
+    },
+    {
+      "start": 17.035,
+      "rms_dbfs": -3.734
+    },
+    {
+      "start": 17.04,
+      "rms_dbfs": -3.745
+    },
+    {
+      "start": 17.045,
+      "rms_dbfs": -4.009
+    },
+    {
+      "start": 17.05,
+      "rms_dbfs": -3.3
+    },
+    {
+      "start": 17.055,
+      "rms_dbfs": -5.08
+    },
+    {
+      "start": 17.06,
+      "rms_dbfs": -4.01
+    },
+    {
+      "start": 17.065,
+      "rms_dbfs": -3.046
+    },
+    {
+      "start": 17.07,
+      "rms_dbfs": -4.595
+    },
+    {
+      "start": 17.075,
+      "rms_dbfs": -6.117
+    },
+    {
+      "start": 17.08,
+      "rms_dbfs": -7.773
+    },
+    {
+      "start": 17.085,
+      "rms_dbfs": -3.772
+    },
+    {
+      "start": 17.09,
+      "rms_dbfs": -5.608
+    },
+    {
+      "start": 17.095,
+      "rms_dbfs": -4.111
+    },
+    {
+      "start": 17.1,
+      "rms_dbfs": -4.226
+    },
+    {
+      "start": 17.105,
+      "rms_dbfs": -3.792
+    },
+    {
+      "start": 17.11,
+      "rms_dbfs": -4.775
+    },
+    {
+      "start": 17.115,
+      "rms_dbfs": -2.258
+    },
+    {
+      "start": 17.12,
+      "rms_dbfs": -4.467
+    },
+    {
+      "start": 17.125,
+      "rms_dbfs": -3.252
+    },
+    {
+      "start": 17.13,
+      "rms_dbfs": -6.295
+    },
+    {
+      "start": 17.135,
+      "rms_dbfs": -3.802
+    },
+    {
+      "start": 17.14,
+      "rms_dbfs": -6.236
+    },
+    {
+      "start": 17.145,
+      "rms_dbfs": -2.674
+    },
+    {
+      "start": 17.15,
+      "rms_dbfs": -5.254
+    }
+  ],
+  "loudness_ffmpeg_loudnorm": {
+    "integrated_lufs": -10.55,
+    "true_peak_dbtp": 0.05,
+    "loudness_range_lu": 3.3,
+    "method": "ffmpeg loudnorm measurement on the original stereo audio, before mixing"
+  }
+}

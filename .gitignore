@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.pyc
+videos/*/build/
+videos/*/review/
+.DS_Store
+Thumbs.db
+videos/smoke-template/
+.env
+.env.*
+!.env.example

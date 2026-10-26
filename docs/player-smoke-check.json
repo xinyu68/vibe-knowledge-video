@@ -1,0 +1,10 @@
+{
+  "ready": true,
+  "errors": [],
+  "audio_duration_matches": true,
+  "frame_seek_matches": true,
+  "audio_duration": 159.25,
+  "audio_time": 17.033333,
+  "slider_frame": 511,
+  "label": "17.033s · frame 511"
+}

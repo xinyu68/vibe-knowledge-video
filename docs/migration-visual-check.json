@@ -1,0 +1,43 @@
+{
+  "source_sha256": "c8085527a8c587a558b6d062cc2ce641c05dd802c573b04fdf8a3c3fcea87ff6",
+  "checked_frames": 9,
+  "identical_frames": 8,
+  "details": [
+    {
+      "time": 1.2,
+      "identical": true
+    },
+    {
+      "time": 17.033333333333335,
+      "identical": true
+    },
+    {
+      "time": 18.0,
+      "identical": false
+    },
+    {
+      "time": 30.8,
+      "identical": true
+    },
+    {
+      "time": 64.2,
+      "identical": true
+    },
+    {
+      "time": 68.8,
+      "identical": true
+    },
+    {
+      "time": 84.5,
+      "identical": true
+    },
+    {
+      "time": 127.0,
+      "identical": true
+    },
+    {
+      "time": 151.0,
+      "identical": true
+    }
+  ]
+}

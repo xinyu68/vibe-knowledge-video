@@ -1,0 +1,142 @@
+{
+  "output": "C:\\Users\\1\\Documents\\ChatGPT\\home\\artifacts\\vibe-survivorship\\motion\\final_video.mp4",
+  "picture": "C:\\Users\\1\\Documents\\ChatGPT\\home\\artifacts\\vibe-survivorship\\motion\\picture.mp4",
+  "soundtrack": "C:\\Users\\1\\Documents\\ChatGPT\\home\\artifacts\\vibe-survivorship\\motion\\soundtrack.wav",
+  "width": 1920,
+  "height": 1080,
+  "fps": "30/1",
+  "frames": 4778,
+  "video_duration": 159.266667,
+  "audio_duration": 159.25,
+  "checks": {
+    "dimensions": true,
+    "frame_rate": true,
+    "frame_count": true,
+    "codecs": true,
+    "audio_duration": true,
+    "video_audio_duration_gap": true,
+    "full_decode": true,
+    "true_peak": true,
+    "mux_audio_sync": true,
+    "source_layout_audit": true,
+    "preview_matches_render_source": true
+  },
+  "all_technical_checks_pass": true,
+  "decode_returncode": 0,
+  "near_total_black_intervals": [],
+  "near_total_black_detection": {
+    "minimum_duration_seconds": 0.5,
+    "pixel_luma_threshold_fraction": 0.005,
+    "required_black_pixel_fraction": 0.995,
+    "handling": "Reported for visual review; intentional dark scenes do not automatically fail."
+  },
+  "loudness": {
+    "input_i": "-16.56",
+    "input_tp": "-5.07",
+    "input_lra": "3.30",
+    "input_thresh": "-26.59",
+    "output_i": "-16.47",
+    "output_tp": "-4.62",
+    "output_lra": "2.60",
+    "output_thresh": "-26.49",
+    "normalization_type": "dynamic",
+    "target_offset": "0.47"
+  },
+  "audio_mux_sync": {
+    "reference": "C:\\Users\\1\\Documents\\ChatGPT\\home\\artifacts\\vibe-survivorship\\motion\\soundtrack.wav",
+    "segment_start": 12,
+    "segment_duration": 8,
+    "lag_samples_22050hz": 0,
+    "lag_seconds": 0.0,
+    "correlation_zero_lag": 0.9999938638425475
+  },
+  "encoded_frame_review": {
+    "frames": [
+      {
+        "frame": 36,
+        "seconds": 1.2,
+        "file": "encoded_keyframe_01.png"
+      },
+      {
+        "frame": 489,
+        "seconds": 16.3,
+        "file": "encoded_keyframe_02.png"
+      },
+      {
+        "frame": 504,
+        "seconds": 16.8,
+        "file": "encoded_keyframe_03.png"
+      },
+      {
+        "frame": 510,
+        "seconds": 17.0,
+        "file": "encoded_keyframe_04.png"
+      },
+      {
+        "frame": 511,
+        "seconds": 17.033333333333335,
+        "file": "encoded_keyframe_05.png"
+      },
+      {
+        "frame": 513,
+        "seconds": 17.1,
+        "file": "encoded_keyframe_06.png"
+      },
+      {
+        "frame": 525,
+        "seconds": 17.5,
+        "file": "encoded_keyframe_07.png"
+      },
+      {
+        "frame": 540,
+        "seconds": 18.0,
+        "file": "encoded_keyframe_08.png"
+      },
+      {
+        "frame": 924,
+        "seconds": 30.8,
+        "file": "encoded_keyframe_09.png"
+      },
+      {
+        "frame": 1965,
+        "seconds": 65.5,
+        "file": "encoded_keyframe_10.png"
+      },
+      {
+        "frame": 2040,
+        "seconds": 68.0,
+        "file": "encoded_keyframe_11.png"
+      },
+      {
+        "frame": 2220,
+        "seconds": 74.0,
+        "file": "encoded_keyframe_12.png"
+      },
+      {
+        "frame": 2595,
+        "seconds": 86.5,
+        "file": "encoded_keyframe_13.png"
+      },
+      {
+        "frame": 3810,
+        "seconds": 127.0,
+        "file": "encoded_keyframe_14.png"
+      }
+    ],
+    "frame_510_to_511_mean_pixel_change": 110.03790283203125,
+    "measurement_note": "Pixel change quantifies a transition; it does not identify the anchor text or certify visual quality."
+  },
+  "source_layout_audit": {
+    "status": "measured",
+    "path": "C:\\Users\\1\\Documents\\ChatGPT\\home\\artifacts\\vibe-survivorship\\motion\\review\\layout_audit.json",
+    "source_sha256": "a210f09bdb27d020f8d859d032f10ab92058f1a6836684080e9d134f8bcfc89e",
+    "sampled_frames": 65,
+    "issue_frames": 0,
+    "issues": [],
+    "limitation": "Geometry audit is not a visual overlap or legibility judgment; images require review."
+  },
+  "manual_visual_review": "not recorded by this script",
+  "subjective_full_length_listening": "not performed by this script",
+  "sha256": "5951baa90d3b1dae8a7b95556ad338ec4e5a0b9f51a12b5bab1885e768a757bb",
+  "size_bytes": 37947429
+}
