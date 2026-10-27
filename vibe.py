@@ -45,13 +45,17 @@ def doctor():
         raise SystemExit(1)
 
 
-def create(slug, title, topic):
+def create(slug, title, topic, narrated=False):
     folder = video_path(slug)
     if folder.exists():
         raise FileExistsError(f'视频目录已存在，迭代时请直接编辑: {folder}')
     shutil.copytree(ROOT/'templates/episode', folder)
     config = read_json(folder/'film.json')
     config['title'], config['topic'] = title, topic or title
+    if narrated:
+        config['narration'] = 'narration.json'
+        config['music_gain_db'] = -18
+        shutil.copy2(ROOT/'templates/narration.json', folder/'narration.json')
     write_json(folder/'film.json', config)
     plan = read_json(folder/'plan.json')
     plan['title'] = title
@@ -59,7 +63,8 @@ def create(slug, title, topic):
     for path in folder.glob('*.md'):
         path.write_text(path.read_text(encoding='utf-8').replace('{{主题}}', topic or title), encoding='utf-8')
     load(slug)
-    print(f'已创建视频骨架: {folder}\n下一步填写 brief.md、research.md、storyboard.md，并编写 scenes.js；骨架不是成片。')
+    next_step = '；填写 narration.json 后合成配音并实测入窗' if narrated else ''
+    print(f'已创建视频骨架: {folder}\n下一步填写 brief.md、research.md、storyboard.md，并编写 scenes.js{next_step}；骨架不是成片。')
 
 
 def configured(slug):
@@ -78,7 +83,7 @@ def require_review(render, config):
 
 
 def main():
-    parser = argparse.ArgumentParser(description='本地无口播知识视频工程：音乐为主时钟，Canvas 确定性绘制')
+    parser = argparse.ArgumentParser(description='本地知识动画视频工程：音乐为主时钟，支持中文 AI 配音与稳定配乐')
     sub = parser.add_subparsers(dest='command', required=True)
     sub.add_parser('doctor', help='检查 Python、依赖、浏览器与 FFmpeg')
     sub.add_parser('list', help='列出视频项目')
@@ -86,8 +91,12 @@ def main():
     new.add_argument('slug')
     new.add_argument('--title', required=True)
     new.add_argument('--topic')
+    new.add_argument('--narrated', action='store_true', help='创建中文配音骨架，配乐固定增益；填写旁白后再合成')
     music = sub.add_parser('analyze-music', help='解码音轨并输出 10ms RMS 数据，不自动认定重拍')
     music.add_argument('slug')
+    speech = sub.add_parser('narrate', help='用 ttsCN 合成旁白，缓存逐句音频并实测时间轴')
+    speech.add_argument('slug')
+    speech.add_argument('--tts-cli', required=True, help='本机安装的 ttsCN scripts/tts.py 路径')
     for name in ['preview', 'render', 'mix', 'finalize', 'check', 'serve']:
         item = sub.add_parser(name)
         item.add_argument('slug')
@@ -111,8 +120,12 @@ def main():
             print(f'{path.parent.name}\t{cfg["title"]}\t'+state)
         return
     if args.command == 'new':
-        return create(args.slug, args.title, args.topic)
+        return create(args.slug, args.title, args.topic, args.narrated)
     folder, config, plan = load(args.slug)
+    if args.command == 'narrate':
+        from tools.narration import synthesize
+        synthesize(folder, config, plan, args.tts_cli)
+        return
     if args.command == 'check':
         return print(json.dumps({'video': str(folder), 'duration': plan['duration'], 'frames': plan['frames'],
                                  'production_ready': config.get('production_ready'), 'subtitles': len(plan.get('subtitles', [])),

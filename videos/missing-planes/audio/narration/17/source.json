@@ -1,0 +1,50 @@
+{
+  "signature": "9285499f790cf6fbe519b4468cf38b25466d4ae5fc09ee722589453415663586",
+  "backend": "edge",
+  "voice": "zh-CN-YunjianNeural",
+  "rate": "+0%",
+  "text": "所以，看不见弹孔，未必就说明安全。",
+  "word_boundaries": [
+    {
+      "text": "所以",
+      "offset_sec": 0.1,
+      "duration_sec": 0.362
+    },
+    {
+      "text": "看",
+      "offset_sec": 0.762,
+      "duration_sec": 0.312
+    },
+    {
+      "text": "不见",
+      "offset_sec": 1.075,
+      "duration_sec": 0.287
+    },
+    {
+      "text": "弹孔",
+      "offset_sec": 1.375,
+      "duration_sec": 0.512
+    },
+    {
+      "text": "未必",
+      "offset_sec": 2.15,
+      "duration_sec": 0.412
+    },
+    {
+      "text": "就",
+      "offset_sec": 2.575,
+      "duration_sec": 0.138
+    },
+    {
+      "text": "说明",
+      "offset_sec": 2.712,
+      "duration_sec": 0.325
+    },
+    {
+      "text": "安全",
+      "offset_sec": 3.05,
+      "duration_sec": 0.45
+    }
+  ],
+  "sha256": "c99d80779d1d195ea9663a7d7cb791665fb2b793c1fb667f7776db942609d96c"
+}

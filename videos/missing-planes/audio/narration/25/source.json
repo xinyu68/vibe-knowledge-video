@@ -1,0 +1,55 @@
+{
+  "signature": "ede4e8a74e288a698ca7f1d20300709f9a22a9c41278f0eeeebd3103f4f76f69",
+  "backend": "edge",
+  "voice": "zh-CN-YunjianNeural",
+  "rate": "+0%",
+  "text": "同样做过，却失败的，也要看。",
+  "word_boundaries": [
+    {
+      "text": "同样",
+      "offset_sec": 0.1,
+      "duration_sec": 0.45
+    },
+    {
+      "text": "做",
+      "offset_sec": 0.562,
+      "duration_sec": 0.225
+    },
+    {
+      "text": "过",
+      "offset_sec": 0.787,
+      "duration_sec": 0.188
+    },
+    {
+      "text": "却",
+      "offset_sec": 1.188,
+      "duration_sec": 0.188
+    },
+    {
+      "text": "失败",
+      "offset_sec": 1.387,
+      "duration_sec": 0.55
+    },
+    {
+      "text": "的",
+      "offset_sec": 1.938,
+      "duration_sec": 0.188
+    },
+    {
+      "text": "也",
+      "offset_sec": 2.475,
+      "duration_sec": 0.163
+    },
+    {
+      "text": "要",
+      "offset_sec": 2.638,
+      "duration_sec": 0.163
+    },
+    {
+      "text": "看",
+      "offset_sec": 2.8,
+      "duration_sec": 0.25
+    }
+  ],
+  "sha256": "6007f6925612604c9e59702b0627a691e8651b5d545d99dac9afbb30b90ff49d"
+}

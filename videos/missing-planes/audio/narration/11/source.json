@@ -1,0 +1,50 @@
+{
+  "signature": "4a7a63d2de0568643312e5e840b04d85403d71b507ac9d78ddcaa0c6e5de8d97",
+  "backend": "edge",
+  "voice": "zh-CN-YunjianNeural",
+  "rate": "+0%",
+  "text": "但返航的飞机，能代表所有吗？",
+  "word_boundaries": [
+    {
+      "text": "但",
+      "offset_sec": 0.1,
+      "duration_sec": 0.2
+    },
+    {
+      "text": "返航",
+      "offset_sec": 0.325,
+      "duration_sec": 0.425
+    },
+    {
+      "text": "的",
+      "offset_sec": 0.75,
+      "duration_sec": 0.1
+    },
+    {
+      "text": "飞机",
+      "offset_sec": 0.863,
+      "duration_sec": 0.45
+    },
+    {
+      "text": "能",
+      "offset_sec": 1.587,
+      "duration_sec": 0.15
+    },
+    {
+      "text": "代表",
+      "offset_sec": 1.75,
+      "duration_sec": 0.375
+    },
+    {
+      "text": "所有",
+      "offset_sec": 2.138,
+      "duration_sec": 0.463
+    },
+    {
+      "text": "吗",
+      "offset_sec": 2.6,
+      "duration_sec": 0.237
+    }
+  ],
+  "sha256": "278cf25897bed41eacfde6ab8cb0f31f5b1093b40029a66a63b7ff2f098baa62"
+}

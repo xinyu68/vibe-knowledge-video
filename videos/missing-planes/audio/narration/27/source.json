@@ -1,0 +1,50 @@
+{
+  "signature": "5b186f875cdd98cd7a4125dc1775dd865ab02f246fe3b6bc651e50cd0039a880",
+  "backend": "edge",
+  "voice": "zh-CN-YunjianNeural",
+  "rate": "+0%",
+  "text": "别只拿别人的结局，衡量自己。",
+  "word_boundaries": [
+    {
+      "text": "别",
+      "offset_sec": 0.1,
+      "duration_sec": 0.212
+    },
+    {
+      "text": "只",
+      "offset_sec": 0.312,
+      "duration_sec": 0.163
+    },
+    {
+      "text": "拿",
+      "offset_sec": 0.475,
+      "duration_sec": 0.163
+    },
+    {
+      "text": "别人",
+      "offset_sec": 0.662,
+      "duration_sec": 0.338
+    },
+    {
+      "text": "的",
+      "offset_sec": 1.0,
+      "duration_sec": 0.1
+    },
+    {
+      "text": "结局",
+      "offset_sec": 1.113,
+      "duration_sec": 0.5
+    },
+    {
+      "text": "衡量",
+      "offset_sec": 1.887,
+      "duration_sec": 0.525
+    },
+    {
+      "text": "自己",
+      "offset_sec": 2.425,
+      "duration_sec": 0.338
+    }
+  ],
+  "sha256": "3270a6270ab27a56d846e8efac084c20bbc682b839488d49197fd5288484523e"
+}

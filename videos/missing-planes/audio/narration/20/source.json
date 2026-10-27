@@ -1,0 +1,40 @@
+{
+  "signature": "b06468def3db1f002fcc5ea41546fd2b6593e1e09395bb91c619a6f43853397c",
+  "backend": "edge",
+  "voice": "zh-CN-YunjianNeural",
+  "rate": "+0%",
+  "text": "关键在于，谁还能够回来。",
+  "word_boundaries": [
+    {
+      "text": "关键",
+      "offset_sec": 0.1,
+      "duration_sec": 0.412
+    },
+    {
+      "text": "在于",
+      "offset_sec": 0.525,
+      "duration_sec": 0.35
+    },
+    {
+      "text": "谁",
+      "offset_sec": 1.125,
+      "duration_sec": 0.237
+    },
+    {
+      "text": "还",
+      "offset_sec": 1.363,
+      "duration_sec": 0.188
+    },
+    {
+      "text": "能够",
+      "offset_sec": 1.562,
+      "duration_sec": 0.263
+    },
+    {
+      "text": "回来",
+      "offset_sec": 1.837,
+      "duration_sec": 0.4
+    }
+  ],
+  "sha256": "da1051655dee746c798e27bccf39d6e4c7ee3f5bccf316d81a9d46c532ffaeb7"
+}

@@ -1,0 +1,35 @@
+{
+  "signature": "03ff18ebbcdae71d1a989b589328494ffb63c0d3a5831651eabd2b5a11d37c02",
+  "backend": "edge",
+  "voice": "zh-CN-YunjianNeural",
+  "rate": "+0%",
+  "text": "这就是，幸存者偏差。",
+  "word_boundaries": [
+    {
+      "text": "这",
+      "offset_sec": 0.1,
+      "duration_sec": 0.25
+    },
+    {
+      "text": "就",
+      "offset_sec": 0.35,
+      "duration_sec": 0.163
+    },
+    {
+      "text": "是",
+      "offset_sec": 0.512,
+      "duration_sec": 0.275
+    },
+    {
+      "text": "幸存者",
+      "offset_sec": 1.038,
+      "duration_sec": 0.7
+    },
+    {
+      "text": "偏差",
+      "offset_sec": 1.75,
+      "duration_sec": 0.525
+    }
+  ],
+  "sha256": "d63e37f170ff54c9b9f76206b4775cff91f1350ed6a6d95b3bd586e7538826fb"
+}

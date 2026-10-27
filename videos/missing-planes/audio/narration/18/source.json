@@ -1,0 +1,55 @@
+{
+  "signature": "225e651e311768c028b71ef5923ed2ed3f982c709169709b5044f4c6fce2bff6",
+  "backend": "edge",
+  "voice": "zh-CN-YunjianNeural",
+  "rate": "+0%",
+  "text": "它也可能，是回不来的原因。",
+  "word_boundaries": [
+    {
+      "text": "它",
+      "offset_sec": 0.1,
+      "duration_sec": 0.163
+    },
+    {
+      "text": "也",
+      "offset_sec": 0.275,
+      "duration_sec": 0.163
+    },
+    {
+      "text": "可能",
+      "offset_sec": 0.438,
+      "duration_sec": 0.425
+    },
+    {
+      "text": "是",
+      "offset_sec": 1.1,
+      "duration_sec": 0.188
+    },
+    {
+      "text": "回",
+      "offset_sec": 1.288,
+      "duration_sec": 0.312
+    },
+    {
+      "text": "不",
+      "offset_sec": 1.613,
+      "duration_sec": 0.113
+    },
+    {
+      "text": "来",
+      "offset_sec": 1.725,
+      "duration_sec": 0.175
+    },
+    {
+      "text": "的",
+      "offset_sec": 1.9,
+      "duration_sec": 0.087
+    },
+    {
+      "text": "原因",
+      "offset_sec": 2.0,
+      "duration_sec": 0.425
+    }
+  ],
+  "sha256": "f348ea5d2c9f7f9b67361c36a151b84da5aea8e05a1cc64c3dfde990ad0eca52"
+}

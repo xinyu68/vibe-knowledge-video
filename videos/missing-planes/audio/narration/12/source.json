@@ -1,0 +1,45 @@
+{
+  "signature": "9ec076ac86199219530f0efd7c4f69c417296f899dd28f162311eaf64e17f580",
+  "backend": "edge",
+  "voice": "zh-CN-YunjianNeural",
+  "rate": "+0%",
+  "text": "让我们补回，整张出发名册。",
+  "word_boundaries": [
+    {
+      "text": "让",
+      "offset_sec": 0.1,
+      "duration_sec": 0.163
+    },
+    {
+      "text": "我们",
+      "offset_sec": 0.275,
+      "duration_sec": 0.188
+    },
+    {
+      "text": "补回",
+      "offset_sec": 0.475,
+      "duration_sec": 0.487
+    },
+    {
+      "text": "整",
+      "offset_sec": 1.188,
+      "duration_sec": 0.275
+    },
+    {
+      "text": "张",
+      "offset_sec": 1.462,
+      "duration_sec": 0.25
+    },
+    {
+      "text": "出发",
+      "offset_sec": 1.738,
+      "duration_sec": 0.35
+    },
+    {
+      "text": "名册",
+      "offset_sec": 2.1,
+      "duration_sec": 0.4
+    }
+  ],
+  "sha256": "bf56fe28b295b92246a245d48c63a7183304b2c08c2a66c31abc8c20078081ef"
+}

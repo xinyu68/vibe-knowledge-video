@@ -1,0 +1,55 @@
+{
+  "signature": "46da6479f67893a00f4780499d4d947b01ae77cf4fe1681158d18d66b62d5985",
+  "backend": "edge",
+  "voice": "zh-CN-YunjianNeural",
+  "rate": "+0%",
+  "text": "判断风险，还需要完整的数据和条件。",
+  "word_boundaries": [
+    {
+      "text": "判断",
+      "offset_sec": 0.1,
+      "duration_sec": 0.487
+    },
+    {
+      "text": "风险",
+      "offset_sec": 0.6,
+      "duration_sec": 0.425
+    },
+    {
+      "text": "还",
+      "offset_sec": 1.337,
+      "duration_sec": 0.175
+    },
+    {
+      "text": "需要",
+      "offset_sec": 1.525,
+      "duration_sec": 0.325
+    },
+    {
+      "text": "完整",
+      "offset_sec": 1.875,
+      "duration_sec": 0.45
+    },
+    {
+      "text": "的",
+      "offset_sec": 2.325,
+      "duration_sec": 0.087
+    },
+    {
+      "text": "数据",
+      "offset_sec": 2.425,
+      "duration_sec": 0.45
+    },
+    {
+      "text": "和",
+      "offset_sec": 2.9,
+      "duration_sec": 0.113
+    },
+    {
+      "text": "条件",
+      "offset_sec": 3.025,
+      "duration_sec": 0.463
+    }
+  ],
+  "sha256": "3ea890c79578e0e178085843dabca746e8bb7e1d0385214da991132816e4029f"
+}

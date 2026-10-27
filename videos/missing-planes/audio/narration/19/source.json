@@ -1,0 +1,45 @@
+{
+  "signature": "e265be57ff0ccdc9bd3eda5e07189e064b49ea0435773a4a244def5e1e955591",
+  "backend": "edge",
+  "voice": "zh-CN-YunjianNeural",
+  "rate": "+0%",
+  "text": "缺席，改变了你看到的世界。",
+  "word_boundaries": [
+    {
+      "text": "缺席",
+      "offset_sec": 0.1,
+      "duration_sec": 0.487
+    },
+    {
+      "text": "改变",
+      "offset_sec": 0.812,
+      "duration_sec": 0.5
+    },
+    {
+      "text": "了",
+      "offset_sec": 1.312,
+      "duration_sec": 0.15
+    },
+    {
+      "text": "你",
+      "offset_sec": 1.562,
+      "duration_sec": 0.125
+    },
+    {
+      "text": "看到",
+      "offset_sec": 1.7,
+      "duration_sec": 0.463
+    },
+    {
+      "text": "的",
+      "offset_sec": 2.163,
+      "duration_sec": 0.075
+    },
+    {
+      "text": "世界",
+      "offset_sec": 2.25,
+      "duration_sec": 0.412
+    }
+  ],
+  "sha256": "d9f283bd6abceba4eac17dd67d6ebc8bb92b2544782c5d52f66ac1e67a4a1ea5"
+}

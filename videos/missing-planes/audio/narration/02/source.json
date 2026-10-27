@@ -1,0 +1,55 @@
+{
+  "signature": "ad9dc3438c6adaebcd5b409a6fe5e223ceab4ac5c65790d9daeac1a081ed4f05",
+  "backend": "edge",
+  "voice": "zh-CN-YunjianNeural",
+  "rate": "+0%",
+  "text": "因为你看到的，往往是留下来的。",
+  "word_boundaries": [
+    {
+      "text": "因为",
+      "offset_sec": 0.1,
+      "duration_sec": 0.375
+    },
+    {
+      "text": "你",
+      "offset_sec": 0.562,
+      "duration_sec": 0.138
+    },
+    {
+      "text": "看到",
+      "offset_sec": 0.713,
+      "duration_sec": 0.5
+    },
+    {
+      "text": "的",
+      "offset_sec": 1.212,
+      "duration_sec": 0.175
+    },
+    {
+      "text": "往往",
+      "offset_sec": 1.675,
+      "duration_sec": 0.388
+    },
+    {
+      "text": "是",
+      "offset_sec": 2.062,
+      "duration_sec": 0.15
+    },
+    {
+      "text": "留",
+      "offset_sec": 2.225,
+      "duration_sec": 0.2
+    },
+    {
+      "text": "下来",
+      "offset_sec": 2.425,
+      "duration_sec": 0.312
+    },
+    {
+      "text": "的",
+      "offset_sec": 2.737,
+      "duration_sec": 0.2
+    }
+  ],
+  "sha256": "c9aa09db9ce292481a715a2146942d06fd63b6e27ebf6275a7bcdc3be425d704"
+}

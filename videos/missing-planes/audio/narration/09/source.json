@@ -1,0 +1,45 @@
+{
+  "signature": "f324947575ac10d84168a3ab39dd1880b23a4e11ae0adc5cf93dd8ab4178e708",
+  "backend": "edge",
+  "voice": "zh-CN-YunjianNeural",
+  "rate": "+0%",
+  "text": "可有些位置，却几乎没有伤痕。",
+  "word_boundaries": [
+    {
+      "text": "可",
+      "offset_sec": 0.1,
+      "duration_sec": 0.138
+    },
+    {
+      "text": "有些",
+      "offset_sec": 0.25,
+      "duration_sec": 0.3
+    },
+    {
+      "text": "位置",
+      "offset_sec": 0.562,
+      "duration_sec": 0.463
+    },
+    {
+      "text": "却",
+      "offset_sec": 1.262,
+      "duration_sec": 0.188
+    },
+    {
+      "text": "几乎",
+      "offset_sec": 1.462,
+      "duration_sec": 0.35
+    },
+    {
+      "text": "没有",
+      "offset_sec": 1.825,
+      "duration_sec": 0.312
+    },
+    {
+      "text": "伤痕",
+      "offset_sec": 2.15,
+      "duration_sec": 0.525
+    }
+  ],
+  "sha256": "769e9add5518305f66e3146ce0091c092a6b3db23792a31fb41848cc99360b52"
+}

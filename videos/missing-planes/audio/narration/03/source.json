@@ -1,0 +1,45 @@
+{
+  "signature": "19cad42187b97777872496c920bd560643a71936e902d73d27c8a3a4b7ab3b48",
+  "backend": "edge",
+  "voice": "zh-CN-YunjianNeural",
+  "rate": "+0%",
+  "text": "连这些弹孔，也只来自返航者。",
+  "word_boundaries": [
+    {
+      "text": "连",
+      "offset_sec": 0.1,
+      "duration_sec": 0.175
+    },
+    {
+      "text": "这些",
+      "offset_sec": 0.287,
+      "duration_sec": 0.287
+    },
+    {
+      "text": "弹孔",
+      "offset_sec": 0.588,
+      "duration_sec": 0.575
+    },
+    {
+      "text": "也",
+      "offset_sec": 1.4,
+      "duration_sec": 0.163
+    },
+    {
+      "text": "只",
+      "offset_sec": 1.562,
+      "duration_sec": 0.15
+    },
+    {
+      "text": "来自",
+      "offset_sec": 1.725,
+      "duration_sec": 0.338
+    },
+    {
+      "text": "返航者",
+      "offset_sec": 2.1,
+      "duration_sec": 0.7
+    }
+  ],
+  "sha256": "c8f93ea2660425ba7072379018100b2ac0cda8a6e590b076d8e6053428c03534"
+}

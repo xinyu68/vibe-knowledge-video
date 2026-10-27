@@ -1,0 +1,45 @@
+{
+  "signature": "bc4a61b57f2332476885baf1ad9e3ddb487586fdedb27f49b42b010568857758",
+  "backend": "edge",
+  "voice": "zh-CN-YunjianNeural",
+  "rate": "+0%",
+  "text": "空白是线索，但还不是结论。",
+  "word_boundaries": [
+    {
+      "text": "空白",
+      "offset_sec": 0.1,
+      "duration_sec": 0.45
+    },
+    {
+      "text": "是",
+      "offset_sec": 0.562,
+      "duration_sec": 0.113
+    },
+    {
+      "text": "线索",
+      "offset_sec": 0.688,
+      "duration_sec": 0.512
+    },
+    {
+      "text": "但",
+      "offset_sec": 1.425,
+      "duration_sec": 0.2
+    },
+    {
+      "text": "还",
+      "offset_sec": 1.625,
+      "duration_sec": 0.188
+    },
+    {
+      "text": "不是",
+      "offset_sec": 1.825,
+      "duration_sec": 0.362
+    },
+    {
+      "text": "结论",
+      "offset_sec": 2.2,
+      "duration_sec": 0.388
+    }
+  ],
+  "sha256": "32cc5c7285f39c1c557b9c8e889dc3c86d822eca3febf4bff47b24872db606f9"
+}

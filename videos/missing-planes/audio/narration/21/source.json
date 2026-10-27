@@ -1,0 +1,50 @@
+{
+  "signature": "128b3048fc37a32e1f866babeee8381d1016e2ed1ae5e964fb3758112b5d8f00",
+  "backend": "edge",
+  "voice": "zh-CN-YunjianNeural",
+  "rate": "+0%",
+  "text": "所以，先问样本，是怎样留下来的。",
+  "word_boundaries": [
+    {
+      "text": "所以",
+      "offset_sec": 0.1,
+      "duration_sec": 0.362
+    },
+    {
+      "text": "先",
+      "offset_sec": 0.725,
+      "duration_sec": 0.225
+    },
+    {
+      "text": "问样本",
+      "offset_sec": 0.95,
+      "duration_sec": 0.588
+    },
+    {
+      "text": "是",
+      "offset_sec": 1.775,
+      "duration_sec": 0.175
+    },
+    {
+      "text": "怎样",
+      "offset_sec": 1.962,
+      "duration_sec": 0.525
+    },
+    {
+      "text": "留",
+      "offset_sec": 2.5,
+      "duration_sec": 0.2
+    },
+    {
+      "text": "下来",
+      "offset_sec": 2.7,
+      "duration_sec": 0.3
+    },
+    {
+      "text": "的",
+      "offset_sec": 3.0,
+      "duration_sec": 0.188
+    }
+  ],
+  "sha256": "0fb3977c6053d3ac599c899debd99acab809eba032f6664cdc01c3e6ad4e639b"
+}

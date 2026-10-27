@@ -2,6 +2,7 @@
 __pycache__/
 *.pyc
 videos/*/build/
+videos/*/build-*/
 videos/*/review/
 .DS_Store
 Thumbs.db

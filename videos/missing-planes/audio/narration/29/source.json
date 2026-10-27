@@ -1,0 +1,55 @@
+{
+  "signature": "ba34c2ad8fb70749722a12682860cc31f2ca885046c05f2e3ede79578bc58952",
+  "backend": "edge",
+  "voice": "zh-CN-YunjianNeural",
+  "rate": "+0%",
+  "text": "把缺席者，也放回你的判断。",
+  "word_boundaries": [
+    {
+      "text": "把",
+      "offset_sec": 0.1,
+      "duration_sec": 0.15
+    },
+    {
+      "text": "缺席",
+      "offset_sec": 0.263,
+      "duration_sec": 0.4
+    },
+    {
+      "text": "者",
+      "offset_sec": 0.662,
+      "duration_sec": 0.25
+    },
+    {
+      "text": "也",
+      "offset_sec": 1.175,
+      "duration_sec": 0.15
+    },
+    {
+      "text": "放",
+      "offset_sec": 1.337,
+      "duration_sec": 0.312
+    },
+    {
+      "text": "回",
+      "offset_sec": 1.65,
+      "duration_sec": 0.225
+    },
+    {
+      "text": "你",
+      "offset_sec": 1.9,
+      "duration_sec": 0.15
+    },
+    {
+      "text": "的",
+      "offset_sec": 2.05,
+      "duration_sec": 0.087
+    },
+    {
+      "text": "判断",
+      "offset_sec": 2.15,
+      "duration_sec": 0.487
+    }
+  ],
+  "sha256": "0c10e8f99f38c8942e8e191ec1fb198fa976d8e92510551fb4b09560bf9be69f"
+}

@@ -1,0 +1,40 @@
+{
+  "signature": "1e57328ab0e2767b38aadfc564ca028f5ed3e355a1adb3b78332d4537b476412",
+  "backend": "edge",
+  "voice": "zh-CN-YunjianNeural",
+  "rate": "+0%",
+  "text": "机翼受伤的，仍然可能回来。",
+  "word_boundaries": [
+    {
+      "text": "机翼",
+      "offset_sec": 0.1,
+      "duration_sec": 0.338
+    },
+    {
+      "text": "受伤",
+      "offset_sec": 0.45,
+      "duration_sec": 0.487
+    },
+    {
+      "text": "的",
+      "offset_sec": 0.938,
+      "duration_sec": 0.188
+    },
+    {
+      "text": "仍然",
+      "offset_sec": 1.413,
+      "duration_sec": 0.438
+    },
+    {
+      "text": "可能",
+      "offset_sec": 1.863,
+      "duration_sec": 0.287
+    },
+    {
+      "text": "回来",
+      "offset_sec": 2.163,
+      "duration_sec": 0.4
+    }
+  ],
+  "sha256": "cd4e4dae1862ee86a35d3d2f908f8373a9861f39ac31d693744ba42938feb208"
+}

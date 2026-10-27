@@ -23,7 +23,8 @@ class PortabilityTests(unittest.TestCase):
         for path in paths:
             if not path.is_file() or path.suffix not in {'.py', '.ps1', '.md', '.txt', '.json', '.html', '.js'}:
                 continue
-            if {'build', 'review', '__pycache__'}.intersection(path.relative_to(ROOT).parts):
+            if any(part in {'build', 'review', '__pycache__'} or part.startswith('build-')
+                   for part in path.relative_to(ROOT).parts):
                 continue
             for number, line in enumerate(path.read_text(encoding='utf-8-sig').splitlines(), 1):
                 if machine_path.search(line):
@@ -63,17 +64,27 @@ class PortabilityTests(unittest.TestCase):
             env = os.environ.copy()
             env['PYTHONIOENCODING'] = 'utf-8'
 
-            def cli(*arguments):
+            def cli(*arguments, expected=0):
                 result = subprocess.run([sys.executable, str(relocated/'vibe.py'), *arguments],
                                         cwd=unrelated, env=env, capture_output=True,
                                         encoding='utf-8', timeout=180)
-                self.assertEqual(0, result.returncode, result.stdout+'\n'+result.stderr)
+                self.assertEqual(expected, result.returncode, result.stdout+'\n'+result.stderr)
                 return result.stdout
 
             cli('doctor')
             checked = json.loads(cli('check', 'missing-planes'))
             self.assertEqual(str(example), checked['video'])
             self.assertTrue(Path(checked['music']).is_relative_to(relocated))
+            cli('new', 'narrated-topic', '--title', '配音新主题', '--topic', '独立故事', '--narrated')
+            narrated = relocated/'videos/narrated-topic'
+            narrated_config = json.loads((narrated/'film.json').read_text(encoding='utf-8'))
+            self.assertFalse(narrated_config['production_ready'])
+            self.assertEqual(-18, narrated_config['music_gain_db'])
+            voice_plan = json.loads((narrated/narrated_config['narration']).read_text(encoding='utf-8'))
+            self.assertEqual(('constant', 'zh-CN-YunjianNeural', []),
+                             (voice_plan['music_mode'], voice_plan['voice'], voice_plan['cues']))
+            cli('check', 'narrated-topic')
+            cli('mix', 'narrated-topic', expected=1)
             cli('new', 'new-topic', '--title', '新的主题', '--topic', '异机复用检查')
             new_folder = relocated/'videos/new-topic'
             self.assertTrue((new_folder/'plan.js').is_file())
@@ -95,6 +106,16 @@ class PortabilityTests(unittest.TestCase):
             self.assertEqual('project_root', metadata['paths_relative_to'])
             with wave.open(str(new_folder/'build/soundtrack.wav')) as audio:
                 self.assertAlmostEqual(159.25, audio.getnframes()/audio.getframerate(), places=3)
+            if (ROOT/'videos/missing-planes/audio').is_dir():
+                shutil.copytree(ROOT/'videos/missing-planes/audio', example/'audio')
+                cli('mix', 'missing-planes')
+                output = json.loads((example/'film.json').read_text(encoding='utf-8'))['output']
+                voice_mix = json.loads((example/output/'soundtrack.json').read_text(encoding='utf-8'))
+                self.assertEqual('zh-CN-YunjianNeural', voice_mix['narration']['voice'])
+                self.assertEqual(29, voice_mix['narration']['cue_count'])
+                self.assertEqual('constant', voice_mix['narration']['music_mode'])
+                self.assertEqual((1., 1.), (voice_mix['narration']['music_envelope_min'],
+                                           voice_mix['narration']['music_envelope_max']))
             if os.name == 'nt':
                 wrapper = subprocess.run(['powershell', '-NoProfile', '-File', str(relocated/'vibe.ps1'),
                                           'check', 'new-topic'], cwd=unrelated, env=env,

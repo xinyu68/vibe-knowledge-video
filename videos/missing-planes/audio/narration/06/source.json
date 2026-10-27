@@ -1,0 +1,50 @@
+{
+  "signature": "f3504cd0ecb4eb797099832ebdcf7fd45b51789db6058b9dc1f99166b170f7b5",
+  "backend": "edge",
+  "voice": "zh-CN-YunjianNeural",
+  "rate": "+0%",
+  "text": "二战时，这成了一道生死题。",
+  "word_boundaries": [
+    {
+      "text": "二战",
+      "offset_sec": 0.1,
+      "duration_sec": 0.463
+    },
+    {
+      "text": "时",
+      "offset_sec": 0.562,
+      "duration_sec": 0.263
+    },
+    {
+      "text": "这",
+      "offset_sec": 1.075,
+      "duration_sec": 0.175
+    },
+    {
+      "text": "成",
+      "offset_sec": 1.25,
+      "duration_sec": 0.225
+    },
+    {
+      "text": "了",
+      "offset_sec": 1.475,
+      "duration_sec": 0.075
+    },
+    {
+      "text": "一",
+      "offset_sec": 1.562,
+      "duration_sec": 0.2
+    },
+    {
+      "text": "道",
+      "offset_sec": 1.762,
+      "duration_sec": 0.237
+    },
+    {
+      "text": "生死题",
+      "offset_sec": 2.025,
+      "duration_sec": 0.812
+    }
+  ],
+  "sha256": "efbfe474ff70a420be770c8e1a4bb27fbf199e1636ba7b6628b260800642d240"
+}

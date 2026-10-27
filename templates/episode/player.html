@@ -11,7 +11,7 @@ footer{display:flex;gap:16px;align-items:center;padding:16px 0;flex-wrap:wrap}in
 const view=document.getElementById('view'),audio=document.getElementById('audio'),slider=document.getElementById('seek'),label=document.getElementById('time'),status=document.getElementById('status');
 let plan=null,frame=0;
 let audioURL=null;
-fetch('build/soundtrack.wav').then(r=>{if(!r.ok)throw Error(r.status);return r.blob()}).then(blob=>{audioURL=URL.createObjectURL(blob);audio.src=audioURL;audio.load()}).catch(()=>{status.textContent='尚无可播放的混音：运行 mix 后刷新。滑块仍可检查画面。'});
+fetch('film.json').then(r=>{if(!r.ok)throw Error(r.status);return r.json()}).then(config=>fetch(`${config.output||'build'}/soundtrack.wav`)).then(r=>{if(!r.ok)throw Error(r.status);return r.blob()}).then(blob=>{audioURL=URL.createObjectURL(blob);audio.src=audioURL;audio.load()}).catch(()=>{status.textContent='尚无可播放的混音：运行 mix 后刷新。滑块仍可检查画面。'});
 window.addEventListener('beforeunload',()=>{if(audioURL)URL.revokeObjectURL(audioURL)});
 fetch('plan.json').then(r=>{if(!r.ok)throw Error(r.status);return r.json()}).then(p=>{plan=p;slider.max=p.frames-1});
 slider.addEventListener('input',()=>{if(!plan)return;frame=Number(slider.value);if(Number.isFinite(audio.duration))audio.currentTime=Math.min(frame/plan.fps,audio.duration)});

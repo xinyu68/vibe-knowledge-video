@@ -1,0 +1,45 @@
+{
+  "signature": "160c5edcb1179e67e08caf907ddc8cc08c0aef3f734cc84af96e418eec338fe7",
+  "backend": "edge",
+  "voice": "zh-CN-YunjianNeural",
+  "rate": "+0%",
+  "text": "飞机回来了，带着一身弹孔。",
+  "word_boundaries": [
+    {
+      "text": "飞机",
+      "offset_sec": 0.1,
+      "duration_sec": 0.475
+    },
+    {
+      "text": "回来",
+      "offset_sec": 0.588,
+      "duration_sec": 0.4
+    },
+    {
+      "text": "了",
+      "offset_sec": 0.988,
+      "duration_sec": 0.125
+    },
+    {
+      "text": "带",
+      "offset_sec": 1.425,
+      "duration_sec": 0.263
+    },
+    {
+      "text": "着",
+      "offset_sec": 1.688,
+      "duration_sec": 0.113
+    },
+    {
+      "text": "一身",
+      "offset_sec": 1.812,
+      "duration_sec": 0.35
+    },
+    {
+      "text": "弹孔",
+      "offset_sec": 2.175,
+      "duration_sec": 0.512
+    }
+  ],
+  "sha256": "5191a36c4b7034fc487810c6c80567b9d92b8bfbad70c0f4dc3c5227ed6687a2"
+}

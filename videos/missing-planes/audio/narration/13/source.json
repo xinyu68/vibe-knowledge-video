@@ -1,0 +1,45 @@
+{
+  "signature": "b410bfa101c29b4b99f2e60397dc42efb303df6fb4336d92cd2a2dc4229cb31e",
+  "backend": "edge",
+  "voice": "zh-CN-YunjianNeural",
+  "rate": "+0%",
+  "text": "在这个示意里，中弹机会相同。",
+  "word_boundaries": [
+    {
+      "text": "在",
+      "offset_sec": 0.1,
+      "duration_sec": 0.237
+    },
+    {
+      "text": "这个",
+      "offset_sec": 0.35,
+      "duration_sec": 0.3
+    },
+    {
+      "text": "示意",
+      "offset_sec": 0.662,
+      "duration_sec": 0.375
+    },
+    {
+      "text": "里",
+      "offset_sec": 1.038,
+      "duration_sec": 0.188
+    },
+    {
+      "text": "中弹",
+      "offset_sec": 1.488,
+      "duration_sec": 0.5
+    },
+    {
+      "text": "机会",
+      "offset_sec": 2.0,
+      "duration_sec": 0.388
+    },
+    {
+      "text": "相同",
+      "offset_sec": 2.4,
+      "duration_sec": 0.525
+    }
+  ],
+  "sha256": "1b6000ec3e50ffd1169e6346b98c73db809e25e26854c7b71508dd92a4582542"
+}

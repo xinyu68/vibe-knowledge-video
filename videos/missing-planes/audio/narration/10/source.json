@@ -1,0 +1,50 @@
+{
+  "signature": "9fdb273e99d7c1549df63dbff0225f3d354260677ff70d0474e4e3121b51c04a",
+  "backend": "edge",
+  "voice": "zh-CN-YunjianNeural",
+  "rate": "+0%",
+  "text": "沃尔德研究的，是幸存飞机的损伤。",
+  "word_boundaries": [
+    {
+      "text": "沃尔德",
+      "offset_sec": 0.1,
+      "duration_sec": 0.487
+    },
+    {
+      "text": "研究",
+      "offset_sec": 0.6,
+      "duration_sec": 0.412
+    },
+    {
+      "text": "的",
+      "offset_sec": 1.012,
+      "duration_sec": 0.212
+    },
+    {
+      "text": "是",
+      "offset_sec": 1.512,
+      "duration_sec": 0.15
+    },
+    {
+      "text": "幸存",
+      "offset_sec": 1.675,
+      "duration_sec": 0.475
+    },
+    {
+      "text": "飞机",
+      "offset_sec": 2.163,
+      "duration_sec": 0.438
+    },
+    {
+      "text": "的",
+      "offset_sec": 2.6,
+      "duration_sec": 0.075
+    },
+    {
+      "text": "损伤",
+      "offset_sec": 2.688,
+      "duration_sec": 0.487
+    }
+  ],
+  "sha256": "8381936df8973bcc715189a18f6a7f9250a712ab4f2cb1c08b34d261d098f6ac"
+}

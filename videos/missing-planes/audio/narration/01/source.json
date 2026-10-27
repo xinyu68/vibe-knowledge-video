@@ -1,0 +1,45 @@
+{
+  "signature": "9fde0d9eb8c567a9dc3bfe1826c62305309876844cdc7ea82783b00ba452f3a1",
+  "backend": "edge",
+  "voice": "zh-CN-YunjianNeural",
+  "rate": "+0%",
+  "text": "最危险的伤口，为什么看不见？",
+  "word_boundaries": [
+    {
+      "text": "最",
+      "offset_sec": 0.1,
+      "duration_sec": 0.275
+    },
+    {
+      "text": "危险",
+      "offset_sec": 0.375,
+      "duration_sec": 0.375
+    },
+    {
+      "text": "的",
+      "offset_sec": 0.75,
+      "duration_sec": 0.062
+    },
+    {
+      "text": "伤口",
+      "offset_sec": 0.825,
+      "duration_sec": 0.475
+    },
+    {
+      "text": "为什么",
+      "offset_sec": 1.575,
+      "duration_sec": 0.463
+    },
+    {
+      "text": "看",
+      "offset_sec": 2.05,
+      "duration_sec": 0.25
+    },
+    {
+      "text": "不见",
+      "offset_sec": 2.3,
+      "duration_sec": 0.375
+    }
+  ],
+  "sha256": "8f2a0afce5ad3e460197f6b5ae3c7e40d9aee5721c8c397b6b6ac8d3fa573aa8"
+}

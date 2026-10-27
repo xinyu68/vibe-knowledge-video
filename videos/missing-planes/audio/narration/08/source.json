@@ -1,0 +1,55 @@
+{
+  "signature": "8628493dcd980507520cd007c49f479cbe6de4c1470fd5333bda811c9bd7bc10",
+  "backend": "edge",
+  "voice": "zh-CN-YunjianNeural",
+  "rate": "+0%",
+  "text": "最直觉的办法，就是补上这些伤口。",
+  "word_boundaries": [
+    {
+      "text": "最",
+      "offset_sec": 0.1,
+      "duration_sec": 0.3
+    },
+    {
+      "text": "直觉",
+      "offset_sec": 0.4,
+      "duration_sec": 0.362
+    },
+    {
+      "text": "的",
+      "offset_sec": 0.762,
+      "duration_sec": 0.075
+    },
+    {
+      "text": "办法",
+      "offset_sec": 0.85,
+      "duration_sec": 0.438
+    },
+    {
+      "text": "就",
+      "offset_sec": 1.55,
+      "duration_sec": 0.212
+    },
+    {
+      "text": "是",
+      "offset_sec": 1.762,
+      "duration_sec": 0.138
+    },
+    {
+      "text": "补上",
+      "offset_sec": 1.913,
+      "duration_sec": 0.463
+    },
+    {
+      "text": "这些",
+      "offset_sec": 2.4,
+      "duration_sec": 0.263
+    },
+    {
+      "text": "伤口",
+      "offset_sec": 2.675,
+      "duration_sec": 0.438
+    }
+  ],
+  "sha256": "a81c6988da9a7c7d649e26aa544d824a08db6b3855ae6c6d70d46c4ebb19bea4"
+}

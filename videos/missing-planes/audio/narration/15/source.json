@@ -1,0 +1,50 @@
+{
+  "signature": "9ed6d2feea9316e9999611294fffed84e3a6b4884c833f5a8341d49fb52a4526",
+  "backend": "edge",
+  "voice": "zh-CN-YunjianNeural",
+  "rate": "+0%",
+  "text": "要害受损的，却可能无法返航。",
+  "word_boundaries": [
+    {
+      "text": "要害",
+      "offset_sec": 0.1,
+      "duration_sec": 0.463
+    },
+    {
+      "text": "受",
+      "offset_sec": 0.575,
+      "duration_sec": 0.237
+    },
+    {
+      "text": "损",
+      "offset_sec": 0.812,
+      "duration_sec": 0.263
+    },
+    {
+      "text": "的",
+      "offset_sec": 1.075,
+      "duration_sec": 0.188
+    },
+    {
+      "text": "却",
+      "offset_sec": 1.562,
+      "duration_sec": 0.237
+    },
+    {
+      "text": "可能",
+      "offset_sec": 1.8,
+      "duration_sec": 0.3
+    },
+    {
+      "text": "无法",
+      "offset_sec": 2.125,
+      "duration_sec": 0.45
+    },
+    {
+      "text": "返航",
+      "offset_sec": 2.587,
+      "duration_sec": 0.512
+    }
+  ],
+  "sha256": "ff38056a63841fc793b9d920aee40e6bb54a2c97d579a4ebed0415484a539618"
+}

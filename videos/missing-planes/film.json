@@ -4,10 +4,10 @@
   "anchor": "缺席",
   "entry": "index.html",
   "plan": "plan.json",
-  "output": "build",
+  "output": "build-voiceover-stable",
   "production_ready": true,
   "music": "../../assets/music/千年之后 (氛围版) - 原谅他7次.mp3",
-  "music_gain_db": -6,
+  "music_gain_db": -18,
   "ambience_gain": 0.0008,
   "engine_bed": [
     0,
@@ -217,5 +217,6 @@
       "volume": 0.035,
       "duration": 1.25
     }
-  ]
+  ],
+  "narration": "narration.json"
 }

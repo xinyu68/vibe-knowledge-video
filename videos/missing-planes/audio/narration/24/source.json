@@ -1,0 +1,60 @@
+{
+  "signature": "8b809bd57765a4230ae9e8a444d15bae170a276c655d87c60c03b6d87fd9cff3",
+  "backend": "edge",
+  "voice": "zh-CN-YunjianNeural",
+  "rate": "+0%",
+  "text": "现在，回到那家仍亮着灯的店。",
+  "word_boundaries": [
+    {
+      "text": "现在",
+      "offset_sec": 0.1,
+      "duration_sec": 0.412
+    },
+    {
+      "text": "回到",
+      "offset_sec": 0.838,
+      "duration_sec": 0.375
+    },
+    {
+      "text": "那",
+      "offset_sec": 1.225,
+      "duration_sec": 0.2
+    },
+    {
+      "text": "家",
+      "offset_sec": 1.425,
+      "duration_sec": 0.188
+    },
+    {
+      "text": "仍",
+      "offset_sec": 1.637,
+      "duration_sec": 0.25
+    },
+    {
+      "text": "亮",
+      "offset_sec": 1.887,
+      "duration_sec": 0.237
+    },
+    {
+      "text": "着",
+      "offset_sec": 2.125,
+      "duration_sec": 0.138
+    },
+    {
+      "text": "灯",
+      "offset_sec": 2.275,
+      "duration_sec": 0.263
+    },
+    {
+      "text": "的",
+      "offset_sec": 2.538,
+      "duration_sec": 0.113
+    },
+    {
+      "text": "店",
+      "offset_sec": 2.65,
+      "duration_sec": 0.212
+    }
+  ],
+  "sha256": "2d45d518f5bfab77a659e86a9cf332d935725893586635af5a6b4587dc775143"
+}

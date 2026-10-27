@@ -1,0 +1,60 @@
+{
+  "signature": "1c470922ee05f6d841f630223e4e82eaf47710b46760e6764daa9cac60ec4e0a",
+  "backend": "edge",
+  "voice": "zh-CN-YunjianNeural",
+  "rate": "+0%",
+  "text": "只统计返航者，看到的伤口就偏了。",
+  "word_boundaries": [
+    {
+      "text": "只",
+      "offset_sec": 0.1,
+      "duration_sec": 0.212
+    },
+    {
+      "text": "统计",
+      "offset_sec": 0.312,
+      "duration_sec": 0.362
+    },
+    {
+      "text": "返航",
+      "offset_sec": 0.7,
+      "duration_sec": 0.412
+    },
+    {
+      "text": "者",
+      "offset_sec": 1.113,
+      "duration_sec": 0.188
+    },
+    {
+      "text": "看到",
+      "offset_sec": 1.562,
+      "duration_sec": 0.45
+    },
+    {
+      "text": "的",
+      "offset_sec": 2.013,
+      "duration_sec": 0.087
+    },
+    {
+      "text": "伤口",
+      "offset_sec": 2.112,
+      "duration_sec": 0.525
+    },
+    {
+      "text": "就",
+      "offset_sec": 2.663,
+      "duration_sec": 0.163
+    },
+    {
+      "text": "偏",
+      "offset_sec": 2.825,
+      "duration_sec": 0.3
+    },
+    {
+      "text": "了",
+      "offset_sec": 3.125,
+      "duration_sec": 0.188
+    }
+  ],
+  "sha256": "f3e5f150ab4e5c1891745a1bed5b8182a611c48db25d8dcffefb9f6c4947c425"
+}

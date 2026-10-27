@@ -1,0 +1,55 @@
+{
+  "signature": "0c74f25a8afb36a21b5ae1a045ea3c3b0db7a116ddf73e5cec2951c30329d941",
+  "backend": "edge",
+  "voice": "zh-CN-YunjianNeural",
+  "rate": "+0%",
+  "text": "经验值得听，背后的筛选，也值得问。",
+  "word_boundaries": [
+    {
+      "text": "经验",
+      "offset_sec": 0.1,
+      "duration_sec": 0.425
+    },
+    {
+      "text": "值得",
+      "offset_sec": 0.55,
+      "duration_sec": 0.263
+    },
+    {
+      "text": "听",
+      "offset_sec": 0.812,
+      "duration_sec": 0.25
+    },
+    {
+      "text": "背后",
+      "offset_sec": 1.325,
+      "duration_sec": 0.425
+    },
+    {
+      "text": "的",
+      "offset_sec": 1.75,
+      "duration_sec": 0.075
+    },
+    {
+      "text": "筛选",
+      "offset_sec": 1.837,
+      "duration_sec": 0.55
+    },
+    {
+      "text": "也",
+      "offset_sec": 2.675,
+      "duration_sec": 0.138
+    },
+    {
+      "text": "值得",
+      "offset_sec": 2.825,
+      "duration_sec": 0.412
+    },
+    {
+      "text": "问",
+      "offset_sec": 3.237,
+      "duration_sec": 0.212
+    }
+  ],
+  "sha256": "5fd927db58221187e256ab00dd150c314b24a620139b90b2bea9d91681f69f1e"
+}

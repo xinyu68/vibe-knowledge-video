@@ -58,6 +58,14 @@ def mix(folder, config, plan):
         raise ValueError(f'音乐实际解码为 {duration:.6f} 秒，plan.json 为 {plan["duration"]} 秒；先重做时间轴')
     audio = bg * np.float32(10**(config.get('music_gain_db', -6)/20))
     n = len(audio)
+    narration = None
+    narration_report = None
+    music_envelope = np.ones(n, dtype=np.float32)
+    if config.get('narration'):
+        from .narration import assemble, duck_envelope
+        narration, narration_report = assemble(folder, config, plan)
+        music_envelope = duck_envelope(n, narration_report)
+        audio *= music_envelope[:, None]
     rng = np.random.default_rng(73018)
     env = np.minimum(1, np.arange(n)/(SR*2))*np.minimum(1, (n-1-np.arange(n))/(SR*3))
     ambience = smooth_noise(rng, n, 130)*env*config.get('ambience_gain', .0008)
@@ -83,6 +91,8 @@ def mix(folder, config, plan):
         b = min(n, a+len(sound))
         audio[a:b, 0] += sound[:b-a]
         audio[a:b, 1] += sound[:b-a]*.92
+    if narration is not None:
+        audio += narration[:, None]
     fade = min(n, round(.06*SR))
     audio[-fade:] *= np.linspace(1, 0, fade, dtype=np.float32)[:, None]
     peak = float(np.max(np.abs(audio)))
@@ -101,6 +111,14 @@ def mix(folder, config, plan):
                 'duration': duration, 'music_gain_db': config.get('music_gain_db', -6), 'sample_rate': SR,
                 'peak_dbfs': 20*np.log10(max(1e-12, float(np.max(np.abs(audio))))),
                 'master_gain': attenuation, 'engine_bed': bed, 'events': config.get('sfx', [])}
+    if narration_report:
+        metadata['narration'] = {'script': config['narration'], 'voice': narration_report['voice'],
+                                 'cue_count': len(narration_report['cues']),
+                                 'speech_lufs_before_master': narration_report['speech_lufs'],
+                                 'music_mode': narration_report['music_mode'],
+                                 'music_duck_db': narration_report['duck_db'],
+                                 'music_envelope_min': float(music_envelope.min()),
+                                 'music_envelope_max': float(music_envelope.max())}
     write_json(out / 'soundtrack.json', metadata)
     print(json.dumps({'soundtrack': project_reference(target), **metadata}, ensure_ascii=False, indent=2))
     return target

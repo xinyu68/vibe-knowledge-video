@@ -1,0 +1,10 @@
+{
+  "backend": "edge",
+  "voice": "zh-CN-YunjianNeural",
+  "rate": "+0%",
+  "target_lufs": -18,
+  "music_mode": "constant",
+  "max_tempo": 1.1,
+  "protected_gaps": [[16.4, 17.9]],
+  "cues": []
+}

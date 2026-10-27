@@ -1,0 +1,50 @@
+{
+  "signature": "cfab012119ba34564b02e5e9abbcca48b8339a15711a48fad6107334691a97f2",
+  "backend": "edge",
+  "voice": "zh-CN-YunjianNeural",
+  "rate": "+0%",
+  "text": "那些缺席的故事，你听过吗？",
+  "word_boundaries": [
+    {
+      "text": "那些",
+      "offset_sec": 0.1,
+      "duration_sec": 0.362
+    },
+    {
+      "text": "缺席",
+      "offset_sec": 0.487,
+      "duration_sec": 0.463
+    },
+    {
+      "text": "的",
+      "offset_sec": 0.95,
+      "duration_sec": 0.1
+    },
+    {
+      "text": "故事",
+      "offset_sec": 1.062,
+      "duration_sec": 0.388
+    },
+    {
+      "text": "你",
+      "offset_sec": 1.7,
+      "duration_sec": 0.138
+    },
+    {
+      "text": "听",
+      "offset_sec": 1.837,
+      "duration_sec": 0.275
+    },
+    {
+      "text": "过",
+      "offset_sec": 2.112,
+      "duration_sec": 0.188
+    },
+    {
+      "text": "吗",
+      "offset_sec": 2.3,
+      "duration_sec": 0.225
+    }
+  ],
+  "sha256": "92ab5fad602e6342971600cc89684141f936cf41eada2865d099d0221a681b7e"
+}

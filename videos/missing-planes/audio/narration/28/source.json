@@ -1,0 +1,45 @@
+{
+  "signature": "7787e73d523e8ad33837ef5bfd76fa26643ed87d6be1761b0d6d48c9cc3e562c",
+  "backend": "edge",
+  "voice": "zh-CN-YunjianNeural",
+  "rate": "+0%",
+  "text": "先看清，谁没有进入这个故事。",
+  "word_boundaries": [
+    {
+      "text": "先",
+      "offset_sec": 0.1,
+      "duration_sec": 0.237
+    },
+    {
+      "text": "看清",
+      "offset_sec": 0.338,
+      "duration_sec": 0.463
+    },
+    {
+      "text": "谁",
+      "offset_sec": 1.075,
+      "duration_sec": 0.3
+    },
+    {
+      "text": "没有",
+      "offset_sec": 1.387,
+      "duration_sec": 0.275
+    },
+    {
+      "text": "进入",
+      "offset_sec": 1.675,
+      "duration_sec": 0.325
+    },
+    {
+      "text": "这个",
+      "offset_sec": 2.013,
+      "duration_sec": 0.237
+    },
+    {
+      "text": "故事",
+      "offset_sec": 2.263,
+      "duration_sec": 0.375
+    }
+  ],
+  "sha256": "7eca35bea9192dcf61de889bfbb0c9e72496aca040cbebcdfd35b8ed54449604"
+}
