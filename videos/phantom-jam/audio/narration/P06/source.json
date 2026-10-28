@@ -1,0 +1,205 @@
+{
+  "signature": "950abc9c28823c1cb0e51e62855f35b754fc6c97838eeef04d37639f6e65b9b8",
+  "backend": "edge",
+  "voice": "zh-CN-YunjianNeural",
+  "rate": "+0%",
+  "text": "现在，把镜头拉远一点：车头始终朝前，拥堵的边界却在向后移动。前面的车重新驶走，后面的车不断加入；向后传播的是慢行和停车的状态，不是汽车在倒退。",
+  "word_boundaries": [
+    {
+      "text": "现在",
+      "offset_sec": 0.1,
+      "duration_sec": 0.425
+    },
+    {
+      "text": "把",
+      "offset_sec": 0.875,
+      "duration_sec": 0.163
+    },
+    {
+      "text": "镜头",
+      "offset_sec": 1.05,
+      "duration_sec": 0.425
+    },
+    {
+      "text": "拉远",
+      "offset_sec": 1.475,
+      "duration_sec": 0.312
+    },
+    {
+      "text": "一点",
+      "offset_sec": 1.8,
+      "duration_sec": 0.312
+    },
+    {
+      "text": "车头",
+      "offset_sec": 2.4,
+      "duration_sec": 0.487
+    },
+    {
+      "text": "始终",
+      "offset_sec": 2.913,
+      "duration_sec": 0.45
+    },
+    {
+      "text": "朝前",
+      "offset_sec": 3.375,
+      "duration_sec": 0.463
+    },
+    {
+      "text": "拥堵",
+      "offset_sec": 4.088,
+      "duration_sec": 0.388
+    },
+    {
+      "text": "的",
+      "offset_sec": 4.475,
+      "duration_sec": 0.087
+    },
+    {
+      "text": "边界",
+      "offset_sec": 4.575,
+      "duration_sec": 0.412
+    },
+    {
+      "text": "却",
+      "offset_sec": 5.125,
+      "duration_sec": 0.263
+    },
+    {
+      "text": "在",
+      "offset_sec": 5.388,
+      "duration_sec": 0.125
+    },
+    {
+      "text": "向后",
+      "offset_sec": 5.525,
+      "duration_sec": 0.5
+    },
+    {
+      "text": "移动",
+      "offset_sec": 6.037,
+      "duration_sec": 0.35
+    },
+    {
+      "text": "前面",
+      "offset_sec": 6.963,
+      "duration_sec": 0.375
+    },
+    {
+      "text": "的",
+      "offset_sec": 7.338,
+      "duration_sec": 0.087
+    },
+    {
+      "text": "车",
+      "offset_sec": 7.438,
+      "duration_sec": 0.237
+    },
+    {
+      "text": "重新",
+      "offset_sec": 7.7,
+      "duration_sec": 0.425
+    },
+    {
+      "text": "驶",
+      "offset_sec": 8.137,
+      "duration_sec": 0.237
+    },
+    {
+      "text": "走",
+      "offset_sec": 8.375,
+      "duration_sec": 0.212
+    },
+    {
+      "text": "后面",
+      "offset_sec": 8.887,
+      "duration_sec": 0.312
+    },
+    {
+      "text": "的",
+      "offset_sec": 9.2,
+      "duration_sec": 0.1
+    },
+    {
+      "text": "车",
+      "offset_sec": 9.3,
+      "duration_sec": 0.237
+    },
+    {
+      "text": "不断",
+      "offset_sec": 9.562,
+      "duration_sec": 0.362
+    },
+    {
+      "text": "加入",
+      "offset_sec": 9.938,
+      "duration_sec": 0.375
+    },
+    {
+      "text": "向后",
+      "offset_sec": 10.887,
+      "duration_sec": 0.388
+    },
+    {
+      "text": "传播",
+      "offset_sec": 11.287,
+      "duration_sec": 0.375
+    },
+    {
+      "text": "的",
+      "offset_sec": 11.662,
+      "duration_sec": 0.087
+    },
+    {
+      "text": "是",
+      "offset_sec": 11.75,
+      "duration_sec": 0.138
+    },
+    {
+      "text": "慢行",
+      "offset_sec": 11.9,
+      "duration_sec": 0.4
+    },
+    {
+      "text": "和",
+      "offset_sec": 12.312,
+      "duration_sec": 0.125
+    },
+    {
+      "text": "停车",
+      "offset_sec": 12.45,
+      "duration_sec": 0.463
+    },
+    {
+      "text": "的",
+      "offset_sec": 12.912,
+      "duration_sec": 0.062
+    },
+    {
+      "text": "状态",
+      "offset_sec": 12.988,
+      "duration_sec": 0.375
+    },
+    {
+      "text": "不是",
+      "offset_sec": 13.662,
+      "duration_sec": 0.312
+    },
+    {
+      "text": "汽车",
+      "offset_sec": 13.988,
+      "duration_sec": 0.4
+    },
+    {
+      "text": "在",
+      "offset_sec": 14.4,
+      "duration_sec": 0.125
+    },
+    {
+      "text": "倒退",
+      "offset_sec": 14.537,
+      "duration_sec": 0.425
+    }
+  ],
+  "sha256": "c6d5fd50df423cd3406745c1f79fcaa0df9cef638dc47cf74c7628456a345a48"
+}

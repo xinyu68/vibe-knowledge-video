@@ -1,0 +1,250 @@
+{
+  "signature": "55eebe225e1f11caf00677cd5a5b0c4ef1f5e4f4195e72e69c9df60a8fdfb28f",
+  "backend": "edge",
+  "voice": "zh-CN-YunjianNeural",
+  "rate": "+0%",
+  "text": "没有事故，车怎么就停了？前面的刹车灯一盏接着一盏亮起，你也被迫慢下来。可再往前看，路是通的，车却停着，大家都在等前一辆，像撞上了一道无形的墙。",
+  "word_boundaries": [
+    {
+      "text": "没有",
+      "offset_sec": 0.1,
+      "duration_sec": 0.325
+    },
+    {
+      "text": "事故",
+      "offset_sec": 0.438,
+      "duration_sec": 0.475
+    },
+    {
+      "text": "车",
+      "offset_sec": 1.15,
+      "duration_sec": 0.325
+    },
+    {
+      "text": "怎么",
+      "offset_sec": 1.475,
+      "duration_sec": 0.212
+    },
+    {
+      "text": "就",
+      "offset_sec": 1.7,
+      "duration_sec": 0.163
+    },
+    {
+      "text": "停",
+      "offset_sec": 1.863,
+      "duration_sec": 0.3
+    },
+    {
+      "text": "了",
+      "offset_sec": 2.163,
+      "duration_sec": 0.237
+    },
+    {
+      "text": "前面",
+      "offset_sec": 2.962,
+      "duration_sec": 0.388
+    },
+    {
+      "text": "的",
+      "offset_sec": 3.35,
+      "duration_sec": 0.075
+    },
+    {
+      "text": "刹车灯",
+      "offset_sec": 3.438,
+      "duration_sec": 0.537
+    },
+    {
+      "text": "一",
+      "offset_sec": 4.1,
+      "duration_sec": 0.225
+    },
+    {
+      "text": "盏",
+      "offset_sec": 4.325,
+      "duration_sec": 0.237
+    },
+    {
+      "text": "接着",
+      "offset_sec": 4.588,
+      "duration_sec": 0.275
+    },
+    {
+      "text": "一",
+      "offset_sec": 4.875,
+      "duration_sec": 0.125
+    },
+    {
+      "text": "盏",
+      "offset_sec": 5.0,
+      "duration_sec": 0.163
+    },
+    {
+      "text": "亮起",
+      "offset_sec": 5.175,
+      "duration_sec": 0.463
+    },
+    {
+      "text": "你",
+      "offset_sec": 5.963,
+      "duration_sec": 0.1
+    },
+    {
+      "text": "也",
+      "offset_sec": 6.075,
+      "duration_sec": 0.125
+    },
+    {
+      "text": "被",
+      "offset_sec": 6.2,
+      "duration_sec": 0.15
+    },
+    {
+      "text": "迫慢",
+      "offset_sec": 6.362,
+      "duration_sec": 0.463
+    },
+    {
+      "text": "下来",
+      "offset_sec": 6.825,
+      "duration_sec": 0.312
+    },
+    {
+      "text": "可",
+      "offset_sec": 7.7,
+      "duration_sec": 0.15
+    },
+    {
+      "text": "再",
+      "offset_sec": 7.862,
+      "duration_sec": 0.138
+    },
+    {
+      "text": "往前",
+      "offset_sec": 8.0,
+      "duration_sec": 0.375
+    },
+    {
+      "text": "看",
+      "offset_sec": 8.387,
+      "duration_sec": 0.225
+    },
+    {
+      "text": "路",
+      "offset_sec": 8.912,
+      "duration_sec": 0.163
+    },
+    {
+      "text": "是",
+      "offset_sec": 9.088,
+      "duration_sec": 0.15
+    },
+    {
+      "text": "通",
+      "offset_sec": 9.238,
+      "duration_sec": 0.275
+    },
+    {
+      "text": "的",
+      "offset_sec": 9.512,
+      "duration_sec": 0.163
+    },
+    {
+      "text": "车",
+      "offset_sec": 9.875,
+      "duration_sec": 0.237
+    },
+    {
+      "text": "却",
+      "offset_sec": 10.125,
+      "duration_sec": 0.163
+    },
+    {
+      "text": "停",
+      "offset_sec": 10.287,
+      "duration_sec": 0.3
+    },
+    {
+      "text": "着",
+      "offset_sec": 10.588,
+      "duration_sec": 0.15
+    },
+    {
+      "text": "大家",
+      "offset_sec": 10.95,
+      "duration_sec": 0.338
+    },
+    {
+      "text": "都",
+      "offset_sec": 11.3,
+      "duration_sec": 0.263
+    },
+    {
+      "text": "在",
+      "offset_sec": 11.562,
+      "duration_sec": 0.15
+    },
+    {
+      "text": "等",
+      "offset_sec": 11.725,
+      "duration_sec": 0.2
+    },
+    {
+      "text": "前",
+      "offset_sec": 11.925,
+      "duration_sec": 0.188
+    },
+    {
+      "text": "一",
+      "offset_sec": 12.125,
+      "duration_sec": 0.138
+    },
+    {
+      "text": "辆",
+      "offset_sec": 12.262,
+      "duration_sec": 0.163
+    },
+    {
+      "text": "像",
+      "offset_sec": 12.637,
+      "duration_sec": 0.175
+    },
+    {
+      "text": "撞上",
+      "offset_sec": 12.825,
+      "duration_sec": 0.425
+    },
+    {
+      "text": "了",
+      "offset_sec": 13.25,
+      "duration_sec": 0.062
+    },
+    {
+      "text": "一",
+      "offset_sec": 13.325,
+      "duration_sec": 0.138
+    },
+    {
+      "text": "道",
+      "offset_sec": 13.463,
+      "duration_sec": 0.188
+    },
+    {
+      "text": "无形",
+      "offset_sec": 13.675,
+      "duration_sec": 0.438
+    },
+    {
+      "text": "的",
+      "offset_sec": 14.113,
+      "duration_sec": 0.1
+    },
+    {
+      "text": "墙",
+      "offset_sec": 14.213,
+      "duration_sec": 0.287
+    }
+  ],
+  "sha256": "90b765ad4fd6c05cbf03127b3eca2e88424ffae2b54b6ddecf194f095c9814f4"
+}

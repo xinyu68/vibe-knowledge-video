@@ -1,0 +1,235 @@
+{
+  "signature": "5896fbd89dd99260928e1b5cf2a4b1c7e93649d4ce9e39b6bd29fcb0dbfd9f11",
+  "backend": "edge",
+  "voice": "zh-CN-YunjianNeural",
+  "rate": "+0%",
+  "text": "这类没有明显障碍的堵车，常被叫作幽灵堵车。挡住你的，并不是路上的一件东西，而是一片正在传播的慢行区域；车换了一辆又一辆，拥堵却还留在队伍里。",
+  "word_boundaries": [
+    {
+      "text": "这",
+      "offset_sec": 0.1,
+      "duration_sec": 0.188
+    },
+    {
+      "text": "类",
+      "offset_sec": 0.287,
+      "duration_sec": 0.188
+    },
+    {
+      "text": "没有",
+      "offset_sec": 0.5,
+      "duration_sec": 0.263
+    },
+    {
+      "text": "明显",
+      "offset_sec": 0.775,
+      "duration_sec": 0.4
+    },
+    {
+      "text": "障碍",
+      "offset_sec": 1.188,
+      "duration_sec": 0.312
+    },
+    {
+      "text": "的",
+      "offset_sec": 1.5,
+      "duration_sec": 0.087
+    },
+    {
+      "text": "堵车",
+      "offset_sec": 1.6,
+      "duration_sec": 0.425
+    },
+    {
+      "text": "常",
+      "offset_sec": 2.288,
+      "duration_sec": 0.287
+    },
+    {
+      "text": "被",
+      "offset_sec": 2.575,
+      "duration_sec": 0.15
+    },
+    {
+      "text": "叫",
+      "offset_sec": 2.737,
+      "duration_sec": 0.188
+    },
+    {
+      "text": "作",
+      "offset_sec": 2.925,
+      "duration_sec": 0.225
+    },
+    {
+      "text": "幽灵",
+      "offset_sec": 3.175,
+      "duration_sec": 0.425
+    },
+    {
+      "text": "堵车",
+      "offset_sec": 3.612,
+      "duration_sec": 0.45
+    },
+    {
+      "text": "挡住",
+      "offset_sec": 4.638,
+      "duration_sec": 0.487
+    },
+    {
+      "text": "你",
+      "offset_sec": 5.138,
+      "duration_sec": 0.175
+    },
+    {
+      "text": "的",
+      "offset_sec": 5.312,
+      "duration_sec": 0.263
+    },
+    {
+      "text": "并",
+      "offset_sec": 5.875,
+      "duration_sec": 0.275
+    },
+    {
+      "text": "不是",
+      "offset_sec": 6.15,
+      "duration_sec": 0.3
+    },
+    {
+      "text": "路上",
+      "offset_sec": 6.475,
+      "duration_sec": 0.388
+    },
+    {
+      "text": "的",
+      "offset_sec": 6.862,
+      "duration_sec": 0.075
+    },
+    {
+      "text": "一",
+      "offset_sec": 6.95,
+      "duration_sec": 0.175
+    },
+    {
+      "text": "件",
+      "offset_sec": 7.125,
+      "duration_sec": 0.15
+    },
+    {
+      "text": "东西",
+      "offset_sec": 7.287,
+      "duration_sec": 0.362
+    },
+    {
+      "text": "而是",
+      "offset_sec": 7.912,
+      "duration_sec": 0.325
+    },
+    {
+      "text": "一片",
+      "offset_sec": 8.25,
+      "duration_sec": 0.412
+    },
+    {
+      "text": "正在",
+      "offset_sec": 8.688,
+      "duration_sec": 0.325
+    },
+    {
+      "text": "传播",
+      "offset_sec": 9.025,
+      "duration_sec": 0.537
+    },
+    {
+      "text": "的",
+      "offset_sec": 9.562,
+      "duration_sec": 0.113
+    },
+    {
+      "text": "慢行",
+      "offset_sec": 9.7,
+      "duration_sec": 0.438
+    },
+    {
+      "text": "区域",
+      "offset_sec": 10.15,
+      "duration_sec": 0.425
+    },
+    {
+      "text": "车",
+      "offset_sec": 11.15,
+      "duration_sec": 0.275
+    },
+    {
+      "text": "换",
+      "offset_sec": 11.438,
+      "duration_sec": 0.163
+    },
+    {
+      "text": "了",
+      "offset_sec": 11.6,
+      "duration_sec": 0.075
+    },
+    {
+      "text": "一",
+      "offset_sec": 11.688,
+      "duration_sec": 0.15
+    },
+    {
+      "text": "辆",
+      "offset_sec": 11.838,
+      "duration_sec": 0.163
+    },
+    {
+      "text": "又",
+      "offset_sec": 12.025,
+      "duration_sec": 0.212
+    },
+    {
+      "text": "一",
+      "offset_sec": 12.238,
+      "duration_sec": 0.1
+    },
+    {
+      "text": "辆",
+      "offset_sec": 12.338,
+      "duration_sec": 0.175
+    },
+    {
+      "text": "拥堵",
+      "offset_sec": 12.787,
+      "duration_sec": 0.438
+    },
+    {
+      "text": "却",
+      "offset_sec": 13.25,
+      "duration_sec": 0.15
+    },
+    {
+      "text": "还",
+      "offset_sec": 13.4,
+      "duration_sec": 0.163
+    },
+    {
+      "text": "留",
+      "offset_sec": 13.575,
+      "duration_sec": 0.2
+    },
+    {
+      "text": "在",
+      "offset_sec": 13.775,
+      "duration_sec": 0.138
+    },
+    {
+      "text": "队伍",
+      "offset_sec": 13.925,
+      "duration_sec": 0.3
+    },
+    {
+      "text": "里",
+      "offset_sec": 14.225,
+      "duration_sec": 0.175
+    }
+  ],
+  "sha256": "73193de3ae4870fbda9b1102ffc646f68c0ca44a7e077652802d9df1ab7995ab"
+}

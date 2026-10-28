@@ -1,0 +1,205 @@
+{
+  "signature": "d6e941c7c322bdeef05812545bc6578c4df992485f8b7613338e0a118f144c91",
+  "backend": "edge",
+  "voice": "zh-CN-YunjianNeural",
+  "rate": "+0%",
+  "text": "这并不意味着，任何一次刹车都会造成堵车。扰动是逐渐消散，还是越传越大，和车流密度、车辆间距，以及跟车反应有关；同样的小变化，可能走向不同的结果。",
+  "word_boundaries": [
+    {
+      "text": "这",
+      "offset_sec": 0.1,
+      "duration_sec": 0.163
+    },
+    {
+      "text": "并",
+      "offset_sec": 0.275,
+      "duration_sec": 0.237
+    },
+    {
+      "text": "不",
+      "offset_sec": 0.512,
+      "duration_sec": 0.113
+    },
+    {
+      "text": "意味",
+      "offset_sec": 0.637,
+      "duration_sec": 0.35
+    },
+    {
+      "text": "着",
+      "offset_sec": 0.988,
+      "duration_sec": 0.163
+    },
+    {
+      "text": "任何",
+      "offset_sec": 1.375,
+      "duration_sec": 0.412
+    },
+    {
+      "text": "一次",
+      "offset_sec": 1.8,
+      "duration_sec": 0.25
+    },
+    {
+      "text": "刹车",
+      "offset_sec": 2.062,
+      "duration_sec": 0.425
+    },
+    {
+      "text": "都",
+      "offset_sec": 2.6,
+      "duration_sec": 0.3
+    },
+    {
+      "text": "会",
+      "offset_sec": 2.9,
+      "duration_sec": 0.175
+    },
+    {
+      "text": "造成",
+      "offset_sec": 3.087,
+      "duration_sec": 0.425
+    },
+    {
+      "text": "堵车",
+      "offset_sec": 3.525,
+      "duration_sec": 0.425
+    },
+    {
+      "text": "扰动",
+      "offset_sec": 4.525,
+      "duration_sec": 0.412
+    },
+    {
+      "text": "是",
+      "offset_sec": 4.95,
+      "duration_sec": 0.2
+    },
+    {
+      "text": "逐渐",
+      "offset_sec": 5.162,
+      "duration_sec": 0.362
+    },
+    {
+      "text": "消散",
+      "offset_sec": 5.537,
+      "duration_sec": 0.425
+    },
+    {
+      "text": "还是",
+      "offset_sec": 6.287,
+      "duration_sec": 0.338
+    },
+    {
+      "text": "越",
+      "offset_sec": 6.65,
+      "duration_sec": 0.188
+    },
+    {
+      "text": "传",
+      "offset_sec": 6.838,
+      "duration_sec": 0.2
+    },
+    {
+      "text": "越",
+      "offset_sec": 7.05,
+      "duration_sec": 0.163
+    },
+    {
+      "text": "大",
+      "offset_sec": 7.213,
+      "duration_sec": 0.188
+    },
+    {
+      "text": "和",
+      "offset_sec": 7.6,
+      "duration_sec": 0.125
+    },
+    {
+      "text": "车流",
+      "offset_sec": 7.737,
+      "duration_sec": 0.412
+    },
+    {
+      "text": "密度",
+      "offset_sec": 8.162,
+      "duration_sec": 0.412
+    },
+    {
+      "text": "车辆",
+      "offset_sec": 8.75,
+      "duration_sec": 0.388
+    },
+    {
+      "text": "间距",
+      "offset_sec": 9.15,
+      "duration_sec": 0.412
+    },
+    {
+      "text": "以及",
+      "offset_sec": 9.8,
+      "duration_sec": 0.325
+    },
+    {
+      "text": "跟车",
+      "offset_sec": 10.15,
+      "duration_sec": 0.412
+    },
+    {
+      "text": "反应",
+      "offset_sec": 10.575,
+      "duration_sec": 0.287
+    },
+    {
+      "text": "有关",
+      "offset_sec": 10.875,
+      "duration_sec": 0.412
+    },
+    {
+      "text": "同样",
+      "offset_sec": 11.863,
+      "duration_sec": 0.45
+    },
+    {
+      "text": "的",
+      "offset_sec": 12.312,
+      "duration_sec": 0.087
+    },
+    {
+      "text": "小",
+      "offset_sec": 12.412,
+      "duration_sec": 0.25
+    },
+    {
+      "text": "变化",
+      "offset_sec": 12.662,
+      "duration_sec": 0.487
+    },
+    {
+      "text": "可能",
+      "offset_sec": 13.375,
+      "duration_sec": 0.325
+    },
+    {
+      "text": "走向",
+      "offset_sec": 13.713,
+      "duration_sec": 0.4
+    },
+    {
+      "text": "不同",
+      "offset_sec": 14.137,
+      "duration_sec": 0.388
+    },
+    {
+      "text": "的",
+      "offset_sec": 14.525,
+      "duration_sec": 0.087
+    },
+    {
+      "text": "结果",
+      "offset_sec": 14.625,
+      "duration_sec": 0.45
+    }
+  ],
+  "sha256": "111f09996daf3a380c2ab28950f63265d302e920e9f05d4af68e93fb5697dd19"
+}

@@ -1,0 +1,205 @@
+{
+  "signature": "439c89636f4305b8e19adac695f8b4accad8a689933f0fa31d2ac603281ccfa3",
+  "backend": "edge",
+  "voice": "zh-CN-YunjianNeural",
+  "rate": "+0%",
+  "text": "车流比较密的时候，后车留给调整的空间更小。一次不大的减速，可能在后面变成更大的减速，再后面的车甚至需要停下，于是，红色的刹车灯沿着队伍接连亮起。",
+  "word_boundaries": [
+    {
+      "text": "车流",
+      "offset_sec": 0.1,
+      "duration_sec": 0.4
+    },
+    {
+      "text": "比较",
+      "offset_sec": 0.525,
+      "duration_sec": 0.287
+    },
+    {
+      "text": "密",
+      "offset_sec": 0.825,
+      "duration_sec": 0.2
+    },
+    {
+      "text": "的",
+      "offset_sec": 1.025,
+      "duration_sec": 0.075
+    },
+    {
+      "text": "时候",
+      "offset_sec": 1.113,
+      "duration_sec": 0.412
+    },
+    {
+      "text": "后车",
+      "offset_sec": 1.837,
+      "duration_sec": 0.35
+    },
+    {
+      "text": "留给",
+      "offset_sec": 2.2,
+      "duration_sec": 0.312
+    },
+    {
+      "text": "调整",
+      "offset_sec": 2.538,
+      "duration_sec": 0.4
+    },
+    {
+      "text": "的",
+      "offset_sec": 2.938,
+      "duration_sec": 0.075
+    },
+    {
+      "text": "空间",
+      "offset_sec": 3.025,
+      "duration_sec": 0.388
+    },
+    {
+      "text": "更",
+      "offset_sec": 3.438,
+      "duration_sec": 0.175
+    },
+    {
+      "text": "小",
+      "offset_sec": 3.612,
+      "duration_sec": 0.325
+    },
+    {
+      "text": "一次",
+      "offset_sec": 4.487,
+      "duration_sec": 0.35
+    },
+    {
+      "text": "不大",
+      "offset_sec": 4.862,
+      "duration_sec": 0.35
+    },
+    {
+      "text": "的",
+      "offset_sec": 5.213,
+      "duration_sec": 0.075
+    },
+    {
+      "text": "减速",
+      "offset_sec": 5.3,
+      "duration_sec": 0.463
+    },
+    {
+      "text": "可能",
+      "offset_sec": 5.987,
+      "duration_sec": 0.263
+    },
+    {
+      "text": "在",
+      "offset_sec": 6.25,
+      "duration_sec": 0.138
+    },
+    {
+      "text": "后面",
+      "offset_sec": 6.4,
+      "duration_sec": 0.35
+    },
+    {
+      "text": "变成",
+      "offset_sec": 6.763,
+      "duration_sec": 0.375
+    },
+    {
+      "text": "更",
+      "offset_sec": 7.162,
+      "duration_sec": 0.237
+    },
+    {
+      "text": "大",
+      "offset_sec": 7.4,
+      "duration_sec": 0.188
+    },
+    {
+      "text": "的",
+      "offset_sec": 7.588,
+      "duration_sec": 0.075
+    },
+    {
+      "text": "减速",
+      "offset_sec": 7.675,
+      "duration_sec": 0.475
+    },
+    {
+      "text": "再",
+      "offset_sec": 8.363,
+      "duration_sec": 0.188
+    },
+    {
+      "text": "后面",
+      "offset_sec": 8.55,
+      "duration_sec": 0.35
+    },
+    {
+      "text": "的",
+      "offset_sec": 8.9,
+      "duration_sec": 0.087
+    },
+    {
+      "text": "车",
+      "offset_sec": 8.988,
+      "duration_sec": 0.225
+    },
+    {
+      "text": "甚至",
+      "offset_sec": 9.35,
+      "duration_sec": 0.35
+    },
+    {
+      "text": "需要",
+      "offset_sec": 9.713,
+      "duration_sec": 0.325
+    },
+    {
+      "text": "停下",
+      "offset_sec": 10.05,
+      "duration_sec": 0.463
+    },
+    {
+      "text": "于是",
+      "offset_sec": 10.738,
+      "duration_sec": 0.35
+    },
+    {
+      "text": "红色",
+      "offset_sec": 11.35,
+      "duration_sec": 0.375
+    },
+    {
+      "text": "的",
+      "offset_sec": 11.725,
+      "duration_sec": 0.062
+    },
+    {
+      "text": "刹车灯",
+      "offset_sec": 11.8,
+      "duration_sec": 0.588
+    },
+    {
+      "text": "沿着",
+      "offset_sec": 12.5,
+      "duration_sec": 0.325
+    },
+    {
+      "text": "队伍",
+      "offset_sec": 12.838,
+      "duration_sec": 0.312
+    },
+    {
+      "text": "接连",
+      "offset_sec": 13.175,
+      "duration_sec": 0.4
+    },
+    {
+      "text": "亮起",
+      "offset_sec": 13.588,
+      "duration_sec": 0.412
+    }
+  ],
+  "sha256": "1d6b7d36d4c46391d2d5ea45b93efad12d442e6f56f617703e8390b7f2fd457f"
+}

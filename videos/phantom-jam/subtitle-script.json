@@ -1,0 +1,227 @@
+{
+  "P01": [
+    [
+      "没有事故，车怎么就停了？",
+      "没有事故，车怎么就停了？",
+      "No accident—so why have the cars stopped?"
+    ],
+    [
+      "前面的刹车灯一盏接着一盏亮起，你也被迫慢下来。",
+      "前方刹车灯接连亮起，你也慢下来",
+      "Brake lights flare ahead, and you have to slow down too."
+    ],
+    [
+      "可再往前看，路是通的，车却停着，",
+      "可再往前看，路通着，车却停着",
+      "Farther ahead, the road is clear. Yet the cars are stopped."
+    ],
+    [
+      "大家都在等前一辆，像撞上了一道无形的墙。",
+      "都在等前一辆，像撞上无形的墙",
+      "Each waits for the car ahead, as if blocked by an invisible wall."
+    ]
+  ],
+  "P02": [
+    [
+      "这类没有明显障碍的堵车，常被叫作幽灵堵车。",
+      "没有明显障碍，却出现“幽灵堵车”",
+      "A jam without an obvious obstruction is often called a phantom jam."
+    ],
+    [
+      "挡住你的，并不是路上的一件东西，",
+      "挡住你的，不是路上的一件东西",
+      "What holds you back is not an object on the road,"
+    ],
+    [
+      "而是一片正在传播的慢行区域；",
+      "而是一片正在传播的慢行区域",
+      "but a slow-moving region spreading through the traffic."
+    ],
+    [
+      "车换了一辆又一辆，拥堵却还留在队伍里。",
+      "车辆不断更换，拥堵却仍在队伍里",
+      "The cars change, but the jam remains in the stream."
+    ]
+  ],
+  "P03": [
+    [
+      "研究者曾让二十二辆车，",
+      "研究者曾让22辆车",
+      "Researchers had 22 cars"
+    ],
+    [
+      "在一圈约二百三十米的环路上行驶。",
+      "在一圈约230米的环路上行驶",
+      "drive on a circular track about 230 metres around."
+    ],
+    [
+      "没有路口，也没有其他车辆汇入，",
+      "没有路口，也没有其他车辆汇入",
+      "There were no junctions and no merging traffic."
+    ],
+    [
+      "几分钟后，原本平顺的车流里，还是出现了停停走走的堵团。",
+      "几分钟后，车流里仍出现停走堵团",
+      "Yet within minutes, a stop-and-go cluster appeared."
+    ]
+  ],
+  "P04": [
+    [
+      "原因可以从一次轻微减速看起。",
+      "从一次轻微减速看起",
+      "Start with a small decrease in speed."
+    ],
+    [
+      "前车慢了一点，后车过一会儿才察觉，再跟着减速；",
+      "前车稍慢，后车察觉后跟着减速",
+      "A car slows; the next driver notices later and slows too."
+    ],
+    [
+      "每个人反应的时机和幅度不同，",
+      "每个人反应的时机和幅度不同",
+      "The timing and size of each response differ."
+    ],
+    [
+      "小小的变化就一辆接一辆传下去。",
+      "小小的变化，一辆接一辆传下去",
+      "The small change passes from one car to the next."
+    ]
+  ],
+  "P05": [
+    [
+      "车流比较密的时候，后车留给调整的空间更小。",
+      "车流越密，留给调整的空间越小",
+      "In denser traffic, there is less room to adjust."
+    ],
+    [
+      "一次不大的减速，可能在后面变成更大的减速，",
+      "一次小减速，可能在后面被放大",
+      "A small slowdown may become a larger one farther back."
+    ],
+    [
+      "再后面的车甚至需要停下，",
+      "再后面的车，甚至需要停下",
+      "Cars farther back may even have to stop."
+    ],
+    [
+      "于是，红色的刹车灯沿着队伍接连亮起。",
+      "刹车灯沿着队伍接连亮起",
+      "And brake lights come on, one after another."
+    ]
+  ],
+  "P06": [
+    [
+      "现在，把镜头拉远一点：",
+      "现在，把镜头拉远一点",
+      "Now pull the view back a little."
+    ],
+    [
+      "车头始终朝前，拥堵的边界却在向后移动。",
+      "车头向前，拥堵边界却向后移动",
+      "The cars face forward, while the jam's edge moves backward."
+    ],
+    [
+      "前面的车重新驶走，后面的车不断加入；",
+      "前面的车驶走，后面的车不断加入",
+      "Cars at the front move off; cars at the back join the jam."
+    ],
+    [
+      "向后传播的是慢行和停车的状态，不是汽车在倒退。",
+      "向后传播的是拥堵状态，不是汽车",
+      "The slow-moving state travels backward, not the cars."
+    ]
+  ],
+  "P07": [
+    [
+      "只盯住这辆金色的车，你会看得更清楚。",
+      "只盯住这辆金色的车",
+      "Follow this golden car to see it more clearly."
+    ],
+    [
+      "它先进入堵团，减速停下，",
+      "它先进入堵团，减速停下",
+      "It enters the jam, slows down and stops,"
+    ],
+    [
+      "随后又加速驶出；",
+      "随后又加速驶出",
+      "then speeds up and drives out."
+    ],
+    [
+      "它已经离开，堵团却没有跟着消失，",
+      "它已经离开，堵团却没有消失",
+      "It has left, but the jam has not disappeared."
+    ],
+    [
+      "因为更后面的车，又进入了这片慢行区域。",
+      "因为后面的车，又进入这片慢行区",
+      "Cars farther back have entered that slow-moving region."
+    ]
+  ],
+  "P08": [
+    [
+      "这并不意味着，任何一次刹车都会造成堵车。",
+      "并非任何一次刹车都会造成堵车",
+      "This does not mean every brake application causes a jam."
+    ],
+    [
+      "扰动是逐渐消散，还是越传越大，",
+      "扰动会消散，还是越传越大？",
+      "Does the disturbance fade, or grow as it spreads?"
+    ],
+    [
+      "和车流密度、车辆间距，以及跟车反应有关；",
+      "这与密度、车距和跟车反应有关",
+      "That depends on traffic density, spacing and following responses."
+    ],
+    [
+      "同样的小变化，可能走向不同的结果。",
+      "同样的小变化，可能有不同结果",
+      "The same small change can lead to different outcomes."
+    ]
+  ],
+  "P09": [
+    [
+      "真实道路当然还会因为事故、施工或车辆汇入而拥堵。",
+      "事故、施工或车辆汇入，也会拥堵",
+      "Real roads also jam because of crashes, roadworks or merging traffic."
+    ],
+    [
+      "这里只解释其中一种机制，",
+      "这里只解释其中一种机制",
+      "This explains just one mechanism."
+    ],
+    [
+      "也不能把它简单归咎于某一个司机：",
+      "不能简单归咎于某一个司机",
+      "It cannot simply be blamed on one particular driver."
+    ],
+    [
+      "你看到的停顿，可能是许多车辆相互影响的结果。",
+      "你的停顿，可能来自车流相互影响",
+      "Your stop may result from many vehicles interacting."
+    ]
+  ],
+  "P10": [
+    [
+      "所以，那道无形的墙并没有藏在路上，",
+      "那道无形的墙，没有藏在路上",
+      "That invisible wall is not hidden somewhere on the road."
+    ],
+    [
+      "它出现在车辆之间的相互影响里。",
+      "它出现在车辆之间的相互影响里",
+      "It emerges from the interactions between vehicles."
+    ],
+    [
+      "回到刚才停下的那辆车，当镜头看见整支队伍，你才明白：",
+      "看见整支队伍，才理解这次停顿",
+      "Return to that stopped car. Seeing the whole queue explains the pause."
+    ],
+    [
+      "路还通着，慢下来的状态，却已经传到了这里。",
+      "路还通着，慢行状态却传到了这里",
+      "The road is still open. The slowdown has reached this point."
+    ]
+  ]
+}

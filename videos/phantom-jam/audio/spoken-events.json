@@ -1,0 +1,248 @@
+[
+  {
+    "paragraph": "P01",
+    "speech": "没有事故，车怎么就停了？",
+    "start": 0.2,
+    "spoken_end": 2.49
+  },
+  {
+    "paragraph": "P01",
+    "speech": "前面的刹车灯一盏接着一盏亮起，你也被迫慢下来。",
+    "start": 3.022,
+    "spoken_end": 7.227
+  },
+  {
+    "paragraph": "P01",
+    "speech": "可再往前看，路是通的，车却停着，",
+    "start": 7.76,
+    "spoken_end": 10.828
+  },
+  {
+    "paragraph": "P01",
+    "speech": "大家都在等前一辆，像撞上了一道无形的墙。",
+    "start": 11.01,
+    "spoken_end": 14.59
+  },
+  {
+    "paragraph": "P02",
+    "speech": "这类没有明显障碍的堵车，常被叫作幽灵堵车。",
+    "start": 18.0,
+    "spoken_end": 21.962
+  },
+  {
+    "paragraph": "P02",
+    "speech": "挡住你的，并不是路上的一件东西，",
+    "start": 22.508,
+    "spoken_end": 25.549
+  },
+  {
+    "paragraph": "P02",
+    "speech": "而是一片正在传播的慢行区域；",
+    "start": 25.782,
+    "spoken_end": 28.475
+  },
+  {
+    "paragraph": "P02",
+    "speech": "车换了一辆又一辆，拥堵却还留在队伍里。",
+    "start": 29.02,
+    "spoken_end": 32.3
+  },
+  {
+    "paragraph": "P03",
+    "speech": "研究者曾让二十二辆车，",
+    "start": 32.65,
+    "spoken_end": 34.375
+  },
+  {
+    "paragraph": "P03",
+    "speech": "在一圈约二百三十米的环路上行驶。",
+    "start": 34.645,
+    "spoken_end": 37.401
+  },
+  {
+    "paragraph": "P03",
+    "speech": "没有路口，也没有其他车辆汇入，",
+    "start": 37.945,
+    "spoken_end": 40.712
+  },
+  {
+    "paragraph": "P03",
+    "speech": "几分钟后，原本平顺的车流里，还是出现了停停走走的堵团。",
+    "start": 40.983,
+    "spoken_end": 46.124
+  },
+  {
+    "paragraph": "P04",
+    "speech": "原因可以从一次轻微减速看起。",
+    "start": 46.54,
+    "spoken_end": 48.915
+  },
+  {
+    "paragraph": "P04",
+    "speech": "前车慢了一点，后车过一会儿才察觉，再跟着减速；",
+    "start": 49.448,
+    "spoken_end": 53.552
+  },
+  {
+    "paragraph": "P04",
+    "speech": "每个人反应的时机和幅度不同，",
+    "start": 54.098,
+    "spoken_end": 56.265
+  },
+  {
+    "paragraph": "P04",
+    "speech": "小小的变化就一辆接一辆传下去。",
+    "start": 56.598,
+    "spoken_end": 59.528
+  },
+  {
+    "paragraph": "P05",
+    "speech": "车流比较密的时候，后车留给调整的空间更小。",
+    "start": 59.91,
+    "spoken_end": 63.747
+  },
+  {
+    "paragraph": "P05",
+    "speech": "一次不大的减速，可能在后面变成更大的减速，",
+    "start": 64.267,
+    "spoken_end": 67.96
+  },
+  {
+    "paragraph": "P05",
+    "speech": "再后面的车甚至需要停下，",
+    "start": 68.143,
+    "spoken_end": 70.323
+  },
+  {
+    "paragraph": "P05",
+    "speech": "于是，红色的刹车灯沿着队伍接连亮起。",
+    "start": 70.518,
+    "spoken_end": 73.81
+  },
+  {
+    "paragraph": "P06",
+    "speech": "现在，把镜头拉远一点：",
+    "start": 74.21,
+    "spoken_end": 76.222
+  },
+  {
+    "paragraph": "P06",
+    "speech": "车头始终朝前，拥堵的边界却在向后移动。",
+    "start": 76.48,
+    "spoken_end": 80.497
+  },
+  {
+    "paragraph": "P06",
+    "speech": "前面的车重新驶走，后面的车不断加入；",
+    "start": 81.043,
+    "spoken_end": 84.423
+  },
+  {
+    "paragraph": "P06",
+    "speech": "向后传播的是慢行和停车的状态，不是汽车在倒退。",
+    "start": 84.967,
+    "spoken_end": 89.072
+  },
+  {
+    "paragraph": "P07",
+    "speech": "只盯住这辆金色的车，你会看得更清楚。",
+    "start": 89.5,
+    "spoken_end": 93.038
+  },
+  {
+    "paragraph": "P07",
+    "speech": "它先进入堵团，减速停下，",
+    "start": 93.57,
+    "spoken_end": 95.775
+  },
+  {
+    "paragraph": "P07",
+    "speech": "随后又加速驶出；",
+    "start": 96.032,
+    "spoken_end": 97.476
+  },
+  {
+    "paragraph": "P07",
+    "speech": "它已经离开，堵团却没有跟着消失，",
+    "start": 98.02,
+    "spoken_end": 101.038
+  },
+  {
+    "paragraph": "P07",
+    "speech": "因为更后面的车，又进入了这片慢行区域。",
+    "start": 101.295,
+    "spoken_end": 104.575
+  },
+  {
+    "paragraph": "P08",
+    "speech": "这并不意味着，任何一次刹车都会造成堵车。",
+    "start": 104.97,
+    "spoken_end": 108.82
+  },
+  {
+    "paragraph": "P08",
+    "speech": "扰动是逐渐消散，还是越传越大，",
+    "start": 109.365,
+    "spoken_end": 112.271
+  },
+  {
+    "paragraph": "P08",
+    "speech": "和车流密度、车辆间距，以及跟车反应有关；",
+    "start": 112.44,
+    "spoken_end": 116.157
+  },
+  {
+    "paragraph": "P08",
+    "speech": "同样的小变化，可能走向不同的结果。",
+    "start": 116.703,
+    "spoken_end": 119.945
+  },
+  {
+    "paragraph": "P09",
+    "speech": "真实道路当然还会因为事故、施工或车辆汇入而拥堵。",
+    "start": 120.35,
+    "spoken_end": 125.262
+  },
+  {
+    "paragraph": "P09",
+    "speech": "这里只解释其中一种机制，",
+    "start": 125.808,
+    "spoken_end": 127.775
+  },
+  {
+    "paragraph": "P09",
+    "speech": "也不能把它简单归咎于某一个司机：",
+    "start": 128.095,
+    "spoken_end": 130.513
+  },
+  {
+    "paragraph": "P09",
+    "speech": "你看到的停顿，可能是许多车辆相互影响的结果。",
+    "start": 130.808,
+    "spoken_end": 134.725
+  },
+  {
+    "paragraph": "P10",
+    "speech": "所以，那道无形的墙并没有藏在路上，",
+    "start": 135.13,
+    "spoken_end": 138.354
+  },
+  {
+    "paragraph": "P10",
+    "speech": "它出现在车辆之间的相互影响里。",
+    "start": 138.562,
+    "spoken_end": 141.193
+  },
+  {
+    "paragraph": "P10",
+    "speech": "回到刚才停下的那辆车，当镜头看见整支队伍，你才明白：",
+    "start": 141.725,
+    "spoken_end": 146.53
+  },
+  {
+    "paragraph": "P10",
+    "speech": "路还通着，慢下来的状态，却已经传到了这里。",
+    "start": 146.775,
+    "spoken_end": 150.73
+  }
+]

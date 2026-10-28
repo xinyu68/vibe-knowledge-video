@@ -1,0 +1,215 @@
+{
+  "signature": "62d0f0c95083596da55165fa8d62abaa4f42c2bcab10106f1bcdc7da15330a76",
+  "backend": "edge",
+  "voice": "zh-CN-YunjianNeural",
+  "rate": "+0%",
+  "text": "真实道路当然还会因为事故、施工或车辆汇入而拥堵。这里只解释其中一种机制，也不能把它简单归咎于某一个司机：你看到的停顿，可能是许多车辆相互影响的结果。",
+  "word_boundaries": [
+    {
+      "text": "真实",
+      "offset_sec": 0.1,
+      "duration_sec": 0.375
+    },
+    {
+      "text": "道路",
+      "offset_sec": 0.487,
+      "duration_sec": 0.375
+    },
+    {
+      "text": "当然",
+      "offset_sec": 0.963,
+      "duration_sec": 0.287
+    },
+    {
+      "text": "还",
+      "offset_sec": 1.262,
+      "duration_sec": 0.237
+    },
+    {
+      "text": "会",
+      "offset_sec": 1.5,
+      "duration_sec": 0.15
+    },
+    {
+      "text": "因为",
+      "offset_sec": 1.663,
+      "duration_sec": 0.237
+    },
+    {
+      "text": "事故",
+      "offset_sec": 1.925,
+      "duration_sec": 0.463
+    },
+    {
+      "text": "施工",
+      "offset_sec": 2.6,
+      "duration_sec": 0.425
+    },
+    {
+      "text": "或",
+      "offset_sec": 3.15,
+      "duration_sec": 0.2
+    },
+    {
+      "text": "车辆",
+      "offset_sec": 3.362,
+      "duration_sec": 0.45
+    },
+    {
+      "text": "汇",
+      "offset_sec": 3.925,
+      "duration_sec": 0.362
+    },
+    {
+      "text": "入",
+      "offset_sec": 4.287,
+      "duration_sec": 0.15
+    },
+    {
+      "text": "而",
+      "offset_sec": 4.45,
+      "duration_sec": 0.138
+    },
+    {
+      "text": "拥堵",
+      "offset_sec": 4.6,
+      "duration_sec": 0.412
+    },
+    {
+      "text": "这里",
+      "offset_sec": 5.588,
+      "duration_sec": 0.287
+    },
+    {
+      "text": "只",
+      "offset_sec": 5.888,
+      "duration_sec": 0.163
+    },
+    {
+      "text": "解释",
+      "offset_sec": 6.062,
+      "duration_sec": 0.338
+    },
+    {
+      "text": "其中",
+      "offset_sec": 6.425,
+      "duration_sec": 0.338
+    },
+    {
+      "text": "一种",
+      "offset_sec": 6.775,
+      "duration_sec": 0.287
+    },
+    {
+      "text": "机制",
+      "offset_sec": 7.075,
+      "duration_sec": 0.45
+    },
+    {
+      "text": "也",
+      "offset_sec": 7.875,
+      "duration_sec": 0.163
+    },
+    {
+      "text": "不能",
+      "offset_sec": 8.037,
+      "duration_sec": 0.212
+    },
+    {
+      "text": "把",
+      "offset_sec": 8.262,
+      "duration_sec": 0.15
+    },
+    {
+      "text": "它",
+      "offset_sec": 8.412,
+      "duration_sec": 0.188
+    },
+    {
+      "text": "简单",
+      "offset_sec": 8.613,
+      "duration_sec": 0.388
+    },
+    {
+      "text": "归咎于",
+      "offset_sec": 9.012,
+      "duration_sec": 0.425
+    },
+    {
+      "text": "某",
+      "offset_sec": 9.463,
+      "duration_sec": 0.2
+    },
+    {
+      "text": "一个",
+      "offset_sec": 9.662,
+      "duration_sec": 0.188
+    },
+    {
+      "text": "司机",
+      "offset_sec": 9.863,
+      "duration_sec": 0.4
+    },
+    {
+      "text": "你",
+      "offset_sec": 10.588,
+      "duration_sec": 0.113
+    },
+    {
+      "text": "看到",
+      "offset_sec": 10.713,
+      "duration_sec": 0.35
+    },
+    {
+      "text": "的",
+      "offset_sec": 11.062,
+      "duration_sec": 0.087
+    },
+    {
+      "text": "停顿",
+      "offset_sec": 11.162,
+      "duration_sec": 0.425
+    },
+    {
+      "text": "可能",
+      "offset_sec": 11.812,
+      "duration_sec": 0.3
+    },
+    {
+      "text": "是",
+      "offset_sec": 12.113,
+      "duration_sec": 0.15
+    },
+    {
+      "text": "许多",
+      "offset_sec": 12.287,
+      "duration_sec": 0.388
+    },
+    {
+      "text": "车辆",
+      "offset_sec": 12.688,
+      "duration_sec": 0.412
+    },
+    {
+      "text": "相互",
+      "offset_sec": 13.125,
+      "duration_sec": 0.375
+    },
+    {
+      "text": "影响",
+      "offset_sec": 13.512,
+      "duration_sec": 0.463
+    },
+    {
+      "text": "的",
+      "offset_sec": 13.975,
+      "duration_sec": 0.062
+    },
+    {
+      "text": "结果",
+      "offset_sec": 14.05,
+      "duration_sec": 0.425
+    }
+  ],
+  "sha256": "11a70c12b58788e8202b034d2be8ea84871a53f0eac3dd497a75a20f9b56d09d"
+}

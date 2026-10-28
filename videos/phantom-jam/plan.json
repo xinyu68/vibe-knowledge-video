@@ -1,0 +1,412 @@
+{
+  "title": "没有事故，为什么突然堵了？",
+  "anchor": "无形的墙",
+  "duration": 159.25,
+  "fps": 30,
+  "frames": 4778,
+  "impact_frame": 511,
+  "subtitles": [
+    {
+      "start": 0.2,
+      "end": 3.022,
+      "zh": "没有事故，车怎么就停了？",
+      "en": "No accident—so why have the cars stopped?",
+      "paragraph": "P01"
+    },
+    {
+      "start": 3.022,
+      "end": 7.76,
+      "zh": "前方刹车灯接连亮起，你也慢下来",
+      "en": "Brake lights flare ahead, and you have to slow down too.",
+      "paragraph": "P01"
+    },
+    {
+      "start": 7.76,
+      "end": 11.01,
+      "zh": "可再往前看，路通着，车却停着",
+      "en": "Farther ahead, the road is clear. Yet the cars are stopped.",
+      "paragraph": "P01"
+    },
+    {
+      "start": 11.01,
+      "end": 14.94,
+      "zh": "都在等前一辆，像撞上无形的墙",
+      "en": "Each waits for the car ahead, as if blocked by an invisible wall.",
+      "paragraph": "P01"
+    },
+    {
+      "start": 18.0,
+      "end": 22.508,
+      "zh": "没有明显障碍，却出现“幽灵堵车”",
+      "en": "A jam without an obvious obstruction is often called a phantom jam.",
+      "paragraph": "P02"
+    },
+    {
+      "start": 22.508,
+      "end": 25.782,
+      "zh": "挡住你的，不是路上的一件东西",
+      "en": "What holds you back is not an object on the road,",
+      "paragraph": "P02"
+    },
+    {
+      "start": 25.782,
+      "end": 29.02,
+      "zh": "而是一片正在传播的慢行区域",
+      "en": "but a slow-moving region spreading through the traffic.",
+      "paragraph": "P02"
+    },
+    {
+      "start": 29.02,
+      "end": 32.6,
+      "zh": "车辆不断更换，拥堵却仍在队伍里",
+      "en": "The cars change, but the jam remains in the stream.",
+      "paragraph": "P02"
+    },
+    {
+      "start": 32.65,
+      "end": 34.645,
+      "zh": "研究者曾让22辆车",
+      "en": "Researchers had 22 cars",
+      "paragraph": "P03"
+    },
+    {
+      "start": 34.645,
+      "end": 37.945,
+      "zh": "在一圈约230米的环路上行驶",
+      "en": "drive on a circular track about 230 metres around.",
+      "paragraph": "P03"
+    },
+    {
+      "start": 37.945,
+      "end": 40.983,
+      "zh": "没有路口，也没有其他车辆汇入",
+      "en": "There were no junctions and no merging traffic.",
+      "paragraph": "P03"
+    },
+    {
+      "start": 40.983,
+      "end": 46.49,
+      "zh": "几分钟后，车流里仍出现停走堵团",
+      "en": "Yet within minutes, a stop-and-go cluster appeared.",
+      "paragraph": "P03"
+    },
+    {
+      "start": 46.54,
+      "end": 49.448,
+      "zh": "从一次轻微减速看起",
+      "en": "Start with a small decrease in speed.",
+      "paragraph": "P04"
+    },
+    {
+      "start": 49.448,
+      "end": 54.098,
+      "zh": "前车稍慢，后车察觉后跟着减速",
+      "en": "A car slows; the next driver notices later and slows too.",
+      "paragraph": "P04"
+    },
+    {
+      "start": 54.098,
+      "end": 56.598,
+      "zh": "每个人反应的时机和幅度不同",
+      "en": "The timing and size of each response differ.",
+      "paragraph": "P04"
+    },
+    {
+      "start": 56.598,
+      "end": 59.86,
+      "zh": "小小的变化，一辆接一辆传下去",
+      "en": "The small change passes from one car to the next.",
+      "paragraph": "P04"
+    },
+    {
+      "start": 59.91,
+      "end": 64.267,
+      "zh": "车流越密，留给调整的空间越小",
+      "en": "In denser traffic, there is less room to adjust.",
+      "paragraph": "P05"
+    },
+    {
+      "start": 64.267,
+      "end": 68.143,
+      "zh": "一次小减速，可能在后面被放大",
+      "en": "A small slowdown may become a larger one farther back.",
+      "paragraph": "P05"
+    },
+    {
+      "start": 68.143,
+      "end": 70.518,
+      "zh": "再后面的车，甚至需要停下",
+      "en": "Cars farther back may even have to stop.",
+      "paragraph": "P05"
+    },
+    {
+      "start": 70.518,
+      "end": 74.16,
+      "zh": "刹车灯沿着队伍接连亮起",
+      "en": "And brake lights come on, one after another.",
+      "paragraph": "P05"
+    },
+    {
+      "start": 74.21,
+      "end": 76.48,
+      "zh": "现在，把镜头拉远一点",
+      "en": "Now pull the view back a little.",
+      "paragraph": "P06"
+    },
+    {
+      "start": 76.48,
+      "end": 81.043,
+      "zh": "车头向前，拥堵边界却向后移动",
+      "en": "The cars face forward, while the jam's edge moves backward.",
+      "paragraph": "P06"
+    },
+    {
+      "start": 81.043,
+      "end": 84.967,
+      "zh": "前面的车驶走，后面的车不断加入",
+      "en": "Cars at the front move off; cars at the back join the jam.",
+      "paragraph": "P06"
+    },
+    {
+      "start": 84.967,
+      "end": 89.45,
+      "zh": "向后传播的是拥堵状态，不是汽车",
+      "en": "The slow-moving state travels backward, not the cars.",
+      "paragraph": "P06"
+    },
+    {
+      "start": 89.5,
+      "end": 93.57,
+      "zh": "只盯住这辆金色的车",
+      "en": "Follow this golden car to see it more clearly.",
+      "paragraph": "P07"
+    },
+    {
+      "start": 93.57,
+      "end": 96.032,
+      "zh": "它先进入堵团，减速停下",
+      "en": "It enters the jam, slows down and stops,",
+      "paragraph": "P07"
+    },
+    {
+      "start": 96.032,
+      "end": 98.02,
+      "zh": "随后又加速驶出",
+      "en": "then speeds up and drives out.",
+      "paragraph": "P07"
+    },
+    {
+      "start": 98.02,
+      "end": 101.295,
+      "zh": "它已经离开，堵团却没有消失",
+      "en": "It has left, but the jam has not disappeared.",
+      "paragraph": "P07"
+    },
+    {
+      "start": 101.295,
+      "end": 104.92,
+      "zh": "因为后面的车，又进入这片慢行区",
+      "en": "Cars farther back have entered that slow-moving region.",
+      "paragraph": "P07"
+    },
+    {
+      "start": 104.97,
+      "end": 109.365,
+      "zh": "并非任何一次刹车都会造成堵车",
+      "en": "This does not mean every brake application causes a jam.",
+      "paragraph": "P08"
+    },
+    {
+      "start": 109.365,
+      "end": 112.44,
+      "zh": "扰动会消散，还是越传越大？",
+      "en": "Does the disturbance fade, or grow as it spreads?",
+      "paragraph": "P08"
+    },
+    {
+      "start": 112.44,
+      "end": 116.703,
+      "zh": "这与密度、车距和跟车反应有关",
+      "en": "That depends on traffic density, spacing and following responses.",
+      "paragraph": "P08"
+    },
+    {
+      "start": 116.703,
+      "end": 120.3,
+      "zh": "同样的小变化，可能有不同结果",
+      "en": "The same small change can lead to different outcomes.",
+      "paragraph": "P08"
+    },
+    {
+      "start": 120.35,
+      "end": 125.808,
+      "zh": "事故、施工或车辆汇入，也会拥堵",
+      "en": "Real roads also jam because of crashes, roadworks or merging traffic.",
+      "paragraph": "P09"
+    },
+    {
+      "start": 125.808,
+      "end": 128.095,
+      "zh": "这里只解释其中一种机制",
+      "en": "This explains just one mechanism.",
+      "paragraph": "P09"
+    },
+    {
+      "start": 128.095,
+      "end": 130.808,
+      "zh": "不能简单归咎于某一个司机",
+      "en": "It cannot simply be blamed on one particular driver.",
+      "paragraph": "P09"
+    },
+    {
+      "start": 130.808,
+      "end": 135.08,
+      "zh": "你的停顿，可能来自车流相互影响",
+      "en": "Your stop may result from many vehicles interacting.",
+      "paragraph": "P09"
+    },
+    {
+      "start": 135.13,
+      "end": 138.562,
+      "zh": "那道无形的墙，没有藏在路上",
+      "en": "That invisible wall is not hidden somewhere on the road.",
+      "paragraph": "P10"
+    },
+    {
+      "start": 138.562,
+      "end": 141.725,
+      "zh": "它出现在车辆之间的相互影响里",
+      "en": "It emerges from the interactions between vehicles.",
+      "paragraph": "P10"
+    },
+    {
+      "start": 141.725,
+      "end": 146.775,
+      "zh": "看见整支队伍，才理解这次停顿",
+      "en": "Return to that stopped car. Seeing the whole queue explains the pause.",
+      "paragraph": "P10"
+    },
+    {
+      "start": 146.775,
+      "end": 151.05,
+      "zh": "路还通着，慢行状态却传到了这里",
+      "en": "The road is still open. The slowdown has reached this point.",
+      "paragraph": "P10"
+    }
+  ],
+  "narration_paragraphs": [
+    {
+      "id": "P01",
+      "start": 0.2,
+      "end": 14.74
+    },
+    {
+      "id": "P02",
+      "start": 18.0,
+      "end": 32.4
+    },
+    {
+      "id": "P03",
+      "start": 32.65,
+      "end": 46.29
+    },
+    {
+      "id": "P04",
+      "start": 46.54,
+      "end": 59.66
+    },
+    {
+      "id": "P05",
+      "start": 59.91,
+      "end": 73.96
+    },
+    {
+      "id": "P06",
+      "start": 74.21,
+      "end": 89.25
+    },
+    {
+      "id": "P07",
+      "start": 89.5,
+      "end": 104.72
+    },
+    {
+      "id": "P08",
+      "start": 104.97,
+      "end": 120.1
+    },
+    {
+      "id": "P09",
+      "start": 120.35,
+      "end": 134.88
+    },
+    {
+      "id": "P10",
+      "start": 135.13,
+      "end": 150.85
+    }
+  ],
+  "narration_end": 150.85,
+  "story_knots": [
+    [
+      0,
+      0
+    ],
+    [
+      16.4,
+      16.4
+    ],
+    [
+      17.033333333333335,
+      17.033333333333335
+    ],
+    [
+      17.9,
+      17.9
+    ],
+    [
+      18.0,
+      18
+    ],
+    [
+      32.65,
+      32
+    ],
+    [
+      46.54,
+      45
+    ],
+    [
+      59.91,
+      62
+    ],
+    [
+      74.21,
+      77
+    ],
+    [
+      89.5,
+      94
+    ],
+    [
+      104.97,
+      109
+    ],
+    [
+      120.35,
+      123
+    ],
+    [
+      135.13,
+      137
+    ],
+    [
+      150.85,
+      151
+    ],
+    [
+      159.25,
+      159.25
+    ]
+  ]
+}

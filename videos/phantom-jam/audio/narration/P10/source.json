@@ -1,0 +1,250 @@
+{
+  "signature": "d90a91d03f88370541f4edb7d7e9ad0bd433cbac505f7024f4efcec8c69f08ef",
+  "backend": "edge",
+  "voice": "zh-CN-YunjianNeural",
+  "rate": "+0%",
+  "text": "所以，那道无形的墙并没有藏在路上，它出现在车辆之间的相互影响里。回到刚才停下的那辆车，当镜头看见整支队伍，你才明白：路还通着，慢下来的状态，却已经传到了这里。",
+  "word_boundaries": [
+    {
+      "text": "所以",
+      "offset_sec": 0.1,
+      "duration_sec": 0.325
+    },
+    {
+      "text": "那",
+      "offset_sec": 0.8,
+      "duration_sec": 0.188
+    },
+    {
+      "text": "道",
+      "offset_sec": 0.988,
+      "duration_sec": 0.125
+    },
+    {
+      "text": "无形",
+      "offset_sec": 1.137,
+      "duration_sec": 0.375
+    },
+    {
+      "text": "的",
+      "offset_sec": 1.512,
+      "duration_sec": 0.087
+    },
+    {
+      "text": "墙",
+      "offset_sec": 1.613,
+      "duration_sec": 0.338
+    },
+    {
+      "text": "并",
+      "offset_sec": 2.062,
+      "duration_sec": 0.237
+    },
+    {
+      "text": "没有",
+      "offset_sec": 2.312,
+      "duration_sec": 0.237
+    },
+    {
+      "text": "藏",
+      "offset_sec": 2.562,
+      "duration_sec": 0.263
+    },
+    {
+      "text": "在",
+      "offset_sec": 2.825,
+      "duration_sec": 0.125
+    },
+    {
+      "text": "路上",
+      "offset_sec": 2.962,
+      "duration_sec": 0.362
+    },
+    {
+      "text": "它",
+      "offset_sec": 3.562,
+      "duration_sec": 0.125
+    },
+    {
+      "text": "出现",
+      "offset_sec": 3.7,
+      "duration_sec": 0.388
+    },
+    {
+      "text": "在",
+      "offset_sec": 4.088,
+      "duration_sec": 0.138
+    },
+    {
+      "text": "车辆",
+      "offset_sec": 4.25,
+      "duration_sec": 0.438
+    },
+    {
+      "text": "之间",
+      "offset_sec": 4.7,
+      "duration_sec": 0.325
+    },
+    {
+      "text": "的",
+      "offset_sec": 5.025,
+      "duration_sec": 0.087
+    },
+    {
+      "text": "相互",
+      "offset_sec": 5.138,
+      "duration_sec": 0.425
+    },
+    {
+      "text": "影响",
+      "offset_sec": 5.575,
+      "duration_sec": 0.425
+    },
+    {
+      "text": "里",
+      "offset_sec": 6.0,
+      "duration_sec": 0.163
+    },
+    {
+      "text": "回到",
+      "offset_sec": 6.725,
+      "duration_sec": 0.362
+    },
+    {
+      "text": "刚才",
+      "offset_sec": 7.1,
+      "duration_sec": 0.362
+    },
+    {
+      "text": "停下",
+      "offset_sec": 7.487,
+      "duration_sec": 0.4
+    },
+    {
+      "text": "的",
+      "offset_sec": 7.888,
+      "duration_sec": 0.087
+    },
+    {
+      "text": "那",
+      "offset_sec": 7.987,
+      "duration_sec": 0.175
+    },
+    {
+      "text": "辆",
+      "offset_sec": 8.162,
+      "duration_sec": 0.188
+    },
+    {
+      "text": "车",
+      "offset_sec": 8.35,
+      "duration_sec": 0.25
+    },
+    {
+      "text": "当",
+      "offset_sec": 8.838,
+      "duration_sec": 0.163
+    },
+    {
+      "text": "镜头",
+      "offset_sec": 9.012,
+      "duration_sec": 0.438
+    },
+    {
+      "text": "看见",
+      "offset_sec": 9.463,
+      "duration_sec": 0.375
+    },
+    {
+      "text": "整支",
+      "offset_sec": 9.863,
+      "duration_sec": 0.4
+    },
+    {
+      "text": "队伍",
+      "offset_sec": 10.275,
+      "duration_sec": 0.362
+    },
+    {
+      "text": "你",
+      "offset_sec": 10.825,
+      "duration_sec": 0.113
+    },
+    {
+      "text": "才",
+      "offset_sec": 10.938,
+      "duration_sec": 0.175
+    },
+    {
+      "text": "明白",
+      "offset_sec": 11.125,
+      "duration_sec": 0.375
+    },
+    {
+      "text": "路",
+      "offset_sec": 11.775,
+      "duration_sec": 0.15
+    },
+    {
+      "text": "还",
+      "offset_sec": 11.938,
+      "duration_sec": 0.175
+    },
+    {
+      "text": "通",
+      "offset_sec": 12.113,
+      "duration_sec": 0.287
+    },
+    {
+      "text": "着",
+      "offset_sec": 12.4,
+      "duration_sec": 0.15
+    },
+    {
+      "text": "慢",
+      "offset_sec": 12.8,
+      "duration_sec": 0.25
+    },
+    {
+      "text": "下来",
+      "offset_sec": 13.05,
+      "duration_sec": 0.312
+    },
+    {
+      "text": "的",
+      "offset_sec": 13.363,
+      "duration_sec": 0.087
+    },
+    {
+      "text": "状态",
+      "offset_sec": 13.463,
+      "duration_sec": 0.45
+    },
+    {
+      "text": "却",
+      "offset_sec": 14.162,
+      "duration_sec": 0.212
+    },
+    {
+      "text": "已经",
+      "offset_sec": 14.375,
+      "duration_sec": 0.362
+    },
+    {
+      "text": "传到",
+      "offset_sec": 14.75,
+      "duration_sec": 0.512
+    },
+    {
+      "text": "了",
+      "offset_sec": 15.262,
+      "duration_sec": 0.062
+    },
+    {
+      "text": "这里",
+      "offset_sec": 15.338,
+      "duration_sec": 0.362
+    }
+  ],
+  "sha256": "10eb3519a75b2ebb1fa017ed728e04defc65701c8131ca474cd72e2e691f5d2c"
+}

@@ -17,7 +17,8 @@ class PortabilityTests(unittest.TestCase):
     def test_no_machine_paths_in_repository_text(self):
         machine_path = re.compile(r'(?<![A-Za-z0-9])(?:[A-Za-z]:[\\/]|/(?:Users|home)/[^\s/]+/)')
         paths = [ROOT/name for name in ['README.md', 'AGENTS.md', 'vibe.py', 'vibe.ps1']]
-        for name in ['docs', 'prompts', 'tools', 'templates', 'assets/music', 'videos/missing-planes']:
+        for name in ['docs', 'prompts', 'tools', 'templates', 'assets/music',
+                     'videos/missing-planes', 'videos/phantom-jam']:
             paths.extend((ROOT/name).rglob('*'))
         issues = []
         for path in paths:

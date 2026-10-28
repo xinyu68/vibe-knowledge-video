@@ -238,7 +238,12 @@ def render(start, end, jobs, name, resume=False, force=()):
         srv.shutdown()
         srv.server_close()
     listing = OUT / f'{name}.concat.txt'
-    listing.write_text(''.join("file '" + path.as_posix().replace("'", "'\\''") + "'\n" for path in paths), encoding='utf-8')
+    # MP4 format durations can be rounded to milliseconds. Exact frame durations
+    # keep segment boundaries on the frame grid when the concat demuxer joins them.
+    listing.write_text(''.join(
+        "file '" + path.as_posix().replace("'", "'\\''") + "'\n"
+        + f'duration {(cuts[index + 1] - cuts[index]) / FPS:.9f}\n'
+        for index, path in enumerate(paths)), encoding='utf-8')
     target = OUT / f'{name}.mp4'
     subprocess.run(['ffmpeg', '-v', 'error', '-y', '-f', 'concat', '-safe', '0', '-i',
                     str(listing), '-c', 'copy', '-movflags', '+faststart', str(target)], check=True)

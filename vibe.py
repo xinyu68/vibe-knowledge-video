@@ -94,7 +94,7 @@ def main():
     new.add_argument('--narrated', action='store_true', help='创建中文配音骨架，配乐固定增益；填写旁白后再合成')
     music = sub.add_parser('analyze-music', help='解码音轨并输出 10ms RMS 数据，不自动认定重拍')
     music.add_argument('slug')
-    speech = sub.add_parser('narrate', help='用 ttsCN 合成旁白，缓存逐句音频并实测时间轴')
+    speech = sub.add_parser('narrate', help='用 ttsCN 按cue合成旁白，缓存语义段落音频并实测时间轴')
     speech.add_argument('slug')
     speech.add_argument('--tts-cli', required=True, help='本机安装的 ttsCN scripts/tts.py 路径')
     for name in ['preview', 'render', 'mix', 'finalize', 'check', 'serve']:

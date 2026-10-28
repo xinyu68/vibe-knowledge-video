@@ -1,0 +1,185 @@
+{
+  "signature": "3ec28bdd468f79af20cdf6886870d9d168c3589e55ec08b1288425c92152f26a",
+  "backend": "edge",
+  "voice": "zh-CN-YunjianNeural",
+  "rate": "+0%",
+  "text": "研究者曾让二十二辆车，在一圈约二百三十米的环路上行驶。没有路口，也没有其他车辆汇入，几分钟后，原本平顺的车流里，还是出现了停停走走的堵团。",
+  "word_boundaries": [
+    {
+      "text": "研究者",
+      "offset_sec": 0.1,
+      "duration_sec": 0.487
+    },
+    {
+      "text": "曾",
+      "offset_sec": 0.613,
+      "duration_sec": 0.225
+    },
+    {
+      "text": "让",
+      "offset_sec": 0.838,
+      "duration_sec": 0.15
+    },
+    {
+      "text": "二十二",
+      "offset_sec": 1.0,
+      "duration_sec": 0.438
+    },
+    {
+      "text": "辆",
+      "offset_sec": 1.438,
+      "duration_sec": 0.163
+    },
+    {
+      "text": "车",
+      "offset_sec": 1.6,
+      "duration_sec": 0.225
+    },
+    {
+      "text": "在",
+      "offset_sec": 2.125,
+      "duration_sec": 0.212
+    },
+    {
+      "text": "一",
+      "offset_sec": 2.35,
+      "duration_sec": 0.163
+    },
+    {
+      "text": "圈",
+      "offset_sec": 2.513,
+      "duration_sec": 0.212
+    },
+    {
+      "text": "约",
+      "offset_sec": 2.75,
+      "duration_sec": 0.113
+    },
+    {
+      "text": "二百三十",
+      "offset_sec": 2.875,
+      "duration_sec": 0.812
+    },
+    {
+      "text": "米",
+      "offset_sec": 3.688,
+      "duration_sec": 0.163
+    },
+    {
+      "text": "的",
+      "offset_sec": 3.85,
+      "duration_sec": 0.1
+    },
+    {
+      "text": "环路上",
+      "offset_sec": 3.975,
+      "duration_sec": 0.475
+    },
+    {
+      "text": "行驶",
+      "offset_sec": 4.463,
+      "duration_sec": 0.388
+    },
+    {
+      "text": "没有",
+      "offset_sec": 5.425,
+      "duration_sec": 0.275
+    },
+    {
+      "text": "路口",
+      "offset_sec": 5.713,
+      "duration_sec": 0.512
+    },
+    {
+      "text": "也",
+      "offset_sec": 6.5,
+      "duration_sec": 0.15
+    },
+    {
+      "text": "没有",
+      "offset_sec": 6.65,
+      "duration_sec": 0.287
+    },
+    {
+      "text": "其他",
+      "offset_sec": 6.963,
+      "duration_sec": 0.412
+    },
+    {
+      "text": "车辆",
+      "offset_sec": 7.388,
+      "duration_sec": 0.388
+    },
+    {
+      "text": "汇入",
+      "offset_sec": 7.787,
+      "duration_sec": 0.375
+    },
+    {
+      "text": "几分钟",
+      "offset_sec": 8.463,
+      "duration_sec": 0.5
+    },
+    {
+      "text": "后",
+      "offset_sec": 8.963,
+      "duration_sec": 0.2
+    },
+    {
+      "text": "原本",
+      "offset_sec": 9.45,
+      "duration_sec": 0.362
+    },
+    {
+      "text": "平顺",
+      "offset_sec": 9.838,
+      "duration_sec": 0.425
+    },
+    {
+      "text": "的",
+      "offset_sec": 10.262,
+      "duration_sec": 0.1
+    },
+    {
+      "text": "车流",
+      "offset_sec": 10.375,
+      "duration_sec": 0.425
+    },
+    {
+      "text": "里",
+      "offset_sec": 10.8,
+      "duration_sec": 0.163
+    },
+    {
+      "text": "还是",
+      "offset_sec": 11.188,
+      "duration_sec": 0.425
+    },
+    {
+      "text": "出现",
+      "offset_sec": 11.625,
+      "duration_sec": 0.35
+    },
+    {
+      "text": "了",
+      "offset_sec": 11.975,
+      "duration_sec": 0.1
+    },
+    {
+      "text": "停停走走",
+      "offset_sec": 12.1,
+      "duration_sec": 0.863
+    },
+    {
+      "text": "的",
+      "offset_sec": 12.963,
+      "duration_sec": 0.087
+    },
+    {
+      "text": "堵团",
+      "offset_sec": 13.062,
+      "duration_sec": 0.512
+    }
+  ],
+  "sha256": "0424150c36a42a47a9bb08a51fb072a7aa3983646c514a45412a365f099fff91"
+}

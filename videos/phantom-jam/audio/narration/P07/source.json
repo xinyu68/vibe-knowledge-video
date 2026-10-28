@@ -1,0 +1,230 @@
+{
+  "signature": "addd3333dee2efcc5ade625456009ae7c9fc8cb0e5563db4db7dbfe921867064",
+  "backend": "edge",
+  "voice": "zh-CN-YunjianNeural",
+  "rate": "+0%",
+  "text": "只盯住这辆金色的车，你会看得更清楚。它先进入堵团，减速停下，随后又加速驶出；它已经离开，堵团却没有跟着消失，因为更后面的车，又进入了这片慢行区域。",
+  "word_boundaries": [
+    {
+      "text": "只",
+      "offset_sec": 0.1,
+      "duration_sec": 0.225
+    },
+    {
+      "text": "盯住",
+      "offset_sec": 0.325,
+      "duration_sec": 0.375
+    },
+    {
+      "text": "这",
+      "offset_sec": 0.713,
+      "duration_sec": 0.163
+    },
+    {
+      "text": "辆",
+      "offset_sec": 0.875,
+      "duration_sec": 0.188
+    },
+    {
+      "text": "金色",
+      "offset_sec": 1.087,
+      "duration_sec": 0.4
+    },
+    {
+      "text": "的",
+      "offset_sec": 1.488,
+      "duration_sec": 0.087
+    },
+    {
+      "text": "车",
+      "offset_sec": 1.575,
+      "duration_sec": 0.263
+    },
+    {
+      "text": "你",
+      "offset_sec": 2.225,
+      "duration_sec": 0.15
+    },
+    {
+      "text": "会",
+      "offset_sec": 2.375,
+      "duration_sec": 0.188
+    },
+    {
+      "text": "看",
+      "offset_sec": 2.575,
+      "duration_sec": 0.237
+    },
+    {
+      "text": "得",
+      "offset_sec": 2.812,
+      "duration_sec": 0.1
+    },
+    {
+      "text": "更",
+      "offset_sec": 2.938,
+      "duration_sec": 0.225
+    },
+    {
+      "text": "清楚",
+      "offset_sec": 3.163,
+      "duration_sec": 0.475
+    },
+    {
+      "text": "它",
+      "offset_sec": 4.2,
+      "duration_sec": 0.175
+    },
+    {
+      "text": "先",
+      "offset_sec": 4.375,
+      "duration_sec": 0.188
+    },
+    {
+      "text": "进入",
+      "offset_sec": 4.575,
+      "duration_sec": 0.275
+    },
+    {
+      "text": "堵团",
+      "offset_sec": 4.862,
+      "duration_sec": 0.475
+    },
+    {
+      "text": "减速",
+      "offset_sec": 5.537,
+      "duration_sec": 0.4
+    },
+    {
+      "text": "停下",
+      "offset_sec": 5.95,
+      "duration_sec": 0.425
+    },
+    {
+      "text": "随后",
+      "offset_sec": 6.662,
+      "duration_sec": 0.375
+    },
+    {
+      "text": "又",
+      "offset_sec": 7.05,
+      "duration_sec": 0.15
+    },
+    {
+      "text": "加速",
+      "offset_sec": 7.213,
+      "duration_sec": 0.412
+    },
+    {
+      "text": "驶出",
+      "offset_sec": 7.638,
+      "duration_sec": 0.438
+    },
+    {
+      "text": "它",
+      "offset_sec": 8.65,
+      "duration_sec": 0.15
+    },
+    {
+      "text": "已经",
+      "offset_sec": 8.812,
+      "duration_sec": 0.275
+    },
+    {
+      "text": "离开",
+      "offset_sec": 9.1,
+      "duration_sec": 0.463
+    },
+    {
+      "text": "堵团",
+      "offset_sec": 9.812,
+      "duration_sec": 0.512
+    },
+    {
+      "text": "却",
+      "offset_sec": 10.35,
+      "duration_sec": 0.163
+    },
+    {
+      "text": "没有",
+      "offset_sec": 10.525,
+      "duration_sec": 0.4
+    },
+    {
+      "text": "跟着",
+      "offset_sec": 10.938,
+      "duration_sec": 0.25
+    },
+    {
+      "text": "消失",
+      "offset_sec": 11.2,
+      "duration_sec": 0.438
+    },
+    {
+      "text": "因为",
+      "offset_sec": 11.925,
+      "duration_sec": 0.25
+    },
+    {
+      "text": "更",
+      "offset_sec": 12.188,
+      "duration_sec": 0.237
+    },
+    {
+      "text": "后面",
+      "offset_sec": 12.425,
+      "duration_sec": 0.362
+    },
+    {
+      "text": "的",
+      "offset_sec": 12.787,
+      "duration_sec": 0.087
+    },
+    {
+      "text": "车",
+      "offset_sec": 12.875,
+      "duration_sec": 0.225
+    },
+    {
+      "text": "又",
+      "offset_sec": 13.287,
+      "duration_sec": 0.225
+    },
+    {
+      "text": "进入",
+      "offset_sec": 13.525,
+      "duration_sec": 0.325
+    },
+    {
+      "text": "了",
+      "offset_sec": 13.85,
+      "duration_sec": 0.087
+    },
+    {
+      "text": "这",
+      "offset_sec": 13.95,
+      "duration_sec": 0.175
+    },
+    {
+      "text": "片",
+      "offset_sec": 14.125,
+      "duration_sec": 0.163
+    },
+    {
+      "text": "慢",
+      "offset_sec": 14.312,
+      "duration_sec": 0.25
+    },
+    {
+      "text": "行",
+      "offset_sec": 14.562,
+      "duration_sec": 0.212
+    },
+    {
+      "text": "区域",
+      "offset_sec": 14.787,
+      "duration_sec": 0.388
+    }
+  ],
+  "sha256": "2207788a4781ff52cf220dd74bf493716b18e91aee965e8e97ed4fbf1b8dc813"
+}

@@ -1,0 +1,205 @@
+{
+  "signature": "d020d9306d8440fb4c410bd1fb5f3a54436b999e0b683853e8cb0ef710420676",
+  "backend": "edge",
+  "voice": "zh-CN-YunjianNeural",
+  "rate": "+0%",
+  "text": "原因可以从一次轻微减速看起。前车慢了一点，后车过一会儿才察觉，再跟着减速；每个人反应的时机和幅度不同，小小的变化就一辆接一辆传下去。",
+  "word_boundaries": [
+    {
+      "text": "原因",
+      "offset_sec": 0.1,
+      "duration_sec": 0.263
+    },
+    {
+      "text": "可以",
+      "offset_sec": 0.388,
+      "duration_sec": 0.25
+    },
+    {
+      "text": "从",
+      "offset_sec": 0.65,
+      "duration_sec": 0.188
+    },
+    {
+      "text": "一次",
+      "offset_sec": 0.838,
+      "duration_sec": 0.325
+    },
+    {
+      "text": "轻微",
+      "offset_sec": 1.188,
+      "duration_sec": 0.388
+    },
+    {
+      "text": "减速",
+      "offset_sec": 1.587,
+      "duration_sec": 0.438
+    },
+    {
+      "text": "看",
+      "offset_sec": 2.038,
+      "duration_sec": 0.212
+    },
+    {
+      "text": "起",
+      "offset_sec": 2.25,
+      "duration_sec": 0.225
+    },
+    {
+      "text": "前车",
+      "offset_sec": 3.038,
+      "duration_sec": 0.425
+    },
+    {
+      "text": "慢",
+      "offset_sec": 3.475,
+      "duration_sec": 0.2
+    },
+    {
+      "text": "了",
+      "offset_sec": 3.675,
+      "duration_sec": 0.075
+    },
+    {
+      "text": "一点",
+      "offset_sec": 3.763,
+      "duration_sec": 0.325
+    },
+    {
+      "text": "后车",
+      "offset_sec": 4.412,
+      "duration_sec": 0.362
+    },
+    {
+      "text": "过",
+      "offset_sec": 4.775,
+      "duration_sec": 0.1
+    },
+    {
+      "text": "一会儿",
+      "offset_sec": 4.888,
+      "duration_sec": 0.312
+    },
+    {
+      "text": "才",
+      "offset_sec": 5.213,
+      "duration_sec": 0.2
+    },
+    {
+      "text": "察觉",
+      "offset_sec": 5.412,
+      "duration_sec": 0.45
+    },
+    {
+      "text": "再",
+      "offset_sec": 6.062,
+      "duration_sec": 0.212
+    },
+    {
+      "text": "跟着",
+      "offset_sec": 6.275,
+      "duration_sec": 0.338
+    },
+    {
+      "text": "减速",
+      "offset_sec": 6.625,
+      "duration_sec": 0.487
+    },
+    {
+      "text": "每个人",
+      "offset_sec": 7.688,
+      "duration_sec": 0.512
+    },
+    {
+      "text": "反应",
+      "offset_sec": 8.213,
+      "duration_sec": 0.3
+    },
+    {
+      "text": "的",
+      "offset_sec": 8.512,
+      "duration_sec": 0.087
+    },
+    {
+      "text": "时机",
+      "offset_sec": 8.613,
+      "duration_sec": 0.362
+    },
+    {
+      "text": "和",
+      "offset_sec": 9.0,
+      "duration_sec": 0.138
+    },
+    {
+      "text": "幅度",
+      "offset_sec": 9.15,
+      "duration_sec": 0.3
+    },
+    {
+      "text": "不同",
+      "offset_sec": 9.463,
+      "duration_sec": 0.362
+    },
+    {
+      "text": "小",
+      "offset_sec": 10.188,
+      "duration_sec": 0.225
+    },
+    {
+      "text": "小",
+      "offset_sec": 10.412,
+      "duration_sec": 0.163
+    },
+    {
+      "text": "的",
+      "offset_sec": 10.575,
+      "duration_sec": 0.075
+    },
+    {
+      "text": "变化",
+      "offset_sec": 10.662,
+      "duration_sec": 0.463
+    },
+    {
+      "text": "就",
+      "offset_sec": 11.238,
+      "duration_sec": 0.15
+    },
+    {
+      "text": "一",
+      "offset_sec": 11.4,
+      "duration_sec": 0.188
+    },
+    {
+      "text": "辆",
+      "offset_sec": 11.588,
+      "duration_sec": 0.25
+    },
+    {
+      "text": "接",
+      "offset_sec": 11.863,
+      "duration_sec": 0.25
+    },
+    {
+      "text": "一",
+      "offset_sec": 12.125,
+      "duration_sec": 0.125
+    },
+    {
+      "text": "辆",
+      "offset_sec": 12.25,
+      "duration_sec": 0.188
+    },
+    {
+      "text": "传",
+      "offset_sec": 12.463,
+      "duration_sec": 0.275
+    },
+    {
+      "text": "下去",
+      "offset_sec": 12.738,
+      "duration_sec": 0.35
+    }
+  ],
+  "sha256": "7e6b9f0aaee0b6c9edbea63c997c70f9af28e51b6959f9a8069487277cee5eea"
+}
