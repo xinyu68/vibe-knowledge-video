@@ -10,3 +10,5 @@ videos/smoke-template/
 .env
 .env.*
 !.env.example
+.local/
+videos/n8n-*/

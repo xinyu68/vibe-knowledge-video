@@ -1,0 +1,857 @@
+{
+  "id": "vibeKnowledgeVideo001",
+  "name": "知识视频 · 配音预览与审片返修",
+  "active": false,
+  "nodes": [
+    {
+      "id": "vibe-manual",
+      "name": "手动开始",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -960,
+        100
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "vibe-webhook",
+      "name": "本机接口开始",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -960,
+        280
+      ],
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "vibe-knowledge-video",
+        "responseMode": "onReceived",
+        "options": {}
+      },
+      "webhookId": "vibe-knowledge-video-local-v1"
+    },
+    {
+      "id": "vibe-configure",
+      "name": "本期参数",
+      "type": "CUSTOM.vibeVideo",
+      "typeVersion": 1,
+      "position": [
+        -720,
+        180
+      ],
+      "parameters": {
+        "operation": "configure",
+        "bridgeUrl": "http://127.0.0.1:5681",
+        "sourceSlug": "phantom-jam",
+        "previewStart": 0,
+        "previewEnd": 12
+      }
+    },
+    {
+      "id": "vibe-create",
+      "name": "建立独立制作版本",
+      "type": "CUSTOM.vibeVideo",
+      "typeVersion": 1,
+      "position": [
+        -480,
+        180
+      ],
+      "parameters": {
+        "operation": "create"
+      }
+    },
+    {
+      "id": "vibe-narrate",
+      "name": "合成段落配音",
+      "type": "CUSTOM.vibeVideo",
+      "typeVersion": 1,
+      "position": [
+        -240,
+        180
+      ],
+      "parameters": {
+        "operation": "stage",
+        "stage": "narrate"
+      }
+    },
+    {
+      "id": "vibe-preview",
+      "name": "混音与画面预览",
+      "type": "CUSTOM.vibeVideo",
+      "typeVersion": 1,
+      "position": [
+        0,
+        180
+      ],
+      "parameters": {
+        "operation": "stage",
+        "stage": "preview"
+      }
+    },
+    {
+      "id": "vibe-review-revision",
+      "name": "选择当前审片版本",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        240,
+        180
+      ],
+      "parameters": {
+        "mode": "rules",
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "review-r1",
+                    "leftValue": "={{ $json.revision }}",
+                    "rightValue": 1,
+                    "operator": {
+                      "type": "number",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "第 1 版"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "review-r2",
+                    "leftValue": "={{ $json.revision }}",
+                    "rightValue": 2,
+                    "operator": {
+                      "type": "number",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "第 2 版"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "review-r3",
+                    "leftValue": "={{ $json.revision }}",
+                    "rightValue": 3,
+                    "operator": {
+                      "type": "number",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "第 3 版"
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "extra",
+          "renameFallbackOutput": "超出最大轮次"
+        }
+      }
+    },
+    {
+      "id": "vibe-review-form-r1",
+      "name": "人工审片 · 首版",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        480,
+        20
+      ],
+      "parameters": {
+        "resume": "form",
+        "incomingAuthentication": "none",
+        "formTitle": "={{ \"知识视频审片 · 第 \" + $json.revision + \" 版\" }}",
+        "formDescription": "={{ $json.review_html }}",
+        "formFields": {
+          "values": [
+            {
+              "fieldType": "hiddenField",
+              "fieldName": "run_id",
+              "fieldValue": "={{ $json.run_id }}"
+            },
+            {
+              "fieldType": "hiddenField",
+              "fieldName": "expected_revision",
+              "fieldValue": "={{ String($json.revision) }}"
+            },
+            {
+              "fieldLabel": "审核决定",
+              "fieldType": "dropdown",
+              "requiredField": true,
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "通过并渲染全片"
+                  },
+                  {
+                    "option": "返修后重新预览"
+                  },
+                  {
+                    "option": "取消本次制作"
+                  }
+                ]
+              }
+            },
+            {
+              "fieldLabel": "审片意见",
+              "fieldType": "textarea",
+              "placeholder": "记录节奏、声音、画面、字幕问题。意见会保存；具体配音和字幕修改请填下方。"
+            },
+            {
+              "fieldLabel": "配音段落 ID（返修时填写）",
+              "fieldType": "text",
+              "placeholder": "从上方段落清单复制准确 ID"
+            },
+            {
+              "fieldLabel": "替换后的整段配音文本",
+              "fieldType": "textarea",
+              "placeholder": "替换一个完整段落，保持已分配的时间窗口。不是一句一句重新起腔。"
+            },
+            {
+              "fieldLabel": "字幕修改 JSON（可选）",
+              "fieldType": "textarea",
+              "placeholder": "[{\"index\":0,\"zh\":\"中文字幕\",\"en\":\"English subtitle\"}]"
+            }
+          ]
+        },
+        "responseMode": "onReceived",
+        "limitWaitTime": false,
+        "options": {
+          "webhookSuffix": "review-r1",
+          "appendAttribution": false,
+          "respondWithOptions": {
+            "values": {
+              "respondWith": "text",
+              "formSubmittedText": "已提交。请回到 n8n 执行画布查看处理进度；返修完成后，重新打开当前审片链接查看新版本。"
+            }
+          }
+        }
+      },
+      "webhookId": "vibe-knowledge-video-review-r1",
+      "notesInFlow": true,
+      "notes": "打开预览节点输出 review_url；此链接只适用于本轮。逐项审片后再通过。"
+    },
+    {
+      "id": "vibe-review-form-r2",
+      "name": "人工审片 · 返修一版",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        480,
+        200
+      ],
+      "parameters": {
+        "resume": "form",
+        "incomingAuthentication": "none",
+        "formTitle": "={{ \"知识视频审片 · 第 \" + $json.revision + \" 版\" }}",
+        "formDescription": "={{ $json.review_html }}",
+        "formFields": {
+          "values": [
+            {
+              "fieldType": "hiddenField",
+              "fieldName": "run_id",
+              "fieldValue": "={{ $json.run_id }}"
+            },
+            {
+              "fieldType": "hiddenField",
+              "fieldName": "expected_revision",
+              "fieldValue": "={{ String($json.revision) }}"
+            },
+            {
+              "fieldLabel": "审核决定",
+              "fieldType": "dropdown",
+              "requiredField": true,
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "通过并渲染全片"
+                  },
+                  {
+                    "option": "返修后重新预览"
+                  },
+                  {
+                    "option": "取消本次制作"
+                  }
+                ]
+              }
+            },
+            {
+              "fieldLabel": "审片意见",
+              "fieldType": "textarea",
+              "placeholder": "记录节奏、声音、画面、字幕问题。意见会保存；具体配音和字幕修改请填下方。"
+            },
+            {
+              "fieldLabel": "配音段落 ID（返修时填写）",
+              "fieldType": "text",
+              "placeholder": "从上方段落清单复制准确 ID"
+            },
+            {
+              "fieldLabel": "替换后的整段配音文本",
+              "fieldType": "textarea",
+              "placeholder": "替换一个完整段落，保持已分配的时间窗口。不是一句一句重新起腔。"
+            },
+            {
+              "fieldLabel": "字幕修改 JSON（可选）",
+              "fieldType": "textarea",
+              "placeholder": "[{\"index\":0,\"zh\":\"中文字幕\",\"en\":\"English subtitle\"}]"
+            }
+          ]
+        },
+        "responseMode": "onReceived",
+        "limitWaitTime": false,
+        "options": {
+          "webhookSuffix": "review-r2",
+          "appendAttribution": false,
+          "respondWithOptions": {
+            "values": {
+              "respondWith": "text",
+              "formSubmittedText": "已提交。请回到 n8n 执行画布查看处理进度；返修完成后，重新打开当前审片链接查看新版本。"
+            }
+          }
+        }
+      },
+      "webhookId": "vibe-knowledge-video-review-r2",
+      "notesInFlow": true,
+      "notes": "打开预览节点输出 review_url；此链接只适用于本轮。逐项审片后再通过。"
+    },
+    {
+      "id": "vibe-review-form-r3",
+      "name": "人工审片 · 返修二版",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        480,
+        380
+      ],
+      "parameters": {
+        "resume": "form",
+        "incomingAuthentication": "none",
+        "formTitle": "={{ \"知识视频审片 · 第 \" + $json.revision + \" 版\" }}",
+        "formDescription": "={{ $json.review_html }}",
+        "formFields": {
+          "values": [
+            {
+              "fieldType": "hiddenField",
+              "fieldName": "run_id",
+              "fieldValue": "={{ $json.run_id }}"
+            },
+            {
+              "fieldType": "hiddenField",
+              "fieldName": "expected_revision",
+              "fieldValue": "={{ String($json.revision) }}"
+            },
+            {
+              "fieldLabel": "审核决定",
+              "fieldType": "dropdown",
+              "requiredField": true,
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "通过并渲染全片"
+                  },
+                  {
+                    "option": "返修后重新预览"
+                  },
+                  {
+                    "option": "取消本次制作"
+                  }
+                ]
+              }
+            },
+            {
+              "fieldLabel": "审片意见",
+              "fieldType": "textarea",
+              "placeholder": "记录节奏、声音、画面、字幕问题。意见会保存；具体配音和字幕修改请填下方。"
+            },
+            {
+              "fieldLabel": "配音段落 ID（返修时填写）",
+              "fieldType": "text",
+              "placeholder": "从上方段落清单复制准确 ID"
+            },
+            {
+              "fieldLabel": "替换后的整段配音文本",
+              "fieldType": "textarea",
+              "placeholder": "替换一个完整段落，保持已分配的时间窗口。不是一句一句重新起腔。"
+            },
+            {
+              "fieldLabel": "字幕修改 JSON（可选）",
+              "fieldType": "textarea",
+              "placeholder": "[{\"index\":0,\"zh\":\"中文字幕\",\"en\":\"English subtitle\"}]"
+            }
+          ]
+        },
+        "responseMode": "onReceived",
+        "limitWaitTime": false,
+        "options": {
+          "webhookSuffix": "review-r3",
+          "appendAttribution": false,
+          "respondWithOptions": {
+            "values": {
+              "respondWith": "text",
+              "formSubmittedText": "已提交。请回到 n8n 执行画布查看处理进度；返修完成后，重新打开当前审片链接查看新版本。"
+            }
+          }
+        }
+      },
+      "webhookId": "vibe-knowledge-video-review-r3",
+      "notesInFlow": true,
+      "notes": "打开预览节点输出 review_url；此链接只适用于本轮。逐项审片后再通过。"
+    },
+    {
+      "id": "vibe-review-overflow",
+      "name": "达到返修上限",
+      "type": "n8n-nodes-base.stopAndError",
+      "typeVersion": 1,
+      "position": [
+        480,
+        600
+      ],
+      "parameters": {
+        "errorType": "errorMessage",
+        "errorMessage": "已超过两轮返修。请回到片目源文件完成结构调整，再发起新的制作。"
+      }
+    },
+    {
+      "id": "vibe-review",
+      "name": "登记审核与版本",
+      "type": "CUSTOM.vibeVideo",
+      "typeVersion": 1,
+      "position": [
+        720,
+        180
+      ],
+      "parameters": {
+        "operation": "review",
+        "referenceRunId": "={{ $items(\"混音与画面预览\", 0, $runIndex)[0].json.run_id }}",
+        "referenceRevision": "={{ $items(\"混音与画面预览\", 0, $runIndex)[0].json.revision }}",
+        "referenceBridgeUrl": "={{ $items(\"混音与画面预览\", 0, $runIndex)[0].json.bridge_url }}"
+      }
+    },
+    {
+      "id": "vibe-route",
+      "name": "审核分流",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        960,
+        180
+      ],
+      "parameters": {
+        "mode": "rules",
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "decision-approve",
+                    "leftValue": "={{ $json.decision }}",
+                    "rightValue": "approve",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "通过 → 全片渲染"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "decision-revise",
+                    "leftValue": "={{ $json.decision }}",
+                    "rightValue": "revise",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "返修 → 配音与预览"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "decision-cancel",
+                    "leftValue": "={{ $json.decision }}",
+                    "rightValue": "cancel",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "取消 → 保留结果"
+            }
+          ]
+        },
+        "options": {}
+      }
+    },
+    {
+      "id": "vibe-render",
+      "name": "全片渲染",
+      "type": "CUSTOM.vibeVideo",
+      "typeVersion": 1,
+      "position": [
+        1200,
+        60
+      ],
+      "parameters": {
+        "operation": "stage",
+        "stage": "render"
+      }
+    },
+    {
+      "id": "vibe-finalize",
+      "name": "封装与技术验收",
+      "type": "CUSTOM.vibeVideo",
+      "typeVersion": 1,
+      "position": [
+        1440,
+        60
+      ],
+      "parameters": {
+        "operation": "stage",
+        "stage": "finalize"
+      }
+    },
+    {
+      "id": "vibe-result",
+      "name": "查看最终成片",
+      "type": "CUSTOM.vibeVideo",
+      "typeVersion": 1,
+      "position": [
+        1680,
+        60
+      ],
+      "parameters": {
+        "operation": "result"
+      }
+    },
+    {
+      "id": "vibe-cancel",
+      "name": "已取消 · 保留已有版本",
+      "type": "CUSTOM.vibeVideo",
+      "typeVersion": 1,
+      "position": [
+        1200,
+        400
+      ],
+      "parameters": {
+        "operation": "result"
+      }
+    },
+    {
+      "id": "vibe-help",
+      "name": "使用说明",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -1020,
+        -380
+      ],
+      "parameters": {
+        "content": "## 知识视频 · 第一条可审片生产线\n1. 在「本期参数」选择已有片目，设置 0–30 秒短片范围。默认 phantom-jam。\n2. 点击 Execute workflow，看配音、预览节点逐步运行。\n3. 节点输出 Binary 可直接看图、听配音、播短片；JSON 的 artifacts.player 是全片实时播放器。\n4. 到人工审片时打开 review_url。通过才渲染全片；返修会保留旧版并再次预览。\n5. 最后从 artifacts.final_video 打开成片。\n\n本机服务与素材均保存在本地；此工作流不自动发送飞书、不发布作品。",
+        "height": 390,
+        "width": 660,
+        "color": 5
+      }
+    },
+    {
+      "id": "vibe-boundary",
+      "name": "范围与返修边界",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -300,
+        -380
+      ],
+      "parameters": {
+        "content": "## 这次跑通什么\n已有选题/剧本/动画 → 独立版本 → 云健段落配音 → 固定音乐混音 → 预览 → 人工审核 → 渲染 → 技术检查。\n\n## 还需要人完成什么\n新选题、资料核查、故事、分镜、动画和美术仍在现有项目中完成；不是输入一句话自动创作成片。\n\n## 返修不会遗漏字幕\n审核页可明确替换一个配音段落，并单独提交字幕 JSON。配音改稿不会自动同步字幕/动画；仅填意见只保存意见，默认最多返修两轮。\n技术验收不能证明叙事或画面质量。",
+        "height": 390,
+        "width": 660,
+        "color": 4
+      }
+    },
+    {
+      "id": "vibe-ops",
+      "name": "运行与中断",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        420,
+        -440
+      ],
+      "parameters": {
+        "content": "## 版本与停止\n每次执行建立独立版本。返修保存上一版，旧审片表单不能通过新版本。\n配音/渲染期间按 n8n Stop 会请求桥接取消任务；失败节点展开看错误与日志。\n重试相同执行、节点、版本会复用幂等任务；新执行会新建版本。\n\n## 测试入口\n发布后可本机 POST /webhook/vibe-knowledge-video，body 可带 source_slug、preview_start、preview_end。测试入口同样必须人工审核，不能跳过审核。\n大母版只留本地链接，避免塞进 n8n 执行数据库。",
+        "height": 350,
+        "width": 660,
+        "color": 6
+      }
+    }
+  ],
+  "connections": {
+    "手动开始": {
+      "main": [
+        [
+          {
+            "node": "本期参数",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "本机接口开始": {
+      "main": [
+        [
+          {
+            "node": "本期参数",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "本期参数": {
+      "main": [
+        [
+          {
+            "node": "建立独立制作版本",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "建立独立制作版本": {
+      "main": [
+        [
+          {
+            "node": "合成段落配音",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "合成段落配音": {
+      "main": [
+        [
+          {
+            "node": "混音与画面预览",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "混音与画面预览": {
+      "main": [
+        [
+          {
+            "node": "选择当前审片版本",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "选择当前审片版本": {
+      "main": [
+        [
+          {
+            "node": "人工审片 · 首版",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "人工审片 · 返修一版",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "人工审片 · 返修二版",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "达到返修上限",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "人工审片 · 首版": {
+      "main": [
+        [
+          {
+            "node": "登记审核与版本",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "人工审片 · 返修一版": {
+      "main": [
+        [
+          {
+            "node": "登记审核与版本",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "人工审片 · 返修二版": {
+      "main": [
+        [
+          {
+            "node": "登记审核与版本",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "登记审核与版本": {
+      "main": [
+        [
+          {
+            "node": "审核分流",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "审核分流": {
+      "main": [
+        [
+          {
+            "node": "全片渲染",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "合成段落配音",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "已取消 · 保留已有版本",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "全片渲染": {
+      "main": [
+        [
+          {
+            "node": "封装与技术验收",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "封装与技术验收": {
+      "main": [
+        [
+          {
+            "node": "查看最终成片",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1",
+    "saveExecutionProgress": true,
+    "saveManualExecutions": true,
+    "saveDataErrorExecution": "all",
+    "saveDataSuccessExecution": "all",
+    "timezone": "Asia/Shanghai"
+  }
+}
