@@ -11,4 +11,5 @@ videos/smoke-template/
 .env.*
 !.env.example
 .local/
+# Historical experiment copies are retained locally, outside the reusable source.
 videos/n8n-*/
