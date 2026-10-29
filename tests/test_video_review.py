@@ -1,4 +1,5 @@
 import copy
+from contextlib import nullcontext
 import io
 import math
 from pathlib import Path
@@ -10,7 +11,7 @@ import wave
 
 import numpy as np
 
-from tools import video_review as quality
+from tools import video_review as quality, visual_review
 from tools.narration import cue_signature
 from tools.project import write_json
 
@@ -211,6 +212,13 @@ class AnimaticIntegrationTests(unittest.TestCase):
                 self.assertEqual(24, excerpt['frames'])
                 self.assertEqual('not_performed', excerpt['subjective_listening'])
                 self.assertEqual(before, (folder / 'film.json').read_bytes())
+                # Consume actual renderer reports, checking the frame-hash contract end to end.
+                visual_signature = quality.render.visual_source_signature(folder, config)
+                draft = visual_review.prepare_review(folder, config, visual_signature, [
+                    'build/animatic/review/layout_audit.json',
+                    'build/samples/000030-000054/review/layout_audit.json'])
+                self.assertEqual(2, len(quality.read_json(draft)['evidence_reports']))
+                self.assertFalse(visual_review.validate_review(folder, config, visual_signature)['ok'])
                 sample_path = folder / excerpt['sample']
                 picture = quality.subprocess.run(['ffmpeg', '-v', 'error', '-i', str(sample_path),
                     '-frames:v', '1', '-f', 'image2pipe', '-vcodec', 'png', '-'],
@@ -278,6 +286,8 @@ class FinalAudioGateTests(unittest.TestCase):
             write_json(review / 'validation.json', {'all_technical_checks_pass': True})
             config = {'production_ready': True}
             with patch.object(quality, 'load', return_value=(folder, config, {})), \
+                    patch.object(quality.render, 'visual_source_signature', return_value='fixture'), \
+                    patch.object(quality, 'require_visual_review', return_value={'ok': True}), \
                     patch.object(quality, 'read_shots', return_value=([], {'ok': True})), \
                     patch.object(quality, 'mix_with_receipt') as mixer, \
                     patch.object(quality, 'audio_audit', return_value={'ok': True, 'errors': []}) as audit, \
@@ -295,6 +305,97 @@ class FinalAudioGateTests(unittest.TestCase):
                 with self.assertRaisesRegex(ValueError, 'Final audio audit'):
                     quality.finalize('test-episode')
                 command.assert_not_called()
+
+
+class FinalPreviewPreservationTests(unittest.TestCase):
+    def setUp(self):
+        temporary = tempfile.TemporaryDirectory(prefix='vibe-final-preview-')
+        self.addCleanup(temporary.cleanup)
+        self.folder = Path(temporary.name)
+        self.review = self.folder / 'build/review'
+        self.review.mkdir(parents=True)
+        self.path = self.review / 'layout_audit.json'
+        self.config = {'production_ready': True, 'preview_times': [0, 1]}
+        self.plan = {'duration': 3, 'frames': 90, 'fps': 30, 'impact_frame': 30}
+        self.times = [0.0, 1.2333333333333334, 2.433333333333333]
+        self.layout = {
+            'source_sha256': 'current-encoded', 'visual_source_sha256': 'current-visual',
+            'layout_issue_frames': 0,
+            'frames': [{'time': seconds, 'file': f'{index}.png', 'sha256': str(index)}
+                       for index, seconds in enumerate(self.times)],
+        }
+
+    def test_current_reviewed_layout_does_not_trigger_any_preview(self):
+        write_json(self.path, self.layout)
+        before = self.path.read_bytes()
+        with patch.object(quality, 'configured_renderer', return_value=nullcontext()), \
+                patch.object(quality.render, 'source_signature', return_value='current-encoded'), \
+                patch.object(quality.render, 'visual_source_signature', return_value='current-visual'), \
+                patch.object(quality.render, 'preview') as preview, \
+                patch.object(quality.subprocess, 'run') as command:
+            quality.ensure_final_preview('example', self.folder, self.config, self.plan)
+            preview.assert_not_called()
+            command.assert_not_called()
+        self.assertEqual(before, self.path.read_bytes())
+
+    def test_production_flag_refresh_preserves_the_exact_reviewed_extra_times(self):
+        previous = {**self.layout, 'source_sha256': 'before-production-flag'}
+        write_json(self.path, previous)
+
+        def refresh(times):
+            self.assertEqual(self.times, times)
+            write_json(self.path, {**previous, 'source_sha256': 'current-encoded'})
+
+        with patch.object(quality, 'configured_renderer', return_value=nullcontext()), \
+                patch.object(quality.render, 'source_signature', return_value='current-encoded'), \
+                patch.object(quality.render, 'visual_source_signature', return_value='current-visual'), \
+                patch.object(quality.render, 'preview', side_effect=refresh) as preview, \
+                patch.object(quality.subprocess, 'run') as command:
+            quality.ensure_final_preview('example', self.folder, self.config, self.plan)
+            preview.assert_called_once_with(self.times)
+            command.assert_not_called()
+        self.assertEqual(previous['frames'], quality.read_json(self.path)['frames'])
+
+    def test_missing_stale_or_failed_layout_uses_default_preview(self):
+        cases = [None,
+                 {**self.layout, 'source_sha256': 'old-encoded', 'visual_source_sha256': 'old-visual'},
+                 {**self.layout, 'layout_issue_frames': 1}]
+        for layout in cases:
+            with self.subTest(layout=layout):
+                if layout is None:
+                    self.path.unlink(missing_ok=True)
+                else:
+                    write_json(self.path, layout)
+                with patch.object(quality, 'configured_renderer', return_value=nullcontext()), \
+                        patch.object(quality.render, 'source_signature', return_value='current-encoded'), \
+                        patch.object(quality.render, 'visual_source_signature', return_value='current-visual'), \
+                        patch.object(quality.render, 'preview') as preview, \
+                        patch.object(quality.subprocess, 'run') as command:
+                    quality.ensure_final_preview('example', self.folder, self.config, self.plan)
+                    preview.assert_not_called()
+                    command.assert_called_once()
+                    self.assertEqual(['preview', 'example'], command.call_args.args[0][2:])
+
+    def test_final_pipeline_keeps_reviewed_extra_times_instead_of_default_preview(self):
+        write_json(self.path, self.layout)
+        write_json(self.review / 'validation.json', {'all_technical_checks_pass': True})
+        before = self.path.read_bytes()
+        with patch.object(quality, 'load', return_value=(self.folder, self.config, self.plan)), \
+                patch.object(quality, 'configured_renderer', return_value=nullcontext()), \
+                patch.object(quality.render, 'source_signature', return_value='current-encoded'), \
+                patch.object(quality.render, 'visual_source_signature', return_value='current-visual'), \
+                patch.object(quality.render, 'preview') as preview, \
+                patch.object(quality, 'require_visual_review', return_value={'ok': True}), \
+                patch.object(quality, 'read_shots', return_value=([], {'ok': True})), \
+                patch.object(quality, 'mix_with_receipt'), \
+                patch.object(quality, 'audio_audit', return_value={'ok': True, 'errors': []}), \
+                patch.object(quality, 'final_evidence'), \
+                patch.object(quality.subprocess, 'run') as command:
+            self.assertTrue(quality.finalize('example')['all_technical_checks_pass'])
+            preview.assert_not_called()
+            self.assertEqual(['render', 'finalize'],
+                             [call.args[0][2] for call in command.call_args_list])
+        self.assertEqual(before, self.path.read_bytes())
 
 
 if __name__ == '__main__':

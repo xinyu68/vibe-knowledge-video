@@ -19,6 +19,7 @@ from .finalize import probe
 from .mix import mix
 from .narration import cue_signature, settings as narration_settings
 from .project import ROOT, load, music_path, read_json, write_json
+from .visual_review import require_visual_review
 
 SHOT_FIELDS = ('scene', 'subject', 'action', 'cause', 'result', 'new_information',
                'composition', 'transition')
@@ -502,10 +503,27 @@ def final_evidence(folder, config, plan, shots):
     return manifest
 
 
+def ensure_final_preview(slug, folder, config, plan):
+    """Keep reviewed extra sample times when refreshing the production flag."""
+    out = folder / config.get('output', 'build')
+    path = out / 'review/layout_audit.json'
+    if path.is_file():
+        layout = read_json(path)
+        with configured_renderer(folder, config, plan, out):
+            if layout.get('layout_issue_frames') == 0:
+                if layout.get('source_sha256') == render.source_signature():
+                    return
+                if layout.get('visual_source_sha256') == render.visual_source_signature():
+                    render.preview([entry['time'] for entry in layout['frames']])
+                    return
+    subprocess.run([sys.executable, str(ROOT / 'vibe.py'), 'preview', slug], cwd=ROOT, check=True)
+
+
 def finalize(slug, jobs=2):
     folder, config, plan = load(slug)
     if not config.get('production_ready'):
         raise ValueError('Creative review must approve the current version before final production')
+    require_visual_review(folder, config, render.visual_source_signature(folder, config))
     shots, report = read_shots(folder, config, plan)
     if not report['ok']:
         raise ValueError('Shot timing is invalid: ' + '; '.join(report['errors']))
@@ -516,7 +534,8 @@ def finalize(slug, jobs=2):
     write_json(review / 'audio-audit.json', audio)
     if not audio['ok']:
         raise ValueError('Final audio audit failed: ' + '; '.join(audio['errors']))
-    for arguments in [('preview', slug), ('render', slug, '--jobs', str(jobs)), ('finalize', slug)]:
+    ensure_final_preview(slug, folder, config, plan)
+    for arguments in [('render', slug, '--jobs', str(jobs)), ('finalize', slug)]:
         subprocess.run([sys.executable, str(ROOT / 'vibe.py'), *arguments], cwd=ROOT, check=True)
     final_evidence(folder, config, plan, shots)
     return read_json(folder / config.get('output', 'build') / 'review/validation.json')

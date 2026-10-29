@@ -18,7 +18,7 @@
 
 想换题目，替换引号中的问题即可。每条片会创建独立目录，重新创作故事、字幕和场景。制作流程是：
 
-> 认识、证据与故事 → 文案、音乐结构与实测配音 → 镜头设计与关键动作短样段 → 完整混音粗剪 → 全片复查与返修 → 精做、渲染及成片检查 → 完整 MP4
+> 认识、证据与故事 → 文案、音乐结构与实测配音 → 镜头设计与关键样段 → 专项视觉审核、返工后扩展镜头 → 完整混音粗剪 → 全片复查与返修 → 精做、渲染及成片检查 → 完整 MP4
 
 默认成片保存在 `videos/<主题目录>/build/final_video.mp4`。如果助手未打开本项目，把你实际克隆的目录告诉它即可。项目可以放在任意电脑和目录。
 
@@ -31,6 +31,8 @@
 先与当前会话讨论选题和大体思路，确认后由同一会话直接负责研究、文案、配音、分镜、动画、复查和交付。当前版本不依赖 n8n，不自动拆分制作 Agent；制作规范和逐项自查继续保留。
 
 沿用原有本地 CLI；可选的[本地粗剪与检查工具](docs/本地粗剪与检查.md)能够导出带声音的关键短样段、完整混音的全片粗剪、镜头总览和检查记录。画面质量、人物动作及叙事节奏由当前会话实际检查，技术报告不能替代创作判断。
+
+所有题材都须完成[专项视觉审核](docs/视觉参考与样段.md#专项视觉审核与放行)：检查主体结构、接触、遮挡、构图和动作，有人物时另查人体结构。工具生成未审草稿并校验记录、证据与版本，正式整片 `render/finalize` 不接受仅有 `production_ready=true` 的影片。未审或需返工时仍可生成预览、短样段和粗剪。审核由当前会话实际执行，不增加用户逐项审批，也不自动给画面打分。
 
 ## 快速运行
 
@@ -71,7 +73,9 @@ macOS/Linux 可使用 `python3 bootstrap.py`。初始化会创建项目虚拟环
 python vibe.py check phantom-jam
 python vibe.py mix phantom-jam
 python vibe.py preview phantom-jam
-# 实际查看预览和动作序列，修正问题后再继续
+python -m tools.visual_review prepare phantom-jam --evidence build/review/layout_audit.json
+# 实际检查并填写 build/review/visual-review.json；需返工则先修正、重建证据
+python -m tools.visual_review check phantom-jam
 python vibe.py render phantom-jam --jobs 4
 python vibe.py finalize phantom-jam
 ```
@@ -104,11 +108,14 @@ python .\vibe.py serve missing-planes
 需要了解完整渲染步骤时，可重建这个示例：
 
 ```powershell
+python -m tools.visual_review prepare missing-planes --evidence build-voiceover-stable/review/layout_audit.json
+# 实际检查并填写 build-voiceover-stable/review/visual-review.json
+python -m tools.visual_review check missing-planes
 python .\vibe.py render missing-planes --jobs 4
 python .\vibe.py finalize missing-planes
 ```
 
-当前示例成片位于 `videos/missing-planes/build-voiceover-stable/final_video.mp4`，按 `film.json.output` 决定。正式渲染前需已有与当前源码匹配且无越界问题的预览；查看预览图片和动作序列后再执行。`finalize` 会重做混音、合成、全片解码、时长和同步检查，并生成成片抽帧。报告通过后仍须查看抽帧、核对实际动作与试听。`build/` 和 `build-*/` 为本机生成物，不上传 GitHub；新电脑需执行上方命令重建，`reference/` 中的是历史参考片。
+当前示例成片位于 `videos/missing-planes/build-voiceover-stable/final_video.mp4`，按 `film.json.output` 决定。正式渲染前需已有与当前源码匹配且无越界问题的预览及通过的专项视觉审核记录。旧片不自动补通过，既有媒体保留；准备新一轮审核用 `prepare --replace` 备份旧记录并重置为未审。`finalize` 会重做混音、合成、全片解码、时长和同步检查，并生成成片抽帧。报告通过后仍须查看抽帧、核对实际动作与试听。`build/` 和 `build-*/` 为本机生成物，不上传 GitHub；新电脑需执行上方命令重建，`reference/` 中的是历史参考片。
 
 ## 开始新选题
 
@@ -118,7 +125,7 @@ python .\vibe.py new sunk-cost --title '舍不得' --topic '沉没成本' --narr
 
 此命令创建 `videos/sunk-cost/` 的带配音待制作骨架，默认使用已打包音乐、云健中文声音和稳定配乐。依次完成 `brief.md`、`research.md`、`storyboard.md`，使用 `visual-review.md` 记录镜头总览、粗剪和全片审片；在 `plan.json` 填字幕，在 `narration.json` 填本期旁白与时间窗，在 `scenes.js` 创作主题动画，在 `film.json` 调整音效与检查时点。`plan.js` 由工具同步。新骨架的 `cues` 为空，必须写正文后才能合成或混音；不能直接当成成片。不带 `--narrated` 仍可创建兼容的无口播骨架。
 
-骨架默认 `production_ready=false`，只能作为创作起点，不能直接渲染完整成片。先合成配音，按实测时长修正文案和动作；完成内容与动画后再改为 true，执行 `mix → preview → 看图修正 → render → finalize → 看图和试听 → 交付`。新音源需先执行 `analyze-music` 并重新制定时间轴；不自动套用 17 秒。生成新旁白的方法见下方配音章节。
+骨架默认 `production_ready=false`，只能作为创作起点，不能直接渲染完整成片。先合成配音，按实测时长修正文案和动作；样段经专项视觉审核后再铺开全片。内容与动画完成后设为 true，执行 `mix → preview → 准备并实际完成当前版本视觉审核 → render → finalize → 看图和试听 → 交付`。审核命令及六项判断见[视觉参考与样段](docs/视觉参考与样段.md#专项视觉审核与放行)。新音源需先执行 `analyze-music` 并重新制定时间轴；不自动套用 17 秒。生成新旁白的方法见下方配音章节。
 
 ## 文件结构
 

@@ -8,6 +8,7 @@ import subprocess
 import sys
 
 from tools.project import ROOT, load, music_path, read_json, video_path, write_json
+from tools.visual_review import require_visual_review
 
 sys.stdout.reconfigure(encoding='utf-8')
 sys.stderr.reconfigure(encoding='utf-8')
@@ -56,6 +57,7 @@ def require_review(render, config):
     audit = read_json(render.OUT/'review/layout_audit.json')
     if audit['source_sha256'] != render.source_signature() or audit['layout_issue_frames']:
         raise ValueError('先对当前源码运行 preview 并修复文字越界，再进行完整渲染')
+    require_visual_review(render.ROOT, config, render.visual_source_signature())
 
 
 def main():

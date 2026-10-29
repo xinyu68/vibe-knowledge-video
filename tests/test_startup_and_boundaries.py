@@ -69,7 +69,12 @@ class FrameBoundaryTests(unittest.TestCase):
                             str(out / 'picture.mp4')], check=True)
             t = np.arange(10 * mix.SR) / mix.SR
             narration.save_wave(out / 'soundtrack.wav', .2 * np.sin(2 * np.pi * (220 * t + 15 * t * t)))
-            finalizer.finalize(folder, config, plan, 'fixture')
+            # This fixture exercises real codec/frame extraction. The separate visual-review
+            # contract tests cover creative review; no real episode is being approved here.
+            with patch.object(finalizer, 'visual_source_signature', return_value='fixture'), \
+                    patch.object(finalizer, 'require_visual_review', return_value={
+                        'ok': True, 'status': 'not_applicable', 'scope': 'technical_fixture'}):
+                finalizer.finalize(folder, config, plan, 'fixture')
             report = json.loads((review / 'validation.json').read_text(encoding='utf-8'))
             self.assertTrue(report['all_technical_checks_pass'])
             self.assertEqual([0, 299], [entry['frame'] for entry in report['encoded_frames']])

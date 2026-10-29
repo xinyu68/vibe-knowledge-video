@@ -43,6 +43,25 @@ def source_signature():
     return digest.hexdigest()
 
 
+def visual_source_signature(folder=None, config=None):
+    """Bind visual review to sources, ignoring only the production-state switch."""
+    root = Path(folder) if folder is not None else ROOT
+    names = SOURCE_NAMES if config is None else config['sources'] + [
+        'film.json', '../../assets/fonts/NotoSerifSC-VF.ttf',
+        '../../assets/fonts/Lora.ttf', '../../assets/fonts/Lora-Italic.ttf']
+    digest = hashlib.sha256()
+    for name in names:
+        data = (root / name).read_bytes()
+        if name == 'film.json':
+            value = json.loads(data.decode('utf-8-sig'))
+            value.pop('production_ready', None)
+            data = json.dumps(value, ensure_ascii=False, sort_keys=True,
+                              separators=(',', ':')).encode('utf-8')
+        digest.update(name.encode('utf-8'))
+        digest.update(data)
+    return digest.hexdigest()
+
+
 def server():
     srv = http.server.ThreadingHTTPServer(
         ('127.0.0.1', 0), functools.partial(QuietHandler, directory=str(HTTP_ROOT)))
@@ -121,6 +140,7 @@ def preview(times=None):
     dest.mkdir(parents=True, exist_ok=True)
     times = list(TIMES if times is None else times)
     signature = source_signature()
+    visual_signature = visual_source_signature()
     srv, url = server()
     entries, issues = [], []
     try:
@@ -132,9 +152,11 @@ def preview(times=None):
                 for seconds in times:
                     seconds = frame_index(seconds, FPS, FRAMES) / FPS
                     filename = f'{seconds:010.6f}.png'
-                    (dest / filename).write_bytes(frame_bytes(page, seconds))
+                    picture = frame_bytes(page, seconds)
+                    (dest / filename).write_bytes(picture)
                     result = page.evaluate('(t) => window.audit(t)', seconds)
-                    entries.append({'time': seconds, 'file': filename, 'audit': result})
+                    entries.append({'time': seconds, 'file': filename, 'audit': result,
+                                    'sha256': hashlib.sha256(picture).hexdigest()})
                     if result:
                         issues.append({'time': seconds, 'audit': result})
                 transition_ranges = MOTION_RANGES
@@ -144,7 +166,8 @@ def preview(times=None):
                     images = [Image.open(io.BytesIO(frame_bytes(page, t))).convert('RGB') for t in moments]
                     filename = f'transition_{name}.jpg'
                     make_sheet(images, moments, dest / filename, 4)
-                    strips.append({'file': filename, 'times': moments})
+                    strips.append({'file': filename, 'times': moments,
+                                   'sha256': hashlib.sha256((dest / filename).read_bytes()).hexdigest()})
             finally:
                 browser.close()
     finally:
@@ -154,7 +177,10 @@ def preview(times=None):
     for index in range(math.ceil(len(images) / 12)):
         make_sheet(images[index * 12:(index + 1) * 12], times[index * 12:(index + 1) * 12],
                    dest / f'overview_{index + 1}.jpg')
-    report = {'source_sha256': signature, 'sampled_frames': len(entries),
+    if signature != source_signature():
+        raise ValueError('Source changed during preview; rerun before visual review')
+    report = {'source_sha256': signature, 'visual_source_sha256': visual_signature,
+              'sampled_frames': len(entries),
               'layout_issue_frames': len(issues), 'issues': issues, 'frames': entries,
               'transition_strips': strips,
               'limitations': 'Geometry audit is not a visual overlap or legibility judgment; images require review.'}

@@ -7,7 +7,8 @@ import numpy as np
 from PIL import Image
 
 from .project import frame_index, project_reference, read_json, write_json
-from .render import make_sheet
+from .render import make_sheet, visual_source_signature
+from .visual_review import require_visual_review
 
 
 def run(arguments, **kwargs):
@@ -59,6 +60,7 @@ def finalize(folder, config, plan, signature):
         raise ValueError('预览仍有文字几何越界问题')
     if not config.get('production_ready'):
         raise ValueError('仍是制作骨架，完成内容与场景后才能交付成片')
+    visual_review = require_visual_review(folder, config, visual_source_signature(folder, config))
     target = out / 'final_video.mp4'
     run(['ffmpeg', '-v', 'error', '-y', '-i', str(picture), '-i', str(soundtrack), '-map',
          '0:v:0', '-map', '1:a:0', '-c:v', 'copy', '-c:a', 'aac', '-b:a', '256k', '-ar',
@@ -107,6 +109,7 @@ def finalize(folder, config, plan, signature):
         r'black_start:([\d.]+)\s+black_end:([\d.]+)\s+black_duration:([\d.]+)', decoded.stderr)]
     result = {'output': project_reference(target), 'paths_relative_to': 'project_root',
               'checks': checks, 'all_technical_checks_pass': all(checks.values()),
+              'visual_review_declaration': visual_review,
               'video_duration': float(video['duration']), 'audio_duration': float(audio['duration']),
               'loudness': loudness, 'audio_mux_sync': synchronization, 'encoded_frames': entries,
               'near_total_black_intervals': black,
