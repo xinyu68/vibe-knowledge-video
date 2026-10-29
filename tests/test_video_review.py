@@ -1,4 +1,5 @@
 import copy
+import io
 import math
 from pathlib import Path
 import shutil
@@ -70,6 +71,15 @@ class ShotContractTests(unittest.TestCase):
         for current in self.shots:
             self.assertTrue(set(quality.shot_times(current, self.plan)) <= set(samples))
         self.assertTrue(all(0 <= value < self.plan['duration'] for value in samples))
+
+    def test_short_sample_range_rounds_outward_and_rejects_invalid_windows(self):
+        self.assertEqual((30, 54), quality.sample_range(self.plan, 1.01, 1.79))
+        self.assertEqual((4770, 4778), quality.sample_range(self.plan, 159, 159.25))
+        for start, end in [(None, 4), (0, None), (-1, 4), (4, 4), (4, 2),
+                           (0, 160), (float('nan'), 4), (False, 4)]:
+            with self.subTest(start=start, end=end):
+                with self.assertRaises(ValueError):
+                    quality.sample_range(self.plan, start, end)
 
 
 class AudioEvidenceTests(unittest.TestCase):
@@ -173,7 +183,16 @@ class AnimaticIntegrationTests(unittest.TestCase):
             shots = [shot(f'view{index + 1}', index * duration / 10, (index + 1) * duration / 10)
                      for index in range(10)]
             write_json(folder / 'shots.json', shots)
-            wave_file(folder / 'music.wav', duration)
+            # Two distinct tones make an accidental audio restart detectable in a later excerpt.
+            rate = 44100
+            times = np.arange(round(duration * rate)) / rate
+            frequency = np.where(times < .8, 230, 680)
+            tone = .15 * np.sin(np.cumsum(frequency) * 2 * np.pi / rate)
+            with wave.open(str(folder / 'music.wav'), 'wb') as stream:
+                stream.setnchannels(1)
+                stream.setsampwidth(2)
+                stream.setframerate(rate)
+                stream.writeframes(np.rint(tone * 32767).astype('<i2').tobytes())
             (folder / 'index.html').write_text('''<!doctype html><canvas id="stage" width="1920" height="1080"></canvas>
                 <script>const ctx=document.getElementById('stage').getContext('2d');
                 window.render=t=>{ctx.fillStyle='#07121c';ctx.fillRect(0,0,1920,1080);
@@ -184,6 +203,29 @@ class AnimaticIntegrationTests(unittest.TestCase):
             with patch.object(quality, 'ROOT', root), patch.object(quality, 'load', return_value=(folder, config, plan)):
                 manifest = quality.build_animatic('smoke', jobs=1)
                 self.assertTrue(quality.audio_audit(folder, config, plan)['ok'])
+                # An early action excerpt does not require a completed whole-film shot table.
+                (folder / 'shots.json').unlink()
+                excerpt = quality.build_sample('smoke', 1.01, 1.79, jobs=1)
+                self.assertTrue(excerpt['all_media_checks_pass'], excerpt)
+                self.assertEqual((30, 54), (excerpt['start_frame'], excerpt['end_frame_exclusive']))
+                self.assertEqual(24, excerpt['frames'])
+                self.assertEqual('not_performed', excerpt['subjective_listening'])
+                self.assertEqual(before, (folder / 'film.json').read_bytes())
+                sample_path = folder / excerpt['sample']
+                picture = quality.subprocess.run(['ffmpeg', '-v', 'error', '-i', str(sample_path),
+                    '-frames:v', '1', '-f', 'image2pipe', '-vcodec', 'png', '-'],
+                    check=True, capture_output=True).stdout
+                pixels = np.asarray(quality.Image.open(io.BytesIO(picture)).convert('RGB'))[400]
+                left = np.flatnonzero((pixels[:, 0] > 150) & (pixels[:, 1] > 120))[0]
+                self.assertLessEqual(abs(left - 500), 3)
+                decoded = quality.subprocess.run(['ffmpeg', '-v', 'error', '-ss', '0.1',
+                    '-i', str(sample_path), '-t', '0.2', '-vn', '-ac', '1', '-ar', '48000',
+                    '-f', 'f32le', '-'], check=True, capture_output=True).stdout
+                samples = np.frombuffer(decoded, dtype='<f4')
+                frequencies = np.fft.rfftfreq(len(samples), 1 / 48000)
+                peak = frequencies[np.argmax(np.abs(np.fft.rfft(samples)))]
+                self.assertLess(abs(peak - 680), 10, 'Excerpt music restarted instead of seeking the original timeline')
+                write_json(folder / 'shots.json', shots)
                 with self.assertRaisesRegex(ValueError, 'Creative review'):
                     quality.finalize('smoke')
                 self.assertFalse((folder / 'build/final_video.mp4').exists())

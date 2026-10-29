@@ -46,13 +46,10 @@ def load(slug):
         path = (folder / config.get(field, {'plan': 'plan.json', 'output': 'build'}.get(field, 'index.html'))).resolve()
         if not path.is_relative_to(folder.resolve()):
             raise ValueError(f'{field} 必须位于视频目录内')
-    js = 'window.FILM_PLAN=' + json.dumps(plan, ensure_ascii=False) + ';\n'
-    path = folder / 'plan.js'
-    if not path.exists() or path.read_text(encoding='utf-8') != js:
-        path.write_text(js, encoding='utf-8')
+    generated = (folder / 'plan.js').resolve()
     for name in config['sources']:
         source = (folder / name).resolve()
-        if not source.is_relative_to(folder.resolve()) or not source.is_file():
+        if not source.is_relative_to(folder.resolve()) or (source != generated and not source.is_file()):
             raise ValueError(f'源文件不在视频目录内或不存在: {name}')
     previous_end = 0.0
     for cue in plan.get('subtitles', []):
@@ -71,6 +68,10 @@ def load(slug):
     for event in config.get('sfx', []):
         if not (0 <= event['time'] < duration and event['duration'] > 0 and 0 <= event['volume'] <= 1):
             raise ValueError(f'音效参数无效: {event}')
+    # Validate first: a rejected edit must not replace the last usable browser plan.
+    js = 'window.FILM_PLAN=' + json.dumps(plan, ensure_ascii=False) + ';\n'
+    if not generated.exists() or generated.read_text(encoding='utf-8') != js:
+        generated.write_text(js, encoding='utf-8')
     return folder, config, plan
 
 

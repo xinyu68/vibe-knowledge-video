@@ -166,7 +166,7 @@ def audio_audit(folder, config, plan):
             if len(measured) != len(data['cues']):
                 errors.append('Narration timing has a different number of paragraphs')
             if data.get('music_mode', 'constant') != 'constant' or timing.get('music_mode') != 'constant':
-                errors.append('Creative-team default requires constant music gain, without sentence ducking')
+                errors.append('Project default requires constant music gain, without sentence ducking')
             bed = mix_report.get('narration', {})
             if bed.get('music_mode') != 'constant' or bed.get('music_envelope_min') != 1 or bed.get('music_envelope_max') != 1:
                 errors.append('Actual mix report does not confirm a constant music envelope')
@@ -312,6 +312,89 @@ def evidence(slug, destination=None):
     return manifest
 
 
+def sample_range(plan, start, end):
+    """Return a half-open frame range on the original timeline, covering the requested seconds."""
+    if not finite(start) or not finite(end) or not 0 <= start < end <= plan['duration']:
+        raise ValueError('Sample requires 0 <= start < end <= plan.duration')
+    fps = plan['fps']
+    return math.floor(start * fps + 1e-8), min(plan['frames'], math.ceil(end * fps - 1e-8))
+
+
+def build_sample(slug, start, end, jobs=2, resume=False):
+    """Render a mixed short excerpt without requiring completed shots or changing production state."""
+    folder, config, plan = load(slug)
+    first, stop = sample_range(plan, start, end)
+    if jobs < 1:
+        raise ValueError('jobs must be positive')
+    original_config = (folder / 'film.json').read_bytes()
+    fps = plan['fps']
+    seconds = (stop - first) / fps
+    destination = folder / config.get('output', 'build') / 'samples' / f'{first:06d}-{stop:06d}'
+    destination.mkdir(parents=True, exist_ok=True)
+    (destination / 'manifest.json').unlink(missing_ok=True)
+    soundtrack = mix_with_receipt(folder, config, plan)
+    audio_report = audio_audit(folder, config, plan)
+    write_json(destination / 'audio-audit.json', audio_report)
+    if not audio_report['ok']:
+        raise ValueError('Sample audio audit failed: ' + '; '.join(audio_report['errors']))
+    audio_hash = sha256(soundtrack)
+    audio_inputs = audio_input_signature(folder, config, plan)
+    frames = {first, (first + stop - 1) // 2, stop - 1}
+    impact = plan.get('impact_frame', -2)
+    frames.update(frame for frame in (impact - 1, impact, impact + 1) if first <= frame < stop)
+    # A local action check must not render unrelated full-film motion strips.
+    with configured_renderer(folder, config, plan, destination):
+        render.MOTION_RANGES = []
+        signature = render.source_signature()
+        render.preview([frame / fps for frame in sorted(frames)])
+        layout = read_json(destination / 'review/layout_audit.json')
+        if layout['layout_issue_frames']:
+            raise ValueError('Sample layout audit failed; inspect saved review frames')
+        render.render(first, stop, jobs, 'sample-picture', resume=resume)
+        if signature != render.source_signature():
+            raise ValueError('Source changed during sample rendering; rerun the current version')
+    target = destination / 'sample.mp4'
+    subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', str(destination / 'sample-picture.mp4'),
+                    '-ss', f'{first / fps:.9f}', '-i', str(soundtrack),
+                    '-map', '0:v:0', '-map', '1:a:0', '-c:v', 'copy',
+                    '-c:a', 'aac', '-b:a', '192k', '-ar', '48000', '-t', f'{seconds:.9f}',
+                    '-movflags', '+faststart', str(target)], check=True)
+    info = probe(target)
+    video = next(stream for stream in info['streams'] if stream['codec_type'] == 'video')
+    audio = next(stream for stream in info['streams'] if stream['codec_type'] == 'audio')
+    expected_audio = min(stop / fps, plan['duration']) - first / fps
+    with configured_renderer(folder, config, plan, destination):
+        current = render.source_signature()
+    if (current != signature or sha256(soundtrack) != audio_hash
+            or audio_input_signature(folder, config, plan) != audio_inputs):
+        raise ValueError('Source or audio changed during sample export; rerun the current version')
+    checks = {'dimensions': (video['width'], video['height']) == (1920, 1080),
+              'fps': video['r_frame_rate'] == '30/1',
+              'frames': int(video.get('nb_frames', 0)) == stop - first,
+              'video_duration': abs(float(video['duration']) - seconds) < .001,
+              'audio_duration': abs(float(audio['duration']) - expected_audio) < .025,
+              'production_flag_unchanged': original_config == (folder / 'film.json').read_bytes()}
+    relative = lambda path: path.relative_to(folder).as_posix()
+    manifest = {'schema_version': 1, 'kind': 'action_sample', 'slug': slug,
+                'created_at': datetime.now(timezone.utc).isoformat(), 'paths_relative_to': 'episode',
+                'requested_start': start, 'requested_end': end,
+                'start_frame': first, 'end_frame_exclusive': stop,
+                'source_start': first / fps, 'source_end': stop / fps,
+                'frames': stop - first, 'fps': fps, 'duration': seconds,
+                'sample': relative(target), 'sample_sha256': sha256(target),
+                'source_sha256': signature, 'audio_sha256': audio_hash,
+                'audio_input_sha256': audio_inputs,
+                'images': [{'source_frame': round(item['time'] * fps), 'source_time': item['time'],
+                            'file': relative(destination / 'review' / item['file'])} for item in layout['frames']],
+                'media_checks': checks, 'all_media_checks_pass': all(checks.values()),
+                'creative_approval': 'not_assessed', 'continuous_visual_review': 'not_performed',
+                'subjective_listening': 'not_performed'}
+    write_json(destination / 'manifest.json', manifest)
+    if not all(checks.values()):
+        raise ValueError('Sample media checks failed; see manifest.json')
+    return manifest
+
+
 def build_animatic(slug, jobs=2, resume=False):
     folder, config, plan = load(slug)
     original_config = (folder / 'film.json').read_bytes()
@@ -441,10 +524,12 @@ def finalize(slug, jobs=2):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('command', choices=['validate', 'mix', 'audio', 'evidence', 'animatic', 'final-evidence', 'finalize'])
+    parser.add_argument('command', choices=['validate', 'mix', 'audio', 'evidence', 'sample', 'animatic', 'final-evidence', 'finalize'])
     parser.add_argument('slug')
     parser.add_argument('--jobs', type=int, default=2)
     parser.add_argument('--resume', action='store_true')
+    parser.add_argument('--start', type=float, help='Sample start in original-film seconds')
+    parser.add_argument('--end', type=float, help='Sample end in original-film seconds')
     args = parser.parse_args()
     try:
         if args.command == 'validate':
@@ -458,6 +543,8 @@ def main():
             result = audio_audit(*load(args.slug))
         elif args.command == 'evidence':
             result = evidence(args.slug)
+        elif args.command == 'sample':
+            result = build_sample(args.slug, args.start, args.end, args.jobs, args.resume)
         elif args.command == 'animatic':
             result = build_animatic(args.slug, args.jobs, args.resume)
         elif args.command == 'final-evidence':
