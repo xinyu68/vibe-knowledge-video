@@ -1,7 +1,6 @@
 """Entry point for the local music-driven knowledge-video project."""
 
 import argparse
-import importlib.util
 import json
 import math
 import shutil
@@ -14,34 +13,11 @@ sys.stdout.reconfigure(encoding='utf-8')
 sys.stderr.reconfigure(encoding='utf-8')
 
 
-def doctor():
-    result = {'python': sys.executable, 'python_version': sys.version.split()[0],
-              'project': str(ROOT), 'checks': {}}
-    result['checks']['python_3_10_or_newer'] = sys.version_info >= (3, 10)
-    for module in ['numpy', 'PIL', 'playwright']:
-        result['checks'][module] = importlib.util.find_spec(module) is not None
-    for command in ['ffmpeg', 'ffprobe']:
-        result['checks'][command] = shutil.which(command) is not None
-    if result['checks']['playwright']:
-        from playwright.sync_api import sync_playwright
-        with sync_playwright() as playwright:
-            errors = []
-            for kwargs in [{'channel': 'chrome'}, {}]:
-                try:
-                    browser = playwright.chromium.launch(**kwargs)
-                    result['browser'] = 'chrome' if kwargs else 'playwright-chromium'
-                    browser.close()
-                    result['checks']['browser'] = True
-                    break
-                except Exception as error:
-                    errors.append(str(error).splitlines()[0])
-            else:
-                result['checks']['browser'] = False
-                result['browser_errors'] = errors
-    for name in ['NotoSerifSC-VF.ttf', 'Lora.ttf', 'Lora-Italic.ttf']:
-        result['checks'][name] = (ROOT/'assets/fonts'/name).is_file()
+def doctor(online=False):
+    from tools.doctor import diagnose
+    result = diagnose(online)
     print(json.dumps(result, ensure_ascii=False, indent=2))
-    if not all(result['checks'].values()):
+    if not result['ok']:
         raise SystemExit(1)
 
 
@@ -85,7 +61,10 @@ def require_review(render, config):
 def main():
     parser = argparse.ArgumentParser(description='本地知识动画视频工程：音乐为主时钟，支持中文 AI 配音与稳定配乐')
     sub = parser.add_subparsers(dest='command', required=True)
-    sub.add_parser('doctor', help='检查 Python、依赖、浏览器与 FFmpeg')
+    diagnostics = sub.add_parser('doctor', help='检查本地依赖；可选现场合成配音验证网络')
+    diagnostics.add_argument('--online', action='store_true', help='实际生成一句新配音，不使用缓存')
+    smoke = sub.add_parser('self-test', help='生成全新配音、简单动画和十秒MP4，检查完整制作链路')
+    smoke.add_argument('--jobs', type=int, default=2)
     sub.add_parser('list', help='列出视频项目')
     new = sub.add_parser('new', help='创建待编写的独立视频骨架')
     new.add_argument('slug')
@@ -94,9 +73,9 @@ def main():
     new.add_argument('--narrated', action='store_true', help='创建中文配音骨架，配乐固定增益；填写旁白后再合成')
     music = sub.add_parser('analyze-music', help='解码音轨并输出 10ms RMS 数据，不自动认定重拍')
     music.add_argument('slug')
-    speech = sub.add_parser('narrate', help='用 ttsCN 按cue合成旁白，缓存语义段落音频并实测时间轴')
+    speech = sub.add_parser('narrate', help='内置 Edge 按语义段落合成旁白，缓存音频并实测时间轴')
     speech.add_argument('slug')
-    speech.add_argument('--tts-cli', required=True, help='本机安装的 ttsCN scripts/tts.py 路径')
+    speech.add_argument('--tts-cli', help='可选：使用外部 ttsCN scripts/tts.py，兼容既有配置')
     for name in ['preview', 'render', 'mix', 'finalize', 'check', 'serve']:
         item = sub.add_parser(name)
         item.add_argument('slug')
@@ -112,7 +91,10 @@ def main():
             item.add_argument('--port', type=int, default=8765)
     args = parser.parse_args()
     if args.command == 'doctor':
-        return doctor()
+        return doctor(args.online)
+    if args.command == 'self-test':
+        from tools.self_test import self_test
+        return self_test(args.jobs)
     if args.command == 'list':
         for path in sorted((ROOT/'videos').glob('*/film.json')):
             cfg = read_json(path)

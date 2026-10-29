@@ -14,6 +14,13 @@ def write_json(path, data):
     Path(path).write_text(json.dumps(data, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
 
 
+def frame_index(seconds, fps, frames):
+    """Quantize a review time, clamping rounding at the last actual video frame."""
+    if not math.isfinite(seconds) or seconds < 0 or fps <= 0 or frames <= 0:
+        raise ValueError('Invalid review time or frame grid')
+    return min(frames - 1, round(seconds * fps))
+
+
 def project_reference(path):
     """Store in-project paths relative to the repository, preserving explicit external inputs."""
     resolved = Path(path).resolve()

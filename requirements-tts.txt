@@ -1,2 +1,2 @@
 -r requirements.txt
-edge-tts==7.3.1
+# Compatibility entry point: the default environment now includes Edge TTS.

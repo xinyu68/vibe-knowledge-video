@@ -6,7 +6,7 @@ import subprocess
 import numpy as np
 from PIL import Image
 
-from .project import project_reference, read_json, write_json
+from .project import frame_index, project_reference, read_json, write_json
 from .render import make_sheet
 
 
@@ -89,11 +89,18 @@ def finalize(folder, config, plan, signature):
     checks['true_peak'] = loudness is not None and float(loudness['input_tp']) <= -1.5
     synchronization = sync(target, soundtrack, plan)
     checks['mux_audio_sync'] = abs(synchronization['lag_seconds']) < 1/30 and synchronization['correlation_zero_lag'] > .95
-    frames = sorted(set(round(t*30) for t in config.get('review_times', config['preview_times'])))
+    frames = sorted({frame_index(t, plan['fps'], plan['frames'])
+                     for t in config.get('review_times', config.get('preview_times', [0]))})
+    # Failed extraction must not silently reuse images from a previous encoding.
+    for old in review.glob('encoded_*.png'):
+        if re.fullmatch(r'encoded_\d+\.png', old.name):
+            old.unlink()
     expression = '+'.join(f'eq(n\\,{n})' for n in frames)
     run(['ffmpeg', '-v', 'error', '-y', '-i', str(target), '-vf', 'select='+expression,
          '-fps_mode', 'vfr', str(review / 'encoded_%03d.png')])
-    entries = [{'frame': frame, 'seconds': frame/30, 'file': f'encoded_{i+1:03d}.png'} for i, frame in enumerate(frames)]
+    entries = [{'frame': frame, 'seconds': frame/plan['fps'], 'file': f'encoded_{i+1:03d}.png'} for i, frame in enumerate(frames)]
+    if any(not (review / entry['file']).is_file() for entry in entries):
+        raise RuntimeError('Encoded review frame extraction is incomplete; no old images were reused')
     make_sheet([Image.open(review/x['file']).convert('RGB') for x in entries],
                [x['seconds'] for x in entries], review / 'encoded_review.jpg', 4)
     black = [{'start': float(a), 'end': float(b), 'duration': float(c)} for a,b,c in re.findall(

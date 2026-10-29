@@ -1,4 +1,4 @@
-"""Cached sentence synthesis and measured placement on the music timeline."""
+"""Cached paragraph synthesis and measured placement on the music timeline."""
 
 import concurrent.futures
 import hashlib
@@ -60,10 +60,10 @@ def cue_signature(data, cue):
     return hashlib.sha256(json.dumps(payload, ensure_ascii=False, sort_keys=True).encode()).hexdigest()
 
 
-def synthesize(folder, config, plan, tts_cli):
+def synthesize(folder, config, plan, tts_cli=None):
     data = settings(folder, config, plan)
-    cli = Path(tts_cli).resolve()
-    if not cli.is_file():
+    cli = Path(tts_cli).resolve() if tts_cli else None
+    if cli is not None and not cli.is_file():
         raise FileNotFoundError('Pass the installed ttsCN scripts/tts.py with --tts-cli')
 
     def one(cue):
@@ -71,23 +71,32 @@ def synthesize(folder, config, plan, tts_cli):
         cache.mkdir(parents=True, exist_ok=True)
         target, meta = cache/'source.wav', cache/'source.json'
         signature = cue_signature(data, cue)
-        if target.exists() and meta.exists() and read_json(meta).get('signature') == signature:
+        if (target.exists() and meta.exists() and read_json(meta).get('signature') == signature
+                and read_json(meta).get('sha256') == hashlib.sha256(target.read_bytes()).hexdigest()):
             print(f'{cue["id"]}: cached', flush=True)
             return
-        env = os.environ.copy()
-        env['PYTHONIOENCODING'] = 'utf-8'
-        result = subprocess.run([sys.executable, str(cli), cue['text'], str(target),
-                                 '--platform', data['backend'], '--voice', data['voice'],
-                                 '--rate='+data['rate'], '--format', 'json'],
-                                capture_output=True, encoding='utf-8', env=env, timeout=150)
-        if result.returncode:
-            raise RuntimeError(f'TTS {cue["id"]} failed: {result.stderr[-1800:]}')
-        reply = json.loads(result.stdout)
-        if not reply.get('ok') or not target.is_file():
-            raise RuntimeError(f'TTS returned no audio for {cue["id"]}')
-        details = reply['data']
+        if cli is None:
+            if data['backend'] != 'edge':
+                raise ValueError('The built-in backend supports edge; use --tts-cli for other configured backends')
+            from .edge_voice import synthesize_edge
+            details = synthesize_edge(cue['text'], target, data['voice'], data['rate'])
+        else:
+            env = os.environ.copy()
+            env['PYTHONIOENCODING'] = 'utf-8'
+            result = subprocess.run([sys.executable, str(cli), cue['text'], str(target),
+                                     '--platform', data['backend'], '--voice', data['voice'],
+                                     '--rate='+data['rate'], '--format', 'json'],
+                                    capture_output=True, encoding='utf-8', env=env, timeout=150)
+            if result.returncode:
+                raise RuntimeError(f'TTS {cue["id"]} failed: {result.stderr[-1800:]}')
+            reply = json.loads(result.stdout)
+            if not reply.get('ok') or not target.is_file():
+                raise RuntimeError(f'TTS returned no audio for {cue["id"]}')
+            details = reply['data']
         write_json(meta, {'signature': signature, 'backend': data['backend'], 'voice': data['voice'],
                          'rate': data['rate'], 'text': cue['text'],
+                         'synthesis_adapter': details.get('synthesis_adapter', 'external-cli'),
+                         'edge_tts_version': details.get('edge_tts_version'),
                          'word_boundaries': details.get('word_boundaries', []),
                          'sha256': hashlib.sha256(target.read_bytes()).hexdigest()})
         print(f'{cue["id"]}: synthesized', flush=True)
@@ -119,7 +128,7 @@ def assemble(folder, config, plan):
         cache = folder/'audio/narration'/cue['id']
         source, meta = cache/'source.wav', cache/'source.json'
         if not source.exists() or not meta.exists():
-            raise FileNotFoundError('Missing narration cache; run narrate with --tts-cli first')
+            raise FileNotFoundError('Missing narration cache; run python vibe.py narrate <slug> first')
         metadata = read_json(meta)
         if metadata['signature'] != cue_signature(data, cue):
             raise ValueError(f'Stale TTS cache for {cue["id"]}; run narrate again')

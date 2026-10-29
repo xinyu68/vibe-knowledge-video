@@ -16,7 +16,7 @@ ROOT = Path(__file__).resolve().parents[1]
 class PortabilityTests(unittest.TestCase):
     def test_no_machine_paths_in_repository_text(self):
         machine_path = re.compile(r'(?<![A-Za-z0-9])(?:[A-Za-z]:[\\/]|/(?:Users|home)/[^\s/]+/)')
-        paths = [ROOT/name for name in ['README.md', 'AGENTS.md', 'vibe.py', 'vibe.ps1']]
+        paths = [ROOT/name for name in ['README.md', 'AGENTS.md', 'bootstrap.py', 'vibe.py', 'vibe.ps1']]
         for name in ['.agents', 'docs', 'prompts', 'tools', 'templates', 'assets/music',
                      'videos/missing-planes', 'videos/phantom-jam']:
             paths.extend((ROOT/name).rglob('*'))
@@ -53,7 +53,7 @@ class PortabilityTests(unittest.TestCase):
             relocated.mkdir(parents=True)
             for name in ['vibe.py', 'vibe.ps1', 'requirements.txt']:
                 shutil.copy2(ROOT/name, relocated/name)
-            for name in ['tools', 'templates', 'assets']:
+            for name in ['tools', 'templates', 'assets', '.agents']:
                 shutil.copytree(ROOT/name, relocated/name, ignore=shutil.ignore_patterns('__pycache__'))
             example = relocated/'videos'/'missing-planes'
             example.mkdir(parents=True)

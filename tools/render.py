@@ -17,6 +17,8 @@ from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFont
 from playwright.sync_api import sync_playwright
+from .project import frame_index
+from .runtime import browser_launch_choices
 
 ROOT = OUT = HTTP_ROOT = ENTRY = None
 FPS = 30
@@ -56,10 +58,15 @@ def browser_page(playwright, url):
 
 def _browser_page(playwright, url):
     launch_args = ['--disable-lcd-text', '--force-color-profile=srgb']
-    try:
-        browser = playwright.chromium.launch(channel='chrome', args=launch_args)
-    except Exception:
-        browser = playwright.chromium.launch(args=launch_args)
+    failure = None
+    for options in browser_launch_choices():
+        try:
+            browser = playwright.chromium.launch(**options, args=launch_args)
+            break
+        except Exception as error:
+            failure = error
+    else:
+        raise failure
     page = browser.new_page(viewport={'width': WIDTH, 'height': HEIGHT}, device_scale_factor=1)
     errors = []
     page.on('pageerror', lambda error: errors.append(str(error)))
@@ -123,7 +130,7 @@ def preview(times=None):
                 if not page.evaluate('typeof window.audit === "function"'):
                     raise RuntimeError('window.audit(t) is required for layout review')
                 for seconds in times:
-                    seconds = round(seconds * FPS) / FPS
+                    seconds = frame_index(seconds, FPS, FRAMES) / FPS
                     filename = f'{seconds:010.6f}.png'
                     (dest / filename).write_bytes(frame_bytes(page, seconds))
                     result = page.evaluate('(t) => window.audit(t)', seconds)

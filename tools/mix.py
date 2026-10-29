@@ -56,6 +56,14 @@ def mix(folder, config, plan):
     duration = len(bg) / SR
     if abs(duration - plan['duration']) > 1 / 30:
         raise ValueError(f'音乐实际解码为 {duration:.6f} 秒，plan.json 为 {plan["duration"]} 秒；先重做时间轴')
+    source_duration = duration
+    expected_samples = round(plan['duration'] * SR)
+    alignment_samples = expected_samples - len(bg)
+    if alignment_samples > 0:
+        bg = np.pad(bg, ((0, alignment_samples), (0, 0)))
+    elif alignment_samples < 0:
+        bg = bg[:expected_samples]
+    duration = len(bg) / SR
     audio = bg * np.float32(10**(config.get('music_gain_db', -6)/20))
     n = len(audio)
     narration = None
@@ -92,6 +100,8 @@ def mix(folder, config, plan):
         audio[a:b, 0] += sound[:b-a]
         audio[a:b, 1] += sound[:b-a]*.92
     if narration is not None:
+        if len(narration) != n:
+            raise ValueError('Narration sample count differs from the planned timeline; rebuild narration')
         audio += narration[:, None]
     fade = min(n, round(.06*SR))
     audio[-fade:] *= np.linspace(1, 0, fade, dtype=np.float32)[:, None]
@@ -109,6 +119,7 @@ def mix(folder, config, plan):
     metadata = {'music': project_reference(music), 'paths_relative_to': 'project_root',
                 'music_sha256': hashlib.sha256(music.read_bytes()).hexdigest(),
                 'duration': duration, 'music_gain_db': config.get('music_gain_db', -6), 'sample_rate': SR,
+                'music_decoded_duration': source_duration, 'music_alignment_samples': alignment_samples,
                 'peak_dbfs': 20*np.log10(max(1e-12, float(np.max(np.abs(audio))))),
                 'master_gain': attenuation, 'engine_bed': bed, 'events': config.get('sfx', [])}
     if narration_report:

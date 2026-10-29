@@ -6,7 +6,7 @@
 
 **选题第一步：明确观众能带走什么认识，再设计故事和动画。** 每个候选题先写“看前直觉→看后认识”，说明观众以后能多问自己什么、依据是什么、适用边界在哪里。只有这些成立，才进入锚词、分镜和视觉设计；不能只因题材热门或好做动画就开始，也不在结尾硬补人生道理。具体标准见[选题与叙事](docs/选题与叙事.md)。
 
-默认制作带中文 AI 配音、双语字幕、音乐驱动的动画短片：16:9、1080p、30fps，深色画面搭配有含义的色彩对比。**中文配音负责讲述，音乐负责情绪和大结构，动画负责展示过程。** 当前4.4方案采用语义段落整段合成、字幕独立分屏、因果线连续推进、镜头随叙事变化；避免每条字幕重新起腔和机械长停顿。先按音乐安排段落与高潮，再按实测声音对齐动作；配乐保持稳定增益，不随每句话反复升降。风格、主题、声音和音乐可按每期需要调整，也可指定无口播。工具使用 Canvas + Playwright + FFmpeg，全部在本地运行。
+默认制作带中文 AI 配音、双语字幕、音乐驱动的动画短片：16:9、1080p、30fps，深色画面搭配有含义的色彩对比。**中文配音负责讲述，音乐负责情绪和大结构，动画负责展示过程。** 当前4.5方案采用语义段落整段合成、字幕独立分屏、因果线连续推进、镜头随叙事变化；避免每条字幕重新起腔和机械长停顿。先按音乐安排段落与高潮，再按实测声音对齐动作；配乐保持稳定增益，不随每句话反复升降。风格、主题、声音和音乐可按每期需要调整，也可指定无口播。工具使用 Canvas + Playwright + FFmpeg，全部在本地运行。
 
 **同一条故事线不等于同一个物件占满全片。** 讲生活时让场景走出手机和卡片，转场后展示新的事件、关系或证据。先看全片分镜总览和带完整声音的粗剪，再精做动画；把重复镜头的原因、返修与复查记录在本期 `visual-review.md`。具体方法见[视觉叙事与镜头变化](docs/视觉叙事与镜头变化.md)。这是制作与审片要求，当前 CLI 不会自动判断画面是否单调。
 
@@ -34,42 +34,27 @@
 
 ## 快速运行
 
-先安装 Python 3.10+、FFmpeg 和 FFprobe，并确保 FFmpeg/FFprobe 可从 PATH 调用。浏览器可使用本机 Chrome，或按下方命令安装 Playwright Chromium。字体、音乐和参考样片已随仓库保存。
-
-在你选择的父目录中克隆：
+先安装 Python 3.10+，克隆仓库后运行一个初始化入口：
 
 ```shell
 git clone https://github.com/xinyu68/vibe-knowledge-video.git
 cd vibe-knowledge-video
+python bootstrap.py
 ```
 
-Windows / PowerShell：
+macOS/Linux 可使用 `python3 bootstrap.py`。初始化会创建项目虚拟环境、安装渲染与内置 Edge 配音依赖、下载本地 Chromium，并运行带全新配音的十秒自检。Windows x64 缺少 FFmpeg/FFprobe 时自动下载校验后的项目内副本；其他平台按提示安装。所有资源与服务留在本地，不修改系统 PATH。
+
+成功后查看 `.local/self-test-latest.json` 中的 `ok`、`fresh_online_synthesis` 和测试视频位置。测试画面只验证工具链，不作为影片素材。完整步骤、失败重试和检查边界见[新电脑启动](docs/新电脑启动.md)。
+
+后续命令中的 `python` 指本项目虚拟环境：Windows 使用 `.\.venv\Scripts\python.exe`，macOS/Linux 使用 `.venv/bin/python`。Windows 也可用 `.\vibe.ps1 doctor`，它从脚本位置定位项目与解释器。
 
 ```powershell
-python -m venv .venv
-.\.venv\Scripts\python.exe -m pip install -r requirements.txt
-.\.venv\Scripts\python.exe -m playwright install chromium
-.\.venv\Scripts\python.exe .\vibe.py doctor
-.\.venv\Scripts\python.exe .\vibe.py list
-.\.venv\Scripts\python.exe .\vibe.py check missing-planes
+.\.venv\Scripts\python.exe vibe.py doctor
+.\.venv\Scripts\python.exe vibe.py doctor --online
+.\.venv\Scripts\python.exe vibe.py self-test
 ```
 
-macOS / Linux：
-
-```bash
-python3 -m venv .venv
-.venv/bin/python -m pip install -r requirements.txt
-.venv/bin/python -m playwright install chromium
-.venv/bin/python vibe.py doctor
-.venv/bin/python vibe.py list
-.venv/bin/python vibe.py check missing-planes
-```
-
-Linux 若缺浏览器的系统依赖，可按 [Playwright 官方说明](https://playwright.dev/python/docs/browsers#install-system-dependencies)执行 `python -m playwright install --with-deps chromium`（使用本项目虚拟环境的 Python）。FFmpeg 安装包见 [FFmpeg 下载页](https://ffmpeg.org/download.html)。
-
-后续示例里的 `python` 表示当前项目的虚拟环境解释器：可激活环境后执行，或替换成上述完整的相对解释器路径。PowerShell 也可用 `.\vibe.ps1 doctor` 等命令；它按脚本所在目录寻找 `.venv`，不依赖调用者的当前目录。
-
-换电脑或移动项目后重新创建 `.venv`，不要复制旧虚拟环境；虚拟环境自身可能记录解释器路径，见 [Python venv 文档](https://docs.python.org/3/library/venv.html)。项目源码和资源通过脚本位置与相对路径定位。`doctor` 显示的是当前机器实际位置，用于诊断，并不是写死的配置。
+`doctor` 默认只检查本地依赖；`--online` 实际合成一句新语音。换电脑或移动项目后重建 `.venv`，不要复制旧虚拟环境。字体、音乐和工程示例随仓库保存；默认新配音无需额外寻找个人 Skill 脚本。
 
 ## 当前段落配音示例：没有事故，为什么突然堵了？
 
@@ -140,6 +125,8 @@ python .\vibe.py new sunk-cost --title '舍不得' --topic '沉没成本' --narr
 ```text
 AGENTS.md                  跨会话自动读取的当前规则
 README.md                  项目入口与运行命令
+bootstrap.py               首次环境配置与十秒自检
+docs/新电脑启动.md          新电脑安装、验证与故障恢复
 docs/制作方案.md            当前完整方案
 docs/选题与叙事.md          选题、故事闭合和内容模板
 docs/视觉叙事与镜头变化.md  镜头变化、生活场景、全片粗剪与重复检查
@@ -168,19 +155,16 @@ vibe.py / vibe.ps1         命令入口
 
 `film.json` 的 `narration` 指向本期 `narration.json`，每个cue声明一个语义段落的文案、开始时间及最晚结束时间。字幕独立维护；旧逐句cue仍兼容。原始 WAV 和合成信息缓存在本期 `audio/narration/`，因此已有音频的混音、渲染与合成可完全离线进行。新骨架 `max_tempo=1.0`，超窗先改写或重排；删除 `narration` 配置就恢复无口播混音。
 
-需要生成或修改旁白时，准备 [ttsCN](https://github.com/Agents365-ai/ttsCN) 的 `scripts/tts.py`，在本项目 Python 虚拟环境安装可选配音依赖（固定此次验证过的 edge-tts 7.3.1）。已有 Codex ttsCN 技能可直接使用其脚本，无须复制个人技能目录到仓库。新电脑使用自己的安装位置，不沿用另一台机器的绝对路径。
+初始化已包含 `edge-tts`，新旁白直接用项目内接口合成：
 
 ```powershell
-python -m pip install -r requirements-tts.txt
-$ttsCli = Read-Host '请输入 ttsCN scripts/tts.py 的完整路径'
-python .\vibe.py narrate missing-planes --tts-cli $ttsCli
-python .\vibe.py mix missing-planes
-python .\vibe.py preview missing-planes
-python .\vibe.py render missing-planes --jobs 4
-python .\vibe.py finalize missing-planes
+python vibe.py narrate <slug>
+python vibe.py mix <slug>
 ```
 
-上面演示修改示例；新主题将 `missing-planes` 换成本期 slug。macOS/Linux 同样在项目虚拟环境安装依赖，用 `python vibe.py narrate <slug> --tts-cli <实际安装的脚本路径>` 传入本机位置。此路径仅是一次命令参数，不保存到影片配置。Edge 合成需要联网、不需要 key；已有缓存的 `mix`、渲染和合成不需要连接 TTS 服务。
+使用前先在本期 `narration.json` 写真实段落。Edge 合成需要联网，无需 API key；已有声音缓存的混音与渲染可离线完成。项目保存原生词边界，不保证自动完成字幕和动作对齐。
+
+旧的 `python vibe.py narrate <slug> --tts-cli <外部脚本路径>` 继续兼容，用于已有 ttsCN 环境或其他已配置后端；它是可选入口。`requirements-tts.txt` 也保留为兼容安装入口，不需要把个人技能目录加入仓库。内置接口使用 [edge-tts](https://github.com/rany2/edge-tts)，项目已验证的版本固定在 requirements.txt。
 
 `narrate` 只对变化的cue重新请求合成，按语义段落实测并安放音频，不按字数猜时长。新模板 `max_tempo=1.0`，超窗先改短文案或重排窗口，再重合成受影响段落；旧配置允许的少量加速不作为新片默认。字幕与动作需要另行对齐，工具不会自动完成。整体旁白按双声道等效响度处理至约−18 LUFS；默认 `music_mode=constant`，音乐整段保持固定增益，句间不反复升降，首高潮保护区不安排旁白。示例配乐固定−18dB，保留原曲自身动态。详见 [docs/配音流程.md](docs/配音流程.md)。
 
